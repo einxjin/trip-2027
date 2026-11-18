@@ -1048,7 +1048,8 @@
   /* 고정 탭 바 바로 아래 기준선을 지난 마지막 섹션이 현재 섹션 */
   function sectionAtScroll() {
     if (!sections.length) { return null; }
-    var line = tabsOffset();
+    /* 탭 클릭·앵커 이동은 +10~12px 여백에 멈추므로, 그만큼 여유를 두고 기준선을 잡는다 */
+    var line = tabsOffset() + 12;
     var docEl = document.documentElement;
     if ((window.pageYOffset + window.innerHeight) >= (docEl.scrollHeight - 4)) {
       return sections[sections.length - 1];   /* 맨 아래면 마지막 섹션 */
