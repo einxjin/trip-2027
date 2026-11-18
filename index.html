@@ -1020,18 +1020,127 @@
   window.addEventListener("resize", syncStickyOffset);
 
   var jumpBtns = Array.prototype.slice.call(document.querySelectorAll("#jump a"));
+  var jumpBar = document.getElementById("jump");
+  var dayList = [];
+  jumpBtns.forEach(function (b) {
+    var el = document.getElementById(b.getAttribute("data-target"));
+    if (el) { dayList.push({ btn: b, el: el }); }
+  });
+  var activeBtn = null;
+  var spyLockUntil = 0;
+
+  function stickyOffset() {
+    return (tabsNav ? tabsNav.offsetHeight : 60) +
+           (schedSticky ? schedSticky.offsetHeight : 128) + 10;
+  }
+
+  function centerJump(btn) {
+    if (!jumpBar || !btn) { return; }
+    var left = btn.offsetLeft - (jumpBar.clientWidth - btn.offsetWidth) / 2;
+    var max = jumpBar.scrollWidth - jumpBar.clientWidth;
+    if (max < 0) { max = 0; }
+    if (left < 0) { left = 0; }
+    if (left > max) { left = max; }
+    if (typeof jumpBar.scrollTo === "function") {
+      jumpBar.scrollTo({ left: left, behavior: "smooth" });
+    } else {
+      jumpBar.scrollLeft = left;
+    }
+  }
+
+  function activate(btn) {
+    if (!btn || btn === activeBtn) { return; }
+    activeBtn = btn;
+    jumpBtns.forEach(function (x) {
+      if (x === btn) { x.classList.add("on"); } else { x.classList.remove("on"); }
+    });
+    centerJump(btn);
+  }
+
+  /* 스크롤 스파이: 고정 바 바로 아래 기준선에 걸친 날짜 카드를 고른다 */
+  function spy() {
+    if (!dayList.length) { return; }
+    if (spyLockUntil && Date.now() < spyLockUntil) { return; }
+    var line = stickyOffset();
+    var docEl = document.documentElement;
+    var last = dayList.length - 1;
+    var pick = dayList[0].btn;
+    var atBottom = (window.pageYOffset + window.innerHeight) >= (docEl.scrollHeight - 4);
+    if (atBottom) {
+      pick = dayList[last].btn;
+    } else {
+      var seen = 0;
+      for (var i = 0; i < dayList.length; i++) {
+        var r = dayList[i].el.getBoundingClientRect();
+        if (!r.height && !r.width) { return; }   /* 다른 탭이 열려 카드가 숨어 있음 */
+        seen++;
+        if (r.top <= line + 0.5) {
+          pick = dayList[i].btn;
+        } else {
+          break;
+        }
+      }
+      if (!seen) { return; }
+    }
+    activate(pick);
+  }
+
+  var spyTicking = false;
+  function onScrollSpy() {
+    if (spyTicking) { return; }
+    spyTicking = true;
+    window.requestAnimationFrame(function () {
+      spyTicking = false;
+      spy();
+    });
+  }
+  window.addEventListener("scroll", onScrollSpy, { passive: true });
+
   jumpBtns.forEach(function (b) {
     b.addEventListener("click", function (e) {
-      jumpBtns.forEach(function (x) { x.classList.remove("on"); });
-      b.classList.add("on");
       var el = document.getElementById(b.getAttribute("data-target"));
-      if (el) {
-        e.preventDefault();
-        var offset = (tabsNav ? tabsNav.offsetHeight : 60) + (schedSticky ? schedSticky.offsetHeight : 128) + 10;
-        var top = el.getBoundingClientRect().top + window.pageYOffset - offset;
-        window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
-      }
+      if (!el) { return; }
+      e.preventDefault();
+      spyLockUntil = Date.now() + 650;   /* 이동 중 중간 날짜로 깜빡이지 않게 */
+      activate(b);
+      if (activeBtn === b) { centerJump(b); }
+      var top = el.getBoundingClientRect().top + window.pageYOffset - stickyOffset();
+      window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+      window.setTimeout(function () {
+        spyLockUntil = 0;
+        syncStickyOffset();
+        spy();
+      }, 700);
     });
+  });
+
+  /* 다른 탭에서 일정 타임라인으로 돌아오면 현재 위치에 한 번 맞춤 */
+  tabs.forEach(function (t) {
+    t.addEventListener("click", function () {
+      if (t.id !== "tab-schedule") { return; }
+      window.setTimeout(function () {
+        spyLockUntil = 0;
+        activeBtn = null;
+        syncStickyOffset();
+        spy();
+      }, 40);
+    });
+  });
+
+  window.addEventListener("resize", function () {
+    syncStickyOffset();
+    spyLockUntil = 0;
+    activeBtn = null;
+    spy();
+  });
+  window.addEventListener("load", function () {
+    syncStickyOffset();
+    spyLockUntil = 0;
+    spy();
+  });
+  window.requestAnimationFrame(function () {
+    syncStickyOffset();
+    spy();
   });
 
   /* ---------- D-day ---------- */
