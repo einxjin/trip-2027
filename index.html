@@ -140,15 +140,17 @@
     appearance:none;border:1px solid var(--line);background:var(--ivory);
     color:var(--ink-soft);font-family:var(--sans);font-size:14px;font-weight:600;
     padding:9px 15px;border-radius:999px;cursor:pointer;transition:all .18s ease;
+    text-decoration:none;border-bottom:1px solid var(--line);line-height:1.4;
   }
   .tab:hover{border-color:#CFC0A9;color:var(--ink)}
+  .tab.on,
+  .tab[aria-current="true"],
   .tab[aria-selected="true"]{
     background:var(--navy);border-color:var(--navy);color:#FBF7F0;
     box-shadow:0 6px 16px rgba(27,42,69,.22);
   }
-  .panel{display:none;padding-top:8px}
-  .panel.active{display:block;animation:fade .25s ease}
-  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .panel{display:block;padding-top:12px;scroll-margin-top:calc(var(--tabs-h, 60px) + 12px)}
+  .panel + .panel{margin-top:28px;padding-top:20px;border-top:1px solid var(--line)}
 
   /* ---------- SECTION HEAD ---------- */
   .section-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex-wrap:wrap;margin:6px 0 14px}
@@ -420,16 +422,16 @@
   </header>
 
   <!-- ================= TABS ================= -->
-  <nav class="tabs" role="tablist" aria-label="대시보드 탭">
-    <button class="tab" role="tab" id="tab-schedule" aria-controls="panel-schedule" aria-selected="true">일정 타임라인</button>
-    <button class="tab" role="tab" id="tab-check" aria-controls="panel-check" aria-selected="false">예약·준비 체크리스트</button>
-    <button class="tab" role="tab" id="tab-cost" aria-controls="panel-cost" aria-selected="false">경비 요약</button>
-    <button class="tab" role="tab" id="tab-notes" aria-controls="panel-notes" aria-selected="false">현지 확인·주의사항</button>
+  <nav class="tabs" aria-label="대시보드 섹션 바로가기">
+    <a class="tab on" id="tab-schedule" href="#panel-schedule" data-target="panel-schedule" aria-current="true">일정 타임라인</a>
+    <a class="tab" id="tab-check" href="#panel-check" data-target="panel-check">예약·준비 체크리스트</a>
+    <a class="tab" id="tab-cost" href="#panel-cost" data-target="panel-cost">경비 요약</a>
+    <a class="tab" id="tab-notes" href="#panel-notes" data-target="panel-notes">현지 확인·주의사항</a>
   </nav>
 
   <main>
   <!-- ================= 1. SCHEDULE ================= -->
-  <section class="panel active" id="panel-schedule" role="tabpanel" aria-labelledby="tab-schedule">
+  <section class="panel" id="panel-schedule" aria-labelledby="tab-schedule">
     <div class="schedule-sticky" id="schedule-sticky">
       <div class="section-head">
         <h2>전체 일정</h2>
@@ -667,7 +669,7 @@
   </section>
 
   <!-- ================= 2. CHECKLIST ================= -->
-  <section class="panel" id="panel-check" role="tabpanel" aria-labelledby="tab-check">
+  <section class="panel" id="panel-check" aria-labelledby="tab-check">
     <div class="section-head">
       <h2>예약 · 준비 체크리스트</h2>
       <span class="hint">체크 상태는 이 브라우저에 저장됩니다</span>
@@ -740,7 +742,7 @@
   </section>
 
   <!-- ================= 3. COST ================= -->
-  <section class="panel" id="panel-cost" role="tabpanel" aria-labelledby="tab-cost">
+  <section class="panel" id="panel-cost" aria-labelledby="tab-cost">
     <div class="section-head">
       <h2>경비 요약</h2>
       <span class="hint">표에 기재된 일자 합계 기준 · 유로 항목은 환율에 따라 자동 재계산</span>
@@ -828,7 +830,7 @@
   </section>
 
   <!-- ================= 4. NOTES ================= -->
-  <section class="panel" id="panel-notes" role="tabpanel" aria-labelledby="tab-notes">
+  <section class="panel" id="panel-notes" aria-labelledby="tab-notes">
     <div class="section-head">
       <h2>현지 확인 · 주의사항</h2>
       <span class="hint">2026년 11월 18일 기준 공식 출처 확인</span>
@@ -985,27 +987,7 @@
     });
   }
 
-  /* ---------- 탭 ---------- */
-  var tabs = Array.prototype.slice.call(document.querySelectorAll(".tab"));
-  var panels = {
-    "tab-schedule": document.getElementById("panel-schedule"),
-    "tab-check": document.getElementById("panel-check"),
-    "tab-cost": document.getElementById("panel-cost"),
-    "tab-notes": document.getElementById("panel-notes")
-  };
-  function selectTab(id) {
-    tabs.forEach(function (t) {
-      var on = t.id === id;
-      t.setAttribute("aria-selected", on ? "true" : "false");
-      var p = panels[t.id];
-      if (p) { p.classList.toggle("active", on); }
-    });
-  }
-  tabs.forEach(function (t) {
-    t.addEventListener("click", function () { selectTab(t.id); });
-  });
-
-  /* ---------- 날짜 점프 & 스티키 높이 ---------- */
+  /* ---------- 스티키 높이 ---------- */
   var tabsNav = document.querySelector(".tabs");
   var schedSticky = document.getElementById("schedule-sticky");
   function syncStickyOffset() {
@@ -1017,7 +999,100 @@
     }
   }
   syncStickyOffset();
-  window.addEventListener("resize", syncStickyOffset);
+
+  /* ---------- 섹션 탭: 한 페이지 연속 스크롤 + 스크롤 스파이 ---------- */
+  var sectionIds = ["panel-schedule", "panel-check", "panel-cost", "panel-notes"];
+  var tabEls = Array.prototype.slice.call(document.querySelectorAll(".tab"));
+  var tabByTarget = {};
+  tabEls.forEach(function (t) { tabByTarget[t.getAttribute("data-target")] = t; });
+  var sections = [];
+  sectionIds.forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { sections.push({ id: id, el: el, tab: tabByTarget[id] }); }
+  });
+  var currentTab = null;
+  var currentSection = sections.length ? sections[0].id : "";
+  var tabLockUntil = 0;
+
+  function tabsOffset() {
+    return (tabsNav ? tabsNav.offsetHeight : 60) + 10;
+  }
+
+  function centerTab(tab) {
+    if (!tabsNav || !tab) { return; }
+    var left = tab.offsetLeft - (tabsNav.clientWidth - tab.offsetWidth) / 2;
+    var max = tabsNav.scrollWidth - tabsNav.clientWidth;
+    if (max < 0) { max = 0; }
+    if (left < 0) { left = 0; }
+    if (left > max) { left = max; }
+    if (typeof tabsNav.scrollTo === "function") {
+      tabsNav.scrollTo({ left: left, behavior: "smooth" });
+    } else {
+      tabsNav.scrollLeft = left;
+    }
+  }
+
+  function activateTab(tab, force) {
+    if (!tab) { return; }
+    if (tab === currentTab && !force) { return; }
+    currentTab = tab;
+    tabEls.forEach(function (t) {
+      var on = (t === tab);
+      t.classList.toggle("on", on);
+      if (on) { t.setAttribute("aria-current", "true"); }
+      else { t.removeAttribute("aria-current"); }
+    });
+    centerTab(tab);
+  }
+
+  /* 고정 탭 바 바로 아래 기준선을 지난 마지막 섹션이 현재 섹션 */
+  function sectionAtScroll() {
+    if (!sections.length) { return null; }
+    var line = tabsOffset();
+    var docEl = document.documentElement;
+    if ((window.pageYOffset + window.innerHeight) >= (docEl.scrollHeight - 4)) {
+      return sections[sections.length - 1];   /* 맨 아래면 마지막 섹션 */
+    }
+    var pick = sections[0];
+    for (var i = 0; i < sections.length; i++) {
+      var top = sections[i].el.getBoundingClientRect().top;
+      if (top <= line + 0.5) { pick = sections[i]; } else { break; }
+    }
+    return pick;
+  }
+
+  function spyTabs() {
+    if (tabLockUntil && Date.now() < tabLockUntil) { return; }
+    var sec = sectionAtScroll();
+    if (!sec) { return; }
+    currentSection = sec.id;
+    activateTab(sec.tab);
+  }
+
+  tabEls.forEach(function (t) {
+    t.addEventListener("click", function (e) {
+      var id = t.getAttribute("data-target");
+      var el = id ? document.getElementById(id) : null;
+      if (!el) { return; }
+      e.preventDefault();
+      tabLockUntil = Date.now() + 700;   /* 이동 중 스파이가 탭을 덮어쓰지 않게 */
+      currentSection = id;
+      activateTab(t, true);
+      var top = el.getBoundingClientRect().top + window.pageYOffset - tabsOffset();
+      window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+      if (window.history && window.history.replaceState) {
+        try { window.history.replaceState(null, "", "#" + id); } catch (err) {}
+      }
+      window.setTimeout(function () {
+        tabLockUntil = 0;
+        syncStickyOffset();
+        spyTabs();
+        spy();
+      }, 750);
+    });
+  });
+
+  /* ---------- 날짜 점프 ---------- */
 
   var jumpBtns = Array.prototype.slice.call(document.querySelectorAll("#jump a"));
   var jumpBar = document.getElementById("jump");
@@ -1057,10 +1132,12 @@
     centerJump(btn);
   }
 
-  /* 스크롤 스파이: 고정 바 바로 아래 기준선에 걸친 날짜 카드를 고른다 */
+  /* 날짜 스파이: 일정 섹션을 보고 있을 때만, 기준선에 걸친 카드를 고른다.
+     다른 섹션으로 내려가면 마지막으로 고른 날짜를 그대로 둔다. */
   function spy() {
     if (!dayList.length) { return; }
     if (spyLockUntil && Date.now() < spyLockUntil) { return; }
+    if (currentSection !== "panel-schedule") { return; }
     var line = stickyOffset();
     var docEl = document.documentElement;
     var last = dayList.length - 1;
@@ -1069,18 +1146,14 @@
     if (atBottom) {
       pick = dayList[last].btn;
     } else {
-      var seen = 0;
       for (var i = 0; i < dayList.length; i++) {
         var r = dayList[i].el.getBoundingClientRect();
-        if (!r.height && !r.width) { return; }   /* 다른 탭이 열려 카드가 숨어 있음 */
-        seen++;
         if (r.top <= line + 0.5) {
           pick = dayList[i].btn;
         } else {
           break;
         }
       }
-      if (!seen) { return; }
     }
     activate(pick);
   }
@@ -1091,6 +1164,7 @@
     spyTicking = true;
     window.requestAnimationFrame(function () {
       spyTicking = false;
+      spyTabs();
       spy();
     });
   }
@@ -1114,34 +1188,28 @@
     });
   });
 
-  /* 다른 탭에서 일정 타임라인으로 돌아오면 현재 위치에 한 번 맞춤 */
-  tabs.forEach(function (t) {
-    t.addEventListener("click", function () {
-      if (t.id !== "tab-schedule") { return; }
-      window.setTimeout(function () {
-        spyLockUntil = 0;
-        activeBtn = null;
-        syncStickyOffset();
-        spy();
-      }, 40);
-    });
-  });
+  function initSpy() {
+    syncStickyOffset();
+    tabLockUntil = 0;
+    spyLockUntil = 0;
+    var sec = sectionAtScroll();
+    if (sec) {
+      currentSection = sec.id;
+      activateTab(sec.tab, true);
+    }
+    spy();
+  }
 
   window.addEventListener("resize", function () {
     syncStickyOffset();
+    tabLockUntil = 0;
     spyLockUntil = 0;
     activeBtn = null;
+    spyTabs();
     spy();
   });
-  window.addEventListener("load", function () {
-    syncStickyOffset();
-    spyLockUntil = 0;
-    spy();
-  });
-  window.requestAnimationFrame(function () {
-    syncStickyOffset();
-    spy();
-  });
+  window.addEventListener("load", initSpy);
+  window.requestAnimationFrame(initSpy);
 
   /* ---------- D-day ---------- */
   var ddayEl = document.getElementById("dday");
