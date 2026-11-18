@@ -1180,6 +1180,9 @@
       if (activeBtn === b) { centerJump(b); }
       var top = el.getBoundingClientRect().top + window.pageYOffset - stickyOffset();
       window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+      if (window.history && window.history.replaceState) {
+        try { window.history.replaceState(null, "", "#" + b.getAttribute("data-target")); } catch (err) {}
+      }
       window.setTimeout(function () {
         spyLockUntil = 0;
         syncStickyOffset();
