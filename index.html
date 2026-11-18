@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>정가네 독일•스페인 10박 11일 (2027.03.20–03.30)</title>
+<meta name="description" content="2027년 3월 20일~30일 독일 슈투트가르트 결혼식과 스페인 리오하·바르셀로나 4인 가족 여행 일정·예약·경비 대시보드">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF7F0;
+    --ivory:#FFFDF8;
+    --ink:#1E2A44;
+    --ink-soft:#4A5568;
+    --navy:#1B2A45;
+    --navy-2:#26365A;
+    --terra:#B8603F;
+    --terra-soft:#F2E2D8;
+    --gold:#B08A4A;
+    --line:#E4DACB;
+    --line-soft:#EFE7DA;
+    --green:#3F6B53;
+    --shadow:0 1px 2px rgba(27,42,69,.04), 0 8px 24px rgba(27,42,69,.06);
+    --radius:16px;
+    --sans:"Noto Sans KR", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Segoe UI", Roboto, sans-serif;
+    --serif:"Noto Sans KR", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Segoe UI", Roboto, sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:var(--sans);
+    color:var(--ink);
+    background:
+      radial-gradient(1200px 600px at 15% -10%, #F6EADF 0%, rgba(246,234,223,0) 60%),
+      radial-gradient(900px 500px at 95% 0%, #EFE7DA 0%, rgba(239,231,218,0) 55%),
+      var(--cream);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    font-size:16px;
+  }
+  .page{max-width:1140px;margin:0 auto;padding:28px 20px 64px}
+  a{color:var(--terra);text-decoration:none;border-bottom:1px solid rgba(184,96,63,.35)}
+  a:hover{border-bottom-color:var(--terra)}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(150deg,var(--navy) 0%, var(--navy-2) 62%, #33456B 100%);
+    color:#FBF7F0;
+    border-radius:22px;
+    padding:30px 30px 26px;
+    box-shadow:0 18px 45px rgba(27,42,69,.20);
+  }
+  .hero::after{
+    content:"";
+    position:absolute;right:-90px;top:-90px;width:320px;height:320px;border-radius:50%;
+    background:radial-gradient(circle at 35% 35%, rgba(176,138,74,.42), rgba(176,138,74,0) 70%);
+    pointer-events:none;
+  }
+  .hero-top{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin-bottom:14px}
+  .eyebrow{
+    font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+    color:#E7C79A;font-weight:600;
+  }
+  .dday{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(255,253,248,.12);border:1px solid rgba(255,253,248,.22);
+    border-radius:999px;padding:4px 12px;font-size:12.5px;color:#F3E7D6;letter-spacing:.04em;
+  }
+  .hero h1{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:clamp(26px,4vw,40px);
+    line-height:1.25;
+    margin:0 0 10px;
+    letter-spacing:-.01em;
+  }
+  .hero p.lead{margin:0;color:#D7DCE6;font-size:15.5px;max-width:60ch}
+  .hero-route{
+    display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:18px;
+    font-size:13.5px;color:#E9E2D4;
+  }
+  .hero-route .chip{
+    background:rgba(255,253,248,.10);border:1px solid rgba(255,253,248,.20);
+    border-radius:999px;padding:5px 12px;
+  }
+  .hero-route .arrow{color:#9FAEC7}
+
+  /* ---------- KPI ---------- */
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:20px}
+  .kpi{
+    background:var(--ivory);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:16px 16px 14px;
+    box-shadow:var(--shadow);
+    display:flex;flex-direction:column;gap:4px;
+  }
+  .kpi .k-label{font-size:12px;letter-spacing:.06em;color:var(--ink-soft);font-weight:600}
+  .kpi .k-value{font-family:var(--serif);font-size:clamp(20px,2.4vw,26px);color:var(--navy);line-height:1.2;font-weight:600}
+  .kpi .k-sub{font-size:12.5px;color:var(--ink-soft)}
+  .kpi .k-sub strong{color:var(--terra)}
+  .rate-row{display:flex;align-items:center;gap:6px;margin-top:6px;flex-wrap:wrap}
+  .rate-row label{font-size:12px;color:var(--ink-soft)}
+  .rate-row input{
+    width:82px;padding:5px 8px;border:1px solid var(--line);border-radius:8px;
+    font-family:var(--sans);font-size:13.5px;color:var(--ink);background:#FFFDFA;
+  }
+  .rate-row input:focus{outline:2px solid rgba(184,96,63,.35);outline-offset:1px;border-color:var(--terra)}
+  .rate-row .unit{font-size:12px;color:var(--ink-soft)}
+  .live-rate{
+    display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:6px;
+    font-size:11.5px;color:var(--ink-soft);
+  }
+  .btn-mini{
+    appearance:none;border:1px solid rgba(184,96,63,.45);background:rgba(184,96,63,.08);
+    color:var(--terra);font-family:var(--sans);font-size:11px;font-weight:700;
+    border-radius:999px;padding:2px 8px;cursor:pointer;line-height:1.4;
+  }
+  .btn-mini:hover:not(:disabled){background:var(--terra);color:#fff}
+  .btn-mini:disabled{opacity:.45;cursor:default}
+  .bar{height:8px;border-radius:99px;background:var(--line-soft);overflow:hidden;margin-top:10px}
+  .bar > span{display:block;height:100%;width:0%;border-radius:99px;background:linear-gradient(90deg,var(--terra),var(--gold));transition:width .35s ease}
+
+  /* ---------- TABS ---------- */
+  .tabs{
+    position:sticky;top:0;z-index:20;
+    display:flex;gap:6px;flex-wrap:nowrap;overflow-x:auto;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none;
+    padding:12px 0 10px;margin-top:18px;
+    background:var(--cream);
+  }
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{flex:0 0 auto;white-space:nowrap;
+    appearance:none;border:1px solid var(--line);background:var(--ivory);
+    color:var(--ink-soft);font-family:var(--sans);font-size:14px;font-weight:600;
+    padding:9px 15px;border-radius:999px;cursor:pointer;transition:all .18s ease;
+  }
+  .tab:hover{border-color:#CFC0A9;color:var(--ink)}
+  .tab[aria-selected="true"]{
+    background:var(--navy);border-color:var(--navy);color:#FBF7F0;
+    box-shadow:0 6px 16px rgba(27,42,69,.22);
+  }
+  .panel{display:none;padding-top:8px}
+  .panel.active{display:block;animation:fade .25s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+  /* ---------- SECTION HEAD ---------- */
+  .section-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex-wrap:wrap;margin:6px 0 14px}
+  .section-head h2{font-family:var(--serif);font-size:22px;margin:0;color:var(--navy);font-weight:600}
+  .section-head .hint{font-size:13px;color:var(--ink-soft)}
+
+  /* ---------- DATE JUMP & STICKY HEADER ---------- */
+  .schedule-sticky{
+    position:sticky;top:var(--tabs-h, 60px);z-index:19;
+    background:var(--cream);
+    border-bottom:1px solid var(--line-soft);
+    padding-top:4px;
+    margin-bottom:12px;
+  }
+  .schedule-sticky .section-head{margin:2px 0 8px}
+  .jump{
+    display:flex;gap:8px;overflow-x:auto;padding:2px 2px 10px;
+    -webkit-overflow-scrolling:touch;scrollbar-width:thin;
+  }
+  .jump a{
+    flex:0 0 auto;border:1px solid var(--line);background:var(--ivory);color:var(--ink-soft);
+    border-radius:12px;padding:7px 12px;font-family:var(--sans);font-size:13px;cursor:pointer;
+    display:flex;flex-direction:column;align-items:center;gap:1px;min-width:62px;line-height:1.25;
+    text-decoration:none;
+  }
+  .jump a b{font-size:14px;color:var(--navy)}
+  .jump a span{font-size:11px;color:var(--ink-soft)}
+  .jump a:hover{border-color:#CFC0A9}
+  .jump a.on{background:#F3E7DA;border-color:var(--terra);}
+  .jump a.on b{color:var(--terra)}
+
+  /* ---------- DAY CARDS ---------- */
+  .days{display:flex;flex-direction:column;gap:16px}
+  .day{
+    background:var(--ivory);border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--shadow);overflow:hidden;scroll-margin-top:calc(var(--tabs-h, 60px) + var(--sched-h, 128px) + 10px);
+  }
+  .day.nohi{border-left:4px solid var(--terra)}
+  .day.holi{border-left:4px solid var(--gold)}
+  .day-head{
+    display:grid;grid-template-columns:96px 1fr auto;gap:14px;align-items:center;
+    padding:15px 18px;border-bottom:1px solid var(--line-soft);
+    background:linear-gradient(180deg,#FFFEFB,#FDF9F2);
+  }
+  .day-date{display:flex;flex-direction:column;line-height:1.15}
+  .day-date .dow{font-size:11.5px;letter-spacing:.12em;color:var(--terra);font-weight:700}
+  .day-date .num{font-family:var(--serif);font-size:23px;color:var(--navy);font-weight:600}
+  .day-title h3{margin:0;font-size:17px;color:var(--navy);font-weight:700;letter-spacing:-.01em}
+  .day-title p{margin:2px 0 0;font-size:13px;color:var(--ink-soft)}
+  .day-sum{
+    font-size:13px;color:var(--ink);white-space:nowrap;text-align:right;
+    background:#F7F2E9;border:1px solid var(--line-soft);border-radius:10px;padding:6px 10px;
+  }
+  .day-sum b{font-family:var(--serif);font-size:14.5px;color:var(--navy)}
+  .day-sum.zero{color:#9AA3B2;background:transparent;border-color:transparent}
+
+  ul.timeline{list-style:none;margin:0;padding:14px 18px 16px;display:flex;flex-direction:column;gap:2px}
+  ul.timeline li{
+    display:grid;grid-template-columns:70px 22px 1fr;gap:6px;align-items:start;
+    padding:6px 0;position:relative;
+  }
+  ul.timeline li + li{border-top:1px dashed #EFE6D8}
+  ul.timeline .t{
+    font-variant-numeric:tabular-nums;font-size:13px;font-weight:700;color:var(--navy);
+    padding-top:1px;letter-spacing:.01em;line-height:1.3;
+  }
+  ul.timeline .dot{
+    width:9px;height:9px;border-radius:50%;background:var(--terra);
+    margin:8px 0 0 5px;box-shadow:0 0 0 3px rgba(184,96,63,.12);
+  }
+  ul.timeline li.plain .dot{background:#C9BEAB;box-shadow:0 0 0 3px rgba(201,190,171,.16)}
+  ul.timeline .c{font-size:14.5px}
+  ul.timeline .c p{margin:0}
+  ul.timeline .c p + p{margin-top:3px;font-size:13px;color:var(--ink-soft)}
+  .badges{display:inline-flex;flex-wrap:wrap;gap:5px;margin-left:6px;vertical-align:1px}
+  .badge{
+    display:inline-block;font-size:11px;font-weight:700;letter-spacing:.02em;
+    border-radius:999px;padding:2px 9px;white-space:nowrap;
+    border:1px solid #A78BFA;color:#6D28D9;background:#F3E8FF;
+  }
+  .badge.ok{border-color:#9CA3AF;color:#4B5563;background:#F3F4F6}
+  .badge.star{border-color:#D9A73E;color:#8A5D00;background:#FEF7E0}
+  .badge.warn{border-color:#E56B6F;color:#B4232C;background:#FEECEE}
+  .badge.info{border-color:#5B8DEF;color:#1E50B5;background:#EAF2FF}
+  .day-note{
+    margin:0;padding:11px 18px 14px;font-size:13px;color:var(--ink-soft);
+    background:#FBF7EF;border-top:1px solid var(--line-soft);
+  }
+  .day-note strong{color:var(--terra)}
+
+  /* ---------- CHECKLIST ---------- */
+  .check-wrap{display:grid;grid-template-columns:1fr;gap:16px}
+  .progress-card{
+    background:var(--ivory);border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px;box-shadow:var(--shadow);
+  }
+  .progress-card .row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+  .progress-card b{font-family:var(--serif);font-size:19px;color:var(--navy)}
+  .progress-card .small{font-size:12.5px;color:var(--ink-soft)}
+  .btn{
+    appearance:none;font-family:var(--sans);font-size:12.5px;font-weight:600;cursor:pointer;
+    border:1px solid var(--line);background:#FFFDFA;color:var(--ink-soft);
+    border-radius:999px;padding:6px 12px;
+  }
+  .btn:hover{border-color:#CFC0A9;color:var(--ink)}
+  .group{
+    background:var(--ivory);border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--shadow);overflow:hidden;
+  }
+  .group h3{
+    margin:0;padding:13px 18px;font-size:14px;letter-spacing:.04em;color:var(--navy);
+    border-bottom:1px solid var(--line-soft);background:#FBF7EF;
+  }
+  .group ul{list-style:none;margin:0;padding:6px 10px 10px}
+  .group li{display:flex;gap:10px;align-items:flex-start;padding:9px 8px;border-radius:10px}
+  .group li:hover{background:#FCF8F1}
+  .group input[type="checkbox"]{
+    appearance:none;flex:0 0 auto;width:19px;height:19px;margin:3px 0 0;
+    border:1.5px solid #C9BEAB;border-radius:6px;background:#FFFDFA;cursor:pointer;position:relative;
+  }
+  .group input[type="checkbox"]:checked{background:var(--green);border-color:var(--green)}
+  .group input[type="checkbox"]:checked::after{
+    content:"";position:absolute;left:5.5px;top:2px;width:5px;height:10px;
+    border:solid #FFFDF8;border-width:0 2px 2px 0;transform:rotate(45deg);
+  }
+  .group input[type="checkbox"]:focus-visible{outline:2px solid rgba(184,96,63,.45);outline-offset:2px}
+  .group label{font-size:14.5px;cursor:pointer}
+  .group label small{display:block;font-size:12.5px;color:var(--ink-soft);margin-top:1px}
+  .group li.done label{color:#8C949F;text-decoration:line-through;text-decoration-color:#C9BEAB}
+  .group li.done label small{text-decoration:none;color:#A6ADB8}
+
+  /* ---------- COST ---------- */
+  .cost-head{
+    display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;
+    background:var(--ivory);border:1px solid var(--line);border-radius:var(--radius);
+    padding:16px 18px;box-shadow:var(--shadow);margin-bottom:14px;
+  }
+  .cost-head .big{font-family:var(--serif);font-size:26px;color:var(--navy);font-weight:600;line-height:1.2}
+  .cost-head .sub{font-size:12.5px;color:var(--ink-soft)}
+  table.cost{width:100%;border-collapse:collapse;background:var(--ivory);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+  table.cost th, table.cost td{padding:11px 12px;text-align:left;font-size:14px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+  table.cost thead th{background:#FBF7EF;font-size:12px;letter-spacing:.05em;color:var(--ink-soft);text-transform:uppercase}
+  table.cost td.num, table.cost th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  table.cost tbody tr:hover{background:#FDFAF4}
+  table.cost tr.zero td{color:#9AA3B2}
+  table.cost tfoot td{font-weight:700;background:#1B2A45;color:#FBF7F0;border-bottom:none}
+  table.cost tfoot td.num{font-family:var(--serif);font-size:15.5px}
+  .table-scroll{overflow-x:auto;border-radius:var(--radius)}
+
+  /* ---------- NOTES ---------- */
+  .notes{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .note-card{
+    background:var(--ivory);border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px 18px 16px;box-shadow:var(--shadow);
+  }
+  .note-card h3{margin:0 0 4px;font-size:16.5px;color:var(--navy);font-weight:700;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+  .note-card .tag{font-size:11px;font-weight:700;color:var(--green);border:1px solid rgba(63,107,83,.4);border-radius:999px;padding:1px 8px;background:rgba(63,107,83,.08)}
+  .note-card .tag.new{color:var(--terra);border-color:rgba(184,96,63,.4);background:rgba(184,96,63,.07)}
+  .note-card p{margin:8px 0 0;font-size:14px}
+  .note-card ul{margin:8px 0 0;padding-left:18px;font-size:14px}
+  .note-card li{margin:3px 0}
+  .note-card .src{font-size:12px;color:var(--ink-soft);margin-top:10px}
+  .note-card.wide{grid-column:1 / -1}
+  .kv{display:grid;grid-template-columns:120px 1fr;gap:4px 12px;margin-top:8px;font-size:14px}
+  .kv dt{color:var(--ink-soft);font-size:13px}
+  .kv dd{margin:0}
+  .hl{background:linear-gradient(transparent 62%, rgba(176,138,74,.28) 62%)}
+
+  footer.foot{
+    margin-top:34px;padding-top:18px;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+    font-size:12.5px;color:var(--ink-soft);
+  }
+  footer.foot a{color:var(--ink-soft);border-bottom-color:var(--line)}
+
+  @media (max-width:900px){
+    .kpis{grid-template-columns:repeat(2,1fr)}
+    .notes{grid-template-columns:1fr}
+  }
+  @media (max-width:640px){
+    .page{padding:16px 13px 48px}
+    .hero{padding:22px 18px;border-radius:18px}
+    .kpis{grid-template-columns:1fr 1fr;gap:10px}
+    .kpi{padding:13px 12px}
+    .day-head{grid-template-columns:74px 1fr;row-gap:8px;padding:13px 14px}
+    .day-sum{grid-column:1 / -1;text-align:left;justify-self:start}
+    ul.timeline{padding:12px 14px 14px}
+    ul.timeline li{grid-template-columns:54px 18px 1fr}
+    ul.timeline .c{font-size:14px}
+    .kv{grid-template-columns:96px 1fr}
+    table.cost th, table.cost td{padding:9px 8px;font-size:13px}
+    .tabs{padding:10px 0 8px;gap:5px}
+    .tab{font-size:13px;padding:8px 12px}
+    .to-top{right:14px;bottom:20%;width:42px;height:42px;font-size:17px}
+  }
+  .to-top{
+    position:fixed;right:20px;bottom:20%;z-index:30;
+    width:46px;height:46px;border-radius:50%;
+    background:var(--navy);color:#FBF7F0;border:1px solid rgba(255,253,248,.18);
+    display:flex;align-items:center;justify-content:center;
+    font-size:19px;font-weight:700;line-height:1;text-decoration:none;
+    box-shadow:0 8px 22px rgba(27,42,69,.26);
+    transition:transform .16s ease, background .16s ease;
+  }
+  .to-top:hover{background:var(--terra);border-color:var(--terra);transform:translateY(-2px)}
+  @media print{
+    body{background:#fff}
+    .tabs,.jump,.btn,.to-top{display:none}
+    .panel{display:block !important;page-break-inside:avoid}
+    .hero{box-shadow:none}
+  }
+</style>
+<noscript><style>.panel{display:block !important}.tabs{display:none}</style></noscript>
+</head>
+<body>
+<div class="page" id="top">
+
+  <!-- ================= HERO ================= -->
+  <header class="hero">
+    <div class="hero-top">
+      <span class="eyebrow">2027 Spring · Germany &amp; Spain</span>
+      <span class="dday" id="dday">D-122</span>
+    </div>
+    <h1>정가네 독일•스페인 10박 11일</h1>
+    <div class="hero-route">
+      <span class="chip">03.20 인천 출발</span>
+      <span class="arrow">→</span>
+      <span class="chip">슈투트가르트 · 결혼식</span>
+      <span class="arrow">→</span>
+      <span class="chip">빌바오 · 아로(리오하)</span>
+      <span class="arrow">→</span>
+      <span class="chip">바르셀로나 · 부활절</span>
+      <span class="arrow">→</span>
+      <span class="chip">03.30 인천 도착</span>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi">
+        <span class="k-label">여행 기간</span>
+        <span class="k-value">10박 11일</span>
+        <span class="k-sub">2027.03.20(토) – 03.30(화)</span>
+      </div>
+      <div class="kpi">
+        <span class="k-label">인원</span>
+        <span class="k-value">4인 가족</span>
+        <span class="k-sub">2베드룸 숙소·다인승 택시 기준</span>
+      </div>
+      <div class="kpi">
+        <span class="k-label">총경비 (일자 합계 기준)</span>
+        <span class="k-value" id="kpi-total">₩2,057,226</span>
+        <span class="k-sub" id="kpi-eur">€423.5 · 환율 적용</span>
+        <div class="rate-row">
+          <label for="rate">환율</label>
+          <input id="rate" type="number" inputmode="numeric" min="500" max="3000" step="10" value="1500" aria-label="원/유로 환율">
+          <span class="unit">원 / €1</span>
+        </div>
+        <div class="live-rate">
+          <span id="live-rate-text">최근 환율 €1 ≈ ₩1,468 (11-17 ECB)</span>
+          <button type="button" class="btn-mini" id="apply-live-rate">적용</button>
+        </div>
+      </div>
+      <div class="kpi">
+        <span class="k-label">예약·준비 진행률</span>
+        <span class="k-value" id="kpi-progress">0 / 0</span>
+        <span class="k-sub" id="kpi-progress-sub">체크리스트에서 표시하면 저장됩니다</span>
+        <div class="bar" aria-hidden="true"><span id="kpi-bar"></span></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= TABS ================= -->
+  <nav class="tabs" role="tablist" aria-label="대시보드 탭">
+    <button class="tab" role="tab" id="tab-schedule" aria-controls="panel-schedule" aria-selected="true">일정 타임라인</button>
+    <button class="tab" role="tab" id="tab-check" aria-controls="panel-check" aria-selected="false">예약·준비 체크리스트</button>
+    <button class="tab" role="tab" id="tab-cost" aria-controls="panel-cost" aria-selected="false">경비 요약</button>
+    <button class="tab" role="tab" id="tab-notes" aria-controls="panel-notes" aria-selected="false">현지 확인·주의사항</button>
+  </nav>
+
+  <main>
+  <!-- ================= 1. SCHEDULE ================= -->
+  <section class="panel active" id="panel-schedule" role="tabpanel" aria-labelledby="tab-schedule">
+    <div class="schedule-sticky" id="schedule-sticky">
+      <div class="section-head">
+        <h2>전체 일정</h2>
+        <span class="hint">날짜를 누르면 해당 일자로 이동합니다</span>
+      </div>
+
+      <div class="jump" id="jump">
+        <a href="#day-20" data-target="day-20"><b>20</b><span>토</span></a>
+        <a href="#day-21" data-target="day-21"><b>21</b><span>일</span></a>
+        <a href="#day-22" data-target="day-22"><b>22</b><span>월</span></a>
+        <a href="#day-23" data-target="day-23"><b>23</b><span>화</span></a>
+        <a href="#day-24" data-target="day-24"><b>24</b><span>수</span></a>
+        <a href="#day-25" data-target="day-25"><b>25</b><span>목</span></a>
+        <a href="#day-26" data-target="day-26"><b>26</b><span>금</span></a>
+        <a href="#day-27" data-target="day-27"><b>27</b><span>토</span></a>
+        <a href="#day-28" data-target="day-28"><b>28</b><span>일</span></a>
+        <a href="#day-29" data-target="day-29"><b>29–30</b><span>월·화</span></a>
+      </div>
+    </div>
+
+    <div class="days">
+
+      <!-- 03.20 -->
+      <article class="day" id="day-20">
+        <div class="day-head">
+          <div class="day-date"><span class="dow">SAT</span><span class="num">03.20</span></div>
+          <div class="day-title">
+            <h3>한국 → 독일</h3>
+            <p>인천 → 프랑크푸르트 → 슈투트가르트</p>
+          </div>
+          <div class="day-sum zero">경비 기재 없음</div>
+        </div>
+        <ul class="timeline">
+          <li><span class="t">08:45</span><span class="dot"></span><div class="c"><p>집 출발<span class="badges"><span class="badge">리무진 버스 예약</span></span></p></div></li>
+          <li><span class="t">10:00</span><span class="dot"></span><div class="c"><p>인천공항 도착 · 점심</p></div></li>
+          <li><span class="t">12:55</span><span class="dot"></span><div class="c"><p>인천 출발 <strong>LH713</strong><span class="badges"><span class="badge ok">루프트한자 예약</span></span></p><p>13시간 45분 · 보잉 787-9 · 프랑크푸르트 제1터미널 도착</p></div></li>
+          <li><span class="t">18:40</span><span class="dot"></span><div class="c"><p>프랑크푸르트(FRA) 도착<span class="badges"><span class="badge warn">출발역은 공항 장거리역</span></span></p><p>수하물 수취·입국심사 후 <strong>Fernbahnhof(장거리역)</strong>으로 이동 — 공식 도보 약 5분, 짐 있으면 10분 안팎</p></div></li>
+          <li><span class="t">~19:45</span><span class="dot"></span><div class="c"><p>장거리역 도착 · 저녁</p><p>도착이 20~30분 늦어지는 날이 있어도 20:52 열차는 여유 있음</p></div></li>
+          <li><span class="t">20:52</span><span class="dot"></span><div class="c"><p><strong>ICE 615</strong> 출발 → 22:17 슈투트가르트 중앙역<span class="badges"><span class="badge">기차 예약</span></span></p><p><strong>출발역은 프랑크푸르트 시내 중앙역(Hbf)이 아니라 공항 장거리역(Frankfurt Flughafen Fernbahnhof)</strong> — 예약·탑승 시 역명을 꼭 확인하세요.</p><p>직행 1시간 25분 · 대안 21:52 / 22:52 (표 원안 “20:30 이후”를 실제 시간표로 확정)</p></div></li>
+          <li><span class="t">22:30~</span><span class="dot"></span><div class="c"><p>호텔 이동·체크인<span class="badges"><span class="badge">호텔 예약</span></span></p></div></li>
+        </ul>
+        <p class="day-note"><strong>확인:</strong> FRA 제1터미널 ↔ Fernbahnhof 도보 약 5분(프라포트 공식 안내). 18:40 도착 → 20:52 열차까지 약 2시간 10분으로, 입국심사·수하물·저녁까지 넉넉합니다.<br><strong>주의:</strong> 기차표를 끊을 때 <strong>“Frankfurt Flughafen Fernbahnhof”</strong>에서 출발하는 표인지 확인하세요. 시내 “Frankfurt (Main) Hbf”로 예약하면 공항에서 되돌아가야 합니다.</p>
+      </article>
+
+      <!-- 03.21 -->
+      <article class="day" id="day-21">
+        <div class="day-head">
+          <div class="day-date"><span class="dow">SUN</span><span class="num">03.21</span></div>
+          <div class="day-title">
+            <h3>슈투트가르트</h3>
+            <p>결혼식 전날 · 시내 적응</p>
+          </div>
+          <div class="day-sum zero">경비 기재 없음</div>
+        </div>
+        <ul class="timeline">
+          <li class="plain"><span class="t">아침</span><span class="dot"></span><div class="c"><p>아침 식사 · 호텔 주변 산책</p></div></li>
+          <li class="plain"><span class="t">점심</span><span class="dot"></span><div class="c"><p>점심</p></div></li>
+          <li class="plain"><span class="t">저녁</span><span class="dot"></span><div class="c"><p>저녁 — <strong>우성</strong>과 함께</p></div></li>
+        </ul>
+        <p class="day-note">일요일은 독일 상점 대부분 휴무입니다. 필요한 물건은 3/20 저녁이나 3/23 오전에 미리 사 두세요.</p>
+      </article>
+
+      <!-- 03.22 -->
+      <article class="day" id="day-22">
+        <div class="day-head">
+          <div class="day-date"><span class="dow">MON</span><span class="num">03.22</span></div>
+          <div class="day-title">
+            <h3>슈투트가르트 · 결혼식</h3>
+            <p>11:00 결혼식</p>
+          </div>
+          <div class="day-sum zero">경비 기재 없음</div>
+        </div>
+        <ul class="timeline">
+          <li class="plain"><span class="t">아침</span><span class="dot"></span><div class="c"><p>아침</p></div></li>
+          <li><span class="t">11:00</span><span class="dot"></span><div class="c"><p><strong>★ 결혼식</strong><span class="badges"><span class="badge star">본 일정</span></span></p></div></li>
+          <li class="plain"><span class="t">점심</span><span class="dot"></span><div class="c"><p>점심</p></div></li>
+          <li class="plain"><span class="t">저녁</span><span class="dot"></span><div class="c"><p>저녁 — <strong>사돈댁</strong>과 함께</p></div></li>
+        </ul>
+      </article>
+
+      <!-- 03.23 -->
+      <article class="day" id="day-23">
+        <div class="day-head">
+          <div class="day-date"><span class="dow">TUE</span><span class="num">03.23</span></div>
+          <div class="day-title">
+            <h3>독일 → 스페인</h3>
+            <p>슈투트가르트 → 프랑크푸르트 → 빌바오 → 아로</p>
+          </div>
+          <div class="day-sum zero">경비 기재 없음</div>
+        </div>
+        <ul class="timeline">
+          <li class="plain"><span class="t">아침</span><span class="dot"></span><div class="c"><p>아침 · 호텔 체크아웃</p></div></li>
+          <li class="plain"><span class="t">~10:00</span><span class="dot"></span><div class="c"><p>중앙역(Hbf) 이동</p></div></li>
+          <li><span class="t">10:15~</span><span class="dot"></span><div class="c"><p><strong>ICE 직통</strong> 슈투트가르트 → FRA Fernbahnhof<span class="badges"><span class="badge">기차 예약</span></span></p><p>10:15 출발·직통 1시간 15분이면 <strong>11:30경 도착</strong> — 표에 적힌 “12:05 도착”은 오기입니다(12:05는 원안 10:50 환승편 기준, 실제로는 10:49 출발·환승 → 12:08).</p><p>2027-03-23 실제 시간표 조회: <strong>10:26 ICE 1010 직행 → 11:38</strong>, 다음 직행 11:49 → 13:08</p></div></li>
+          <li class="plain"><span class="t">점심</span><span class="dot"></span><div class="c"><p>공항에서 점심</p></div></li>
+          <li><span class="t">14:50</span><span class="dot"></span><div class="c"><p>FRA 출발 <strong>LH1144</strong> (2시간 10분)</p></div></li>
+          <li><span class="t">17:00</span><span class="dot"></span><div class="c"><p>빌바오(BIO) 도착 · 수하물·렌터카 인수<span class="badges"><span class="badge">렌터카 예약</span></span></p></div></li>
+          <li><span class="t">19:00</span><span class="dot"></span><div class="c"><p><strong>☆ 구겐하임 미술관</strong> 외관·조형물 산책 (약 15분)<span class="badges"><span class="badge warn">19:00엔 입장 마감</span></span></p><p>3월 화요일 <strong>10:00–19:00</strong>, 매표 마감은 폐관 30분 전인 <strong>18:30</strong>(성주간 연장 운영 시 20:00 폐관·매표 19:30). 19:00에 도착하면 전시 입장이 어려우니 <strong>외관과 ‘Puppy’·‘Maman’ 조형물 위주</strong>로 보고, 들어가려면 18:00~18:30 도착으로 당기세요.</p></div></li>
+          <li><span class="t">~19:30</span><span class="dot"></span><div class="c"><p>아로 이동 (약 1시간)</p></div></li>
+          <li><span class="t">20:30~</span><span class="dot"></span><div class="c"><p><strong>유로스타스 로스 아구스티노스</strong> 체크인<span class="badges"><span class="badge">호텔 예약</span></span></p><p>저녁 · 플라사 데 라 파스(Plaza de la Paz) 산책</p></div></li>
+        </ul>
+        <p class="day-note"><strong>주의:</strong> DB 장거리 열차는 연착이 잦습니다. 10:15~10:26 출발이면 11:30~11:38 도착이라 14:50 비행기까지 3시간 이상 남습니다.<br><strong>구겐하임:</strong> 화요일 폐관 19:00·매표 마감 18:30. 렌터카 인수(30~45분)를 감안하면 17:00 착륙 기준 18:00~18:30 도착이면 입장 가능, 19:00 계획이라면 외관 관람이 현실적입니다.</p>
+      </article>
+
+      <!-- 03.24 -->
+      <article class="day" id="day-24">
+        <div class="day-head">
+          <div class="day-date"><span class="dow">WED</span><span class="num">03.24</span></div>
+          <div class="day-title">
+            <h3>아로 · 바리오 데 라 에스타시온</h3>
+            <p>도보 이동 · 바리오 데 라 에스타시온 테이스팅</p>
+          </div>
+          <div class="day-sum zero">경비 기재 없음</div>
+        </div>
+        <ul class="timeline">
+          <li><span class="t">아침</span><span class="dot"></span><div class="c"><p><strong>보데가스 무가(Bodegas Muga)</strong> 투어 &amp; 시음<span class="badges"><span class="badge">사전 예약</span></span></p></div></li>
+          <li class="plain"><span class="t">점심</span><span class="dot"></span><div class="c"><p>라 리오하 알타(La Rioja Alta S.A.) &amp; 보데가스 로다(RODA) 와인바</p></div></li>
+          <li><span class="t">오후</span><span class="dot"></span><div class="c"><p>바리오 데 라 에스타시온 — 100년 명문 보데가(무가·톤도니아 등) 거리 산책</p></div></li>
+          <li class="plain"><span class="t">저녁</span><span class="dot"></span><div class="c"><p>에라두라(La Herradura) 골목 핀초스 투어</p></div></li>
+        </ul>
+        <p class="day-note">숙소에서 보데가 거리까지 도보 15~20분. 시음하는 날은 <strong>렌터카 대신 도보·택시</strong>가 안전합니다.</p>
+      </article>
+
+      <!-- 03.25 -->
+      <article class="day" id="day-25">
+        <div class="day-head">
+          <div class="day-date"><span class="dow">THU</span><span class="num">03.25</span></div>
+          <div class="day-title">
+            <h3>아로 → 엘시에고 · 라과르디아</h3>
+            <p>렌터카 드라이브</p>
+          </div>
+          <div class="day-sum zero">경비 기재 없음</div>
+        </div>
+        <ul class="timeline">
+          <li><span class="t">아침</span><span class="dot"></span><div class="c"><p>엘시에고(Elciego) 드라이브</p></div></li>
+          <li><span class="t">오전</span><span class="dot"></span><div class="c"><p><strong>☆ 마르케스 데 리스칼</strong> (Marqués de Riscal)<span class="badges"><span class="badge star">프랑크 게리</span></span></p><p>티타늄 지붕 · 와이너리 투어/식당은 예약 여부 미확인</p></div></li>
+          <li><span class="t">점심</span><span class="dot"></span><div class="c"><p>라과르디아(Laguardia) 중세 와인 요새 마을</p><p>산 비센테 데 라 손시에라(San Vicente) 전망대</p></div></li>
+          <li class="plain"><span class="t">저녁</span><span class="dot"></span><div class="c"><p>저녁 — 아로</p></div></li>
+        </ul>
+      </article>
+
+      <!-- 03.26 -->
+      <article class="day" id="day-26">
+        <div class="day-head">
+          <div class="day-date"><span class="dow">FRI</span><span class="num">03.26</span></div>
+          <div class="day-title">
+            <h3>아로 → 바르셀로나</h3>
+            <p>성금요일(Viernes Santo) · 공휴일</p>
+          </div>
+          <div class="day-sum" data-krw="1066376" data-eur="11.5">일자 합계 <b>₩1,083,626</b></div>
+        </div>
+        <ul class="timeline">
+          <li><span class="t">아침</span><span class="dot"></span><div class="c"><p>체크아웃 · 산토 토마스 성당 산책</p></div></li>
+          <li class="plain"><span class="t">점심</span><span class="dot"></span><div class="c"><p>점심</p></div></li>
+          <li><span class="t">12:00</span><span class="dot"></span><div class="c"><p>빌바오 공항으로 출발 (약 1시간)</p></div></li>
+          <li><span class="t">13:00</span><span class="dot"></span><div class="c"><p>BIO 도착 · 렌터카 반납</p></div></li>
+          <li><span class="t">14:50</span><span class="dot"></span><div class="c"><p>BIO 출발 <strong>VY1467</strong> (1시간 10분)<span class="badges"><span class="badge">부엘링 예약</span></span></p></div></li>
+          <li><span class="t">16:00</span><span class="dot"></span><div class="c"><p>바르셀로나(BCN) 도착</p></div></li>
+          <li><span class="t">18:00</span><span class="dot"></span><div class="c"><p>택시(약 30분) → 호텔 체크인<span class="badges"><span class="badge">호텔 예약</span></span></p><p><strong>Simaba Casanova</strong> — Carrer de Casanova 211, Sarrià-Sant Gervasi, 08021 Barcelona</p></div></li>
+          <li class="plain"><span class="t">저녁</span><span class="dot"></span><div class="c"><p>저녁</p></div></li>
+          <li><span class="t">밤</span><span class="dot"></span><div class="c"><p>사그라다 파밀리아 야경 (성금요일 밤 행사)<span class="badges"><span class="badge ok">외관만 · 입장 X</span></span></p></div></li>
+          <li class="plain"><span class="t">—</span><span class="dot"></span><div class="c"><p>T-Familiar 교통권 구입 (€11.5 · 1존 8회)</p></div></li>
+        </ul>
+        <p class="day-note"><strong>성금요일:</strong> 백화점·대형마트·보케리아 시장 휴무(관광지 식당은 영업). 이날은 관광·이동에 집중하고 장보기는 3/27에 하세요.</p>
+      </article>
+
+      <!-- 03.27 -->
+      <article class="day" id="day-27">
+        <div class="day-head">
+          <div class="day-date"><span class="dow">SAT</span><span class="num">03.27</span></div>
+          <div class="day-title">
+            <h3>바르셀로나 · 가우디 투어</h3>
+            <p>카사 바트요 → 카사 밀라 → 구엘 공원 → 사그라다 파밀리아</p>
+          </div>
+          <div class="day-sum" data-krw="355600" data-eur="268.0">일자 합계 <b>₩757,600</b></div>
+        </div>
+        <ul class="timeline">
+          <li><span class="t">07:30</span><span class="dot"></span><div class="c"><p>투어 미팅·이동 (숙소 출발)<span class="badges"><span class="badge warn">개장 전 시각</span></span></p><p>07:30은 세 곳 모두 <strong>개장 전</strong>입니다 — 카사 바트요·카사 밀라 09:00 개장, 구엘 공원 09:30 개장. 07:30은 가이드 투어 미팅 시각으로 보이니 <strong>미팅 장소·시각을 예약처에 확인</strong>하세요.</p></div></li>
+          <li><span class="t">09:00~</span><span class="dot"></span><div class="c"><p><strong>카사 바트요</strong>(Casa Batlló)<span class="badges"><span class="badge">사전 예약</span></span></p><p>공식 홈페이지에서 지도·오디오 가이드 확인 · 관람 약 1시간 15분</p></div></li>
+          <li><span class="t">오전</span><span class="dot"></span><div class="c"><p><strong>카사 밀라</strong>(Casa Milà / La Pedrera) — 09:00 개장<span class="badges"><span class="badge">사전 예약</span></span></p></div></li>
+          <li><span class="t">오전</span><span class="dot"></span><div class="c"><p><strong>구엘 공원</strong>(Park Güell) — 09:30 개장<span class="badges"><span class="badge">사전 예약</span></span></p><p>티켓 시간대 30분 내 입장 · 세 곳은 가이드 투어로 묶으면 동선이 편합니다</p></div></li>
+          <li class="plain"><span class="t">점심</span><span class="dot"></span><div class="c"><p>점심</p></div></li>
+          <li><span class="t">13:30</span><span class="dot"></span><div class="c"><p><strong>사그라다 파밀리아</strong><span class="badges"><span class="badge">사전 예약</span><span class="badge star">카탈루냐 공인 가이드 동반</span></span></p><p>개별 성당 티켓을 따로 사지 말고 투어사 단체 티켓으로</p></div></li>
+          <li><span class="t">낮~오후</span><span class="dot"></span><div class="c"><p><strong>보케리아 시장</strong> 선물 쇼핑 — <strong>낮~오후에</strong><span class="badges"><span class="badge warn">상점은 19시 전후 마감</span></span></p><p>3/26·3/28 시장 휴무라 오늘이 유일한 기회입니다. 저녁 7시 전후로 상점이 닫는 곳이 많아, 사그라다 파밀리아(13:30) 이후 오후에 쇼핑을 넣는 편이 안전합니다.</p></div></li>
+        </ul>
+        <p class="day-note"><strong>티켓:</strong> 가이드 투어로 세 곳을 묶었다면 <strong>개별 입장권을 따로 사지 마세요</strong>(중복 결제·시간 충돌). 투어사 단체 티켓에 입장이 포함됐는지 예약 확인서로 체크하세요.<br><strong>경비:</strong> <span id="note-27-cost">₩355,600 + €268.0 = ₩757,600 (환율 1,500원 기준)</span>.</p>
+      </article>
+
+      <!-- 03.28 -->
+      <article class="day holi" id="day-28">
+        <div class="day-head">
+          <div class="day-date"><span class="dow">SUN</span><span class="num">03.28</span></div>
+          <div class="day-title">
+            <h3>바르셀로나 · 고딕 지구</h3>
+            <p>부활절(Domingo de Resurrección) · 공휴일</p>
+          </div>
+          <div class="day-sum" data-krw="0" data-eur="144.0">일자 합계 <b>₩216,000</b></div>
+        </div>
+        <ul class="timeline">
+          <li><span class="t">08:00</span><span class="dot"></span><div class="c"><p><strong>사그라다 파밀리아 부활절 미사</strong><span class="badges"><span class="badge star">미사 참례</span></span></p><p>탄생의 파사드(Carrer de la Marina) 쪽 미사 전용 출입구로 줄 서기 · 무료·선착순</p></div></li>
+          <li><span class="t">오전</span><span class="dot"></span><div class="c"><p>개선문(Arc de Triomf) – 시우데타야 공원 산책</p></div></li>
+          <li><span class="t">오전~점심</span><span class="dot"></span><div class="c"><p><strong>산타 마리아 델 마르</strong><span class="badges"><span class="badge info">요금 확인</span></span></p><p>문화 방문 €8/인 · 일요일 13:00 이전은 무료 입장</p></div></li>
+          <li><span class="t">점심 전후</span><span class="dot"></span><div class="c"><p><strong>피카소 미술관</strong><span class="badges"><span class="badge">온라인 예매 권장</span></span></p><p>일요일 정상 개관 · 온라인 €12(상설) / €14(상설+특별)</p></div></li>
+          <li class="plain"><span class="t">점심</span><span class="dot"></span><div class="c"><p>점심</p></div></li>
+          <li><span class="t">오후</span><span class="dot"></span><div class="c"><p>키스의 벽(El món neix en cada bes)</p></div></li>
+          <li><span class="t">14:00<br>~16:30</span><span class="dot"></span><div class="c"><p><strong>바르셀로나 대성당</strong> 내부·거위 중정<span class="badges"><span class="badge info">요금 확인</span></span></p><p>€16/인 (4인 €64) · 일요일 관람 14:00–17:00, 입장 마감 16:30</p></div></li>
+          <li><span class="t">해질녘</span><span class="dot"></span><div class="c"><p>비스베 다리 · 저녁</p></div></li>
+          <li><span class="t">밤</span><span class="dot"></span><div class="c"><p>바르셀로네타 해변 산책</p></div></li>
+        </ul>
+        <p class="day-note"><strong>부활절:</strong> 대성당은 오전에 미사로만 열리고 관람은 14:00부터입니다. 산타 마리아 델 마르는 18:00 이후 다시 무료이니 동선이 밀리면 그때 들어가는 방법도 있습니다.</p>
+      </article>
+
+      <!-- 03.29-30 -->
+      <article class="day holi" id="day-29">
+        <div class="day-head">
+          <div class="day-date"><span class="dow">MON–TUE</span><span class="num">03.29</span></div>
+          <div class="day-title">
+            <h3>스페인 → 한국</h3>
+            <p>카탈루냐 부활절 월요일(Lunes de Pascua) · 03.30 인천 도착</p>
+          </div>
+          <div class="day-sum zero">경비 기재 없음</div>
+        </div>
+        <ul class="timeline">
+          <li><span class="t">11:00</span><span class="dot"></span><div class="c"><p>호텔 체크아웃 · 추가 관광</p></div></li>
+          <li class="plain"><span class="t">점심</span><span class="dot"></span><div class="c"><p>점심</p></div></li>
+          <li><span class="t">14:15</span><span class="dot"></span><div class="c"><p>공항으로 택시 이동 (약 30분)</p></div></li>
+          <li><span class="t">15:00</span><span class="dot"></span><div class="c"><p>BCN 도착 · 택스 리펀<span class="badges"><span class="badge warn">공항 가장 붐비는 날</span></span></p></div></li>
+          <li><span class="t">17:35</span><span class="dot"></span><div class="c"><p>BCN 출발 <strong>LH1813</strong> → 뮌헨 경유 <strong>LH718</strong><span class="badges"><span class="badge ok">루프트한자 예약</span></span></p></div></li>
+          <li><span class="t">03.30 16:35</span><span class="dot"></span><div class="c"><p>인천공항 도착<span class="badges"><span class="badge">리무진 버스 예약</span></span></p></div></li>
+        </ul>
+        <p class="day-note"><strong>주의:</strong> 부활절 월요일은 카탈루냐 공휴일로 공항 체크인·보안검색 줄이 가장 깁니다. 15:00 도착 계획을 지키고, 택스 리펀 대기까지 생각해 14:15 출발을 늦추지 마세요.</p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ================= 2. CHECKLIST ================= -->
+  <section class="panel" id="panel-check" role="tabpanel" aria-labelledby="tab-check">
+    <div class="section-head">
+      <h2>예약 · 준비 체크리스트</h2>
+      <span class="hint">체크 상태는 이 브라우저에 저장됩니다</span>
+    </div>
+
+    <div class="progress-card" style="margin-bottom:16px">
+      <div class="row">
+        <div>
+          <b id="prog-text">0 / 0 완료</b>
+          <div class="small" id="prog-sub">남은 항목을 체크하면 진행률이 함께 올라갑니다.</div>
+        </div>
+        <button class="btn" type="button" id="reset-check">체크 초기화</button>
+      </div>
+      <div class="bar"><span id="prog-bar"></span></div>
+    </div>
+
+    <div class="check-wrap">
+
+      <div class="group">
+        <h3>항공 · 기차 · 공항 이동</h3>
+        <ul>
+          <li><input type="checkbox" id="c-lh713" data-id="lh713"><label for="c-lh713">루프트한자 ICN → FRA (LH713, 3/20 12:55)<small>4인 · 13시간 45분 · FRA 제1터미널 도착</small></label></li>
+          <li><input type="checkbox" id="c-lh1144" data-id="lh1144"><label for="c-lh1144">루프트한자 FRA → BIO (LH1144, 3/23 14:50)</label></li>
+          <li><input type="checkbox" id="c-vy1467" data-id="vy1467"><label for="c-vy1467">부엘링 BIO → BCN (VY1467, 3/26 14:50)</label></li>
+          <li><input type="checkbox" id="c-lh1813" data-id="lh1813"><label for="c-lh1813">루프트한자 BCN → ICN (LH1813 + LH718, 3/29 17:35)</label></li>
+          <li><input type="checkbox" id="c-ice1" data-id="ice1"><label for="c-ice1">ICE FRA Fernbahnhof → 슈투트가르트 (3/20 20:52, ICE 615)<small>직행 1시간 25분 · 4인 좌석 지정</small></label></li>
+          <li><input type="checkbox" id="c-ice2" data-id="ice2"><label for="c-ice2">ICE 슈투트가르트 → FRA Fernbahnhof (3/23 10:26, ICE 1010)<small>직행 1시간 12분 · 11:38 도착</small></label></li>
+          <li><input type="checkbox" id="c-bus1" data-id="bus1"><label for="c-bus1">리무진 버스 — 3/20 08:45 집 출발</label></li>
+          <li><input type="checkbox" id="c-bus2" data-id="bus2"><label for="c-bus2">리무진 버스 — 3/30 16:35 인천 도착편</label></li>
+        </ul>
+      </div>
+
+      <div class="group">
+        <h3>숙소 · 렌터카</h3>
+        <ul>
+          <li><input type="checkbox" id="c-hotel-stg" data-id="hotel-stg"><label for="c-hotel-stg">슈투트가르트 호텔 (3/20–3/23, 3박)<small>결혼식 장소와의 거리·주차 확인</small></label></li>
+          <li><input type="checkbox" id="c-hotel-aro" data-id="hotel-aro"><label for="c-hotel-aro">유로스타스 로스 아구스티노스, 아로 (3/23–3/26, 3박)<small>Eurostars Los Agustinos · 보데가 거리 도보 15~20분</small></label></li>
+          <li><input type="checkbox" id="c-hotel-bcn" data-id="hotel-bcn"><label for="c-hotel-bcn">Simaba Casanova, 바르셀로나 (3/26–3/29, 3박)<small>Carrer de Casanova 211 · 금액 ₩1,066,376 기재됨 · 예약 확정 여부 확인</small></label></li>
+          <li><input type="checkbox" id="c-car" data-id="car"><label for="c-car">렌터카 빌바오 공항 인수·반납 (3/23–3/26)<small>4인 + 캐리어 기준 차급·국제운전면허증</small></label></li>
+        </ul>
+      </div>
+
+      <div class="group">
+        <h3>투어 · 입장권</h3>
+        <ul>
+          <li><input type="checkbox" id="c-muga" data-id="muga"><label for="c-muga">보데가스 무가 투어 &amp; 시음 (3/24 오전)<small>사전 예약 필수 · 4인</small></label></li>
+          <li><input type="checkbox" id="c-tono" data-id="tono"><label for="c-tono">비냐 톤도니아 방문 요청 메일 (R. López de Heredia)<small>전문가 전용·사전 예약제 · 스페인어 초안 작성됨, 발송·회신 확인</small></label></li>
+          <li><input type="checkbox" id="c-riscal" data-id="riscal"><label for="c-riscal">마르케스 데 리스칼 (3/25)<small>와이너리 투어·레스토랑 예약 여부 확인</small></label></li>
+          <li><input type="checkbox" id="c-gaudi" data-id="gaudi"><label for="c-gaudi">가우디 3곳 + 사그라다 파밀리아 투어 (3/27)<small>카사 바트요·카사 밀라 09:00 개장, 구엘 공원 09:30 — 07:30은 미팅 시각이니 장소·시간 확인</small></label></li>
+          <li><input type="checkbox" id="c-sagrada" data-id="sagrada"><label for="c-sagrada">사그라다 파밀리아 13:30 — 공인 가이드 동반 투어<small>개별 입장권을 따로 사지 말 것 · 1~2월 조기 예약 권장</small></label></li>
+          <li><input type="checkbox" id="c-picasso" data-id="picasso"><label for="c-picasso">피카소 미술관 온라인 예매 (3/28)<small>15분 단위 시간 지정 · 4인</small></label></li>
+          <li><input type="checkbox" id="c-catedral" data-id="catedral"><label for="c-catedral">바르셀로나 대성당 입장권 (3/28 오후)<small>일요일 관람 14:00–17:00 · 마감 16:30</small></label></li>
+          <li><input type="checkbox" id="c-santamaria" data-id="santamaria"><label for="c-santamaria">산타 마리아 델 마르 (3/28)<small>무료 시간대(13시 이전) 활용 또는 €8/인</small></label></li>
+          <li><input type="checkbox" id="c-tfamiliar" data-id="tfamiliar"><label for="c-tfamiliar">T-Familiar 교통권 €11.5<small>1존 8회 · 4인 함께 사용 가능</small></label></li>
+        </ul>
+      </div>
+
+      <div class="group">
+        <h3>출발 전 준비</h3>
+        <ul>
+          <li><input type="checkbox" id="c-passport" data-id="passport"><label for="c-passport">여권 유효기간 6개월 이상 확인 (4인)</label></li>
+          <li><input type="checkbox" id="c-idp" data-id="idp"><label for="c-idp">국제운전면허증 발급 (렌터카용)</label></li>
+          <li><input type="checkbox" id="c-esim" data-id="esim"><label for="c-esim">유심/eSIM · 파파고·번역 앱 오프라인 준비</label></li>
+          <li><input type="checkbox" id="c-insu" data-id="insu"><label for="c-insu">여행자보험 가입 (4인)</label></li>
+          <li><input type="checkbox" id="c-tax" data-id="tax"><label for="c-tax">택스 리펀 서류·영수증 보관 봉투 준비</label></li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= 3. COST ================= -->
+  <section class="panel" id="panel-cost" role="tabpanel" aria-labelledby="tab-cost">
+    <div class="section-head">
+      <h2>경비 요약</h2>
+      <span class="hint">표에 기재된 일자 합계 기준 · 유로 항목은 환율에 따라 자동 재계산</span>
+    </div>
+
+    <div class="cost-head">
+      <div>
+        <div class="sub">총경비</div>
+        <div class="big" id="cost-total">₩2,057,226</div>
+        <div class="sub" id="cost-breakdown">원화 고정 ₩1,421,976 + 유로 €423.5 × 1,500원</div>
+      </div>
+      <div>
+        <div class="sub" style="margin-bottom:5px">환율 (원 / €1)</div>
+        <div class="rate-row" style="margin:0">
+          <input id="rate2" type="number" inputmode="numeric" min="500" max="3000" step="10" value="1500" aria-label="경비 탭 환율">
+          <span class="unit">원</span>
+        </div>
+        <div class="live-rate">
+          <span id="live-rate-text2">최근 환율 €1 ≈ ₩1,468 (11-17 ECB)</span>
+          <button type="button" class="btn-mini" id="apply-live-rate2">적용</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-scroll">
+      <table class="cost" id="cost-table">
+        <caption class="sr-only" style="position:absolute;left:-9999px">일자별 경비 합계</caption>
+        <thead>
+          <tr>
+            <th scope="col">날짜</th>
+            <th scope="col">내용</th>
+            <th scope="col" class="num">원화(₩)</th>
+            <th scope="col" class="num">유로(€)</th>
+            <th scope="col" class="num">합계</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="zero" data-krw="0" data-eur="0">
+            <td>03.20–03.25</td>
+            <td>슈투트가르트 · 아로 (6일)</td>
+            <td class="num krw">—</td><td class="num eur">—</td><td class="num total">—</td>
+          </tr>
+          <tr data-krw="1066376" data-eur="11.5">
+            <td>03.26</td>
+            <td>숙소 Simaba Casanova ₩1,066,376 + T-Familiar €11.5</td>
+            <td class="num krw">₩1,066,376</td><td class="num eur">€11.5</td><td class="num total">₩1,083,626</td>
+          </tr>
+          <tr data-krw="355600" data-eur="268.0">
+            <td>03.27</td>
+            <td>가우디 투어·입장·현지 경비 (세부 내역은 표에 ₩355,600 + €268.0으로 기재)</td>
+            <td class="num krw">₩355,600</td><td class="num eur">€268.0</td><td class="num total">₩757,600</td>
+          </tr>
+          <tr data-krw="0" data-eur="144.0">
+            <td>03.28</td>
+            <td>산타 마리아 델 마르 €20 + 피카소 €60 + 대성당 €64</td>
+            <td class="num krw">—</td><td class="num eur">€144.0</td><td class="num total">₩216,000</td>
+          </tr>
+          <tr class="zero" data-krw="0" data-eur="0">
+            <td>03.29–03.30</td>
+            <td>귀국일</td>
+            <td class="num krw">—</td><td class="num eur">—</td><td class="num total">—</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="2">합계</td>
+            <td class="num" id="foot-krw">₩1,421,976</td>
+            <td class="num" id="foot-eur">€423.5</td>
+            <td class="num" id="foot-total">₩2,057,226</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <div class="note-card" style="margin-top:16px">
+      <h3>표기 금액과 실제 요금이 다른 곳 <span class="tag new">확인 결과</span></h3>
+      <p><strong>3/28 입장료</strong>는 표에 €144로 잡혀 있는데, 공식 요금으로 다시 계산하면 산타 마리아 델 마르 €8×4 = €32, 피카소 온라인 €12×4 = €48, 대성당 €16×4 = €64 로 <span class="hl">합계 €144</span>가 되어 결과적으로 표와 같습니다.</p>
+      <ul>
+        <li>산타 마리아 델 마르: 표 €20(4인) → 실제 €8/인 = €32, 단 <strong>무료 시간대(일요일 13:00 이전·18:00 이후)</strong>에 들어가면 €0</li>
+        <li>피카소: 표 €60(4인 = €15/인) → 온라인 €12(상설) / €14(상설+특별), 현장 €13 / €15</li>
+        <li>바르셀로나 대성당: €16/인 = <strong>4인 €64</strong> — 표와 일치</li>
+      </ul>
+      <p class="src">항공·숙소·렌터카·기차 등 아직 결제 전인 항목은 표에 금액이 없어 합계에 포함되지 않았습니다.</p>
+    </div>
+  </section>
+
+  <!-- ================= 4. NOTES ================= -->
+  <section class="panel" id="panel-notes" role="tabpanel" aria-labelledby="tab-notes">
+    <div class="section-head">
+      <h2>현지 확인 · 주의사항</h2>
+      <span class="hint">2026년 11월 18일 기준 공식 출처 확인</span>
+    </div>
+
+    <div class="notes">
+
+      <div class="note-card wide">
+        <h3>1. 프랑크푸르트 공항 → 장거리역(Fernbahnhof) <span class="tag">공식 확인</span></h3>
+        <dl class="kv">
+          <dt>도보 시간</dt><dd>제1터미널 ↔ Fernbahnhof <strong>약 5분</strong> (프라포트 공식 안내). 실제로는 무빙워크·엘리베이터 포함 7~10분, 캐리어 4개면 10분 안팎</dd>
+          <dt>경로</dt><dd>수하물 수취장에서 “Bahnhöfe S T” 표지를 따라 이동 → The Squaire 건물 아래 장거리 승강장. 전 구간 실내</dd>
+          <dt>시간 계산</dt><dd>18:40 도착 → 입국심사·수하물 40~60분 → 19:30~19:45 역 도착 → <strong>20:52 ICE 615</strong>까지 약 1시간</dd>
+          <dt>저녁 시간표</dt><dd>20:52 → 22:17 (직행 1시간 25분, ICE 615) / 21:52 → 23:11 (1회 환승) / 22:52 → 00:23 (직행)</dd>
+          <dt>주의</dt><dd>LH713은 지연이 잦은 편(최근 실제 출발 20~25분 지연 사례). 그래도 20:52 열차는 문제없고, 늦어지면 21:52·22:52가 안전판입니다</dd>
+        </dl>
+        <p class="src">출처: <a href="https://www.frankfurt-airport.com/de/anreise-parken/an-und-abreise/mit-der-bahn.html" target="_blank" rel="noopener">Frankfurt Airport — Mit der Bahn</a> · <a href="https://www.bahn.de/" target="_blank" rel="noopener">bahn.de 시간표(2027-03-20 조회)</a> · <a href="https://www.lufthansa.com/kr/ko/local-page/korea-customer-info" target="_blank" rel="noopener">루프트한자 한국 안내(LH713 12:55–18:40)</a></p>
+      </div>
+
+      <div class="note-card">
+        <h3>2. 산타 마리아 델 마르 <span class="tag">공식 확인</span></h3>
+        <ul>
+          <li>문화 방문(내부·탑·지붕 테라스·갤러리 박물관·크립트) <strong>€8/인</strong>, 12세 미만 €4, 3세 미만 무료</li>
+          <li>문화 방문 시간: 월–토 10:00–18:00(마지막 입장 17:30), <strong>일요일 13:00–18:00</strong></li>
+          <li><strong>문화 방문 시간 밖은 입장 무료</strong> — 월–토 18:00 이후, 일요일 13:00 이전과 18:00 이후 (성당은 매일 10:00–20:30 개방)</li>
+          <li>주일 미사: 12:00 국제 미사, 19:30 스페인어 / 평일 19:30</li>
+          <li>부활절(3/28) 당일 미사·개방 시간은 성주간 전용 시간표로 따로 공지됩니다 — 3월 초에 홈페이지 재확인(문화 방문은 일요일 13:00 시작이 기본)</li>
+          <li>“6시 이후 무료”는 맞습니다. 다만 지붕·탑까지 오르려면 유료 문화 방문 시간에 들어가야 합니다</li>
+        </ul>
+        <p class="src">출처: <a href="https://www.santamariadelmar.barcelona/en/opening-hours-and-admission-fees/" target="_blank" rel="noopener">공식 홈페이지 — 요금·개방시간</a> · <a href="https://www.santamariadelmar.barcelona/en/mass-times-and-pastoral-care/" target="_blank" rel="noopener">미사 시간</a></p>
+      </div>
+
+      <div class="note-card">
+        <h3>3. 피카소 미술관 <span class="tag">공식 확인</span></h3>
+        <ul>
+          <li>화–일 10:00–19:00, <strong>월요일 휴관</strong>. 3/28 부활절 일요일은 정상 개관(휴관일 목록에 없음)</li>
+          <li>입장료: 상설 컬렉션 <strong>온라인 €12 / 현장 €13</strong>, 상설+특별전 <strong>온라인 €14 / 현장 €15</strong> (18세 미만 무료, 18–25세·65세 이상·학생 €7)</li>
+          <li>무료 입장: 매월 첫 일요일(3/28은 해당 없음), 목요일 16:00–19:00, 개관 기념일 — 모두 <strong>4일 전 10시부터 사전 예약</strong> 필요</li>
+          <li>15분 단위 시간 지정제, 1회 최대 9명, 환불 불가 → <strong>온라인 사전 예매 권장</strong></li>
+          <li>요금은 “2026년 12월 31일까지 유효”로 표기 — 2027년 요금은 예약 시 재확인</li>
+        </ul>
+        <p class="src">출처: <a href="https://museupicassobcn.cat/en/plan-your-visit/buy-tickets-and-opening-hours" target="_blank" rel="noopener">Museu Picasso — Buy tickets and opening hours</a></p>
+      </div>
+
+      <div class="note-card">
+        <h3>4. 바르셀로나 대성당 <span class="tag">공식 확인</span></h3>
+        <ul>
+          <li>관람권 <strong>€16/인</strong> → 4인 <strong>€64</strong> (표와 일치). 학생·대가족 €14, 단체 €8, 세금 별도</li>
+          <li>관람 시간: 평일 9:30–18:30(입장 마감 17:45) / 토·축일 전날 9:30–17:15 / <strong>일·축일 14:00–17:00(입장 마감 16:30)</strong></li>
+          <li>관람권에 거위 중정(클라우스터)·성가대·회의실·지붕 테라스 포함</li>
+          <li>일요일 오전은 관람 불가, <strong>미사 참례는 무료</strong>(중정·테라스 등 관람 구역 미포함)</li>
+          <li>주일 미사: 09:00(카탈루냐), 10:30(수도자 미사), 12:00(스페인어), 13:00, 18:00(스페인어), 19:15</li>
+          <li>3/28은 부활절이라 성주간 전용 시간표가 따로 공지됩니다 — 2~3월에 한 번 더 확인</li>
+        </ul>
+        <p class="src">출처: <a href="https://catedralbcn.org/es/visita-turistica/horarios-visita-turistica/" target="_blank" rel="noopener">공식 홈페이지 — 관람 시간·요금</a> · <a href="https://catedralbcn.org/es/culto-y-oracion/misas/" target="_blank" rel="noopener">미사 시간</a></p>
+      </div>
+
+      <div class="note-card">
+        <h3>미사 계획 (3/28) <span class="tag new">준비</span></h3>
+        <ul>
+          <li>08:00까지 <strong>탄생의 파사드(Carrer de la Marina)</strong> 미사 전용 출입구에 줄 서기 — 무료·선착순</li>
+          <li>미사 후에는 성당 주변과 탄생의 파사드 쪽을 산책 — 13:00 이후는 투어객이 몰립니다</li>
+          <li>차선: 지하 성당(가우디 묘)·주교좌 대성당·산타 마리아 델 마르 미사</li>
+        </ul>
+      </div>
+
+      <div class="note-card">
+        <h3>부활절 · 공휴일 달력</h3>
+        <ul>
+          <li><strong>3/26(금) 성금요일</strong> — 백화점·대형마트·보케리아 휴무, 관광지 식당 영업</li>
+          <li><strong>3/28(일) 부활절</strong> — 같은 휴무 패턴 · 사그라다 파밀리아 미사</li>
+          <li><strong>3/29(월) 부활절 월요일</strong> — 카탈루냐 공휴일, 공항·도로 가장 혼잡</li>
+          <li>쇼핑·시장은 <strong>3/27(토) 하루</strong>에 몰아서</li>
+        </ul>
+      </div>
+
+      <div class="note-card">
+        <h3>기차 시간·역명 정정 <span class="tag new">확인 결과</span></h3>
+        <ul>
+          <li><strong>3/20 출발역</strong>: 프랑크푸르트 <strong>공항 장거리역(Fernbahnhof)</strong>에서 출발합니다. 시내 중앙역(Hbf)이 아닙니다 — 역명을 잘못 고르면 공항에서 시내로 갔다가 되돌아와야 합니다.</li>
+          <li><strong>3/23 10:15 ICE</strong>: 직통 1시간 15분이면 <strong>11:30경 FRA 도착</strong>. 표의 “12:05 도착”은 오기(10:50 환승편 기준 시각)입니다.</li>
+          <li>2027-03-23 실제 조회: <strong>10:26 ICE 1010 직행 → 11:38</strong>, 다음 직행 11:49 → 13:08. 14:50 비행기까지 3시간 이상 여유.</li>
+          <li>3/20 저녁: <strong>20:52 ICE 615 → 22:17</strong>이 “20:30 이후”의 첫 직행편(21:52·22:52 대안).</li>
+        </ul>
+        <p class="src">출처: bahn.de 연결 조회(2027-03-20·03-23, 좌석 지정 전 가격 3/20 €24.99부터, 3/23 €19.99부터)</p>
+      </div>
+
+      <div class="note-card">
+        <h3>구겐하임 미술관 (3/23 19:00) <span class="tag new">시간 주의</span></h3>
+        <ul>
+          <li>화–일 <strong>10:00–19:00</strong>, 매표 마감 <strong>18:30</strong>, 폐관 15분 전 퇴장 안내</li>
+          <li>성주간(부활절 주간) 연장 운영 시 <strong>20:00 폐관·매표 마감 19:30</strong> — 2027년 적용 여부는 공지 확인</li>
+          <li>따라서 19:00 도착 계획은 <strong>입장이 어렵습니다</strong>. 17:00 착륙 후 렌터카 인수(30~45분)를 감안해 18:00~18:30 도착으로 당기거나, 외관·‘Puppy’·‘Maman’ 조형물 산책으로 즐기세요</li>
+          <li>티켓은 공식 홈페이지에서(오디오 가이드 포함·환불 불가)</li>
+        </ul>
+        <p class="src">출처: <a href="https://www.guggenheim-bilbao.eus/en/hours-and-admission" target="_blank" rel="noopener">Guggenheim Bilbao — Hours and admission</a></p>
+      </div>
+
+      <div class="note-card">
+        <h3>가우디 투어 시간 (3/27) <span class="tag new">시간 주의</span></h3>
+        <ul>
+          <li><strong>07:30은 개장 전</strong>: 카사 바트요 09:00–19:15(매일), 카사 밀라 09:00 개장(3월은 20:30 폐관), 구엘 공원 <strong>09:30</strong> 개장</li>
+          <li>07:30은 가이드 투어 <strong>미팅 시각</strong>으로 보입니다 — 미팅 장소와 시각을 예약처에 확인하고, 개장 전에 도착하면 주변에서 기다려야 합니다</li>
+          <li>구엘 공원은 티켓 시간대 기준 <strong>30분 내 입장</strong>, 재입장 불가 — 07:00~09:30은 주민 전용 시간대라 관광객은 09:30부터 입장</li>
+          <li>가이드 투어를 쓰면 <strong>개별 입장권 중복 구매 금지</strong> — 단체 티켓 포함 여부를 예약 확인서로 체크</li>
+          <li>보케리아 시장은 <strong>저녁 7시 전후 상점 마감</strong>이 많아 쇼핑은 낮~오후에</li>
+        </ul>
+        <p class="src">출처: <a href="https://www.casabatllo.es/en/visit/" target="_blank" rel="noopener">Casa Batlló</a> · <a href="https://www.lapedrera.com/en/practical-information/" target="_blank" rel="noopener">La Pedrera</a> · <a href="https://parkguell.barcelona/en/planning-your-visit/prices-and-times" target="_blank" rel="noopener">Park Güell</a></p>
+      </div>
+
+      <div class="note-card">
+        <h3>아로 · 렌터카 메모</h3>
+        <ul>
+          <li>시음하는 3/24는 차를 두고 도보·택시(숙소 콜택시)</li>
+          <li>아로에는 우버 등 앱 택시가 사실상 없습니다</li>
+          <li>3/26 렌터카 반납은 13:00 BIO 도착 기준 최소 30분 여유</li>
+          <li>마르케스 데 리스칼은 호텔·레스토랑 예약이 별도 — 3/25 방문 전 확인</li>
+        </ul>
+      </div>
+
+      <div class="note-card wide">
+        <h3>출처 모음 · 확인 기준일</h3>
+        <p class="src" style="margin-top:2px">
+          2026-11-18 확인. 요금·시간은 바뀔 수 있으니 예약 시점에 한 번 더 대조하세요.<br>
+          · 프랑크푸르트 공항: <a href="https://www.frankfurt-airport.com/de/anreise-parken/an-und-abreise/mit-der-bahn.html" target="_blank" rel="noopener">frankfurt-airport.com</a><br>
+          · DB 시간표: <a href="https://www.bahn.de/" target="_blank" rel="noopener">bahn.de</a><br>
+          · 산타 마리아 델 마르: <a href="https://www.santamariadelmar.barcelona/en/opening-hours-and-admission-fees/" target="_blank" rel="noopener">santamariadelmar.barcelona</a><br>
+          · 피카소 미술관: <a href="https://museupicassobcn.cat/en/plan-your-visit/buy-tickets-and-opening-hours" target="_blank" rel="noopener">museupicassobcn.cat</a><br>
+          · 바르셀로나 대성당: <a href="https://catedralbcn.org/es/visita-turistica/horarios-visita-turistica/" target="_blank" rel="noopener">catedralbcn.org</a>
+        </p>
+      </div>
+
+    </div>
+  </section>
+  </main>
+
+  <footer class="foot">
+    <span>정유진 님 가족 여행 대시보드 · 2027.03.20–03.30</span>
+    <span>마지막 확인 2026.11.18 · 요금·운영시간은 예약 시 재확인</span>
+  </footer>
+</div>
+
+<a href="#top" class="to-top" id="to-top" aria-label="맨 위로" title="맨 위로">↑</a>
+
+<script>
+(function () {
+  "use strict";
+
+  var toTopBtn = document.getElementById("to-top");
+  if (toTopBtn) {
+    toTopBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
+  /* ---------- 탭 ---------- */
+  var tabs = Array.prototype.slice.call(document.querySelectorAll(".tab"));
+  var panels = {
+    "tab-schedule": document.getElementById("panel-schedule"),
+    "tab-check": document.getElementById("panel-check"),
+    "tab-cost": document.getElementById("panel-cost"),
+    "tab-notes": document.getElementById("panel-notes")
+  };
+  function selectTab(id) {
+    tabs.forEach(function (t) {
+      var on = t.id === id;
+      t.setAttribute("aria-selected", on ? "true" : "false");
+      var p = panels[t.id];
+      if (p) { p.classList.toggle("active", on); }
+    });
+  }
+  tabs.forEach(function (t) {
+    t.addEventListener("click", function () { selectTab(t.id); });
+  });
+
+  /* ---------- 날짜 점프 & 스티키 높이 ---------- */
+  var tabsNav = document.querySelector(".tabs");
+  var schedSticky = document.getElementById("schedule-sticky");
+  function syncStickyOffset() {
+    if (tabsNav) {
+      document.documentElement.style.setProperty("--tabs-h", tabsNav.offsetHeight + "px");
+    }
+    if (schedSticky && schedSticky.offsetHeight) {
+      document.documentElement.style.setProperty("--sched-h", schedSticky.offsetHeight + "px");
+    }
+  }
+  syncStickyOffset();
+  window.addEventListener("resize", syncStickyOffset);
+
+  var jumpBtns = Array.prototype.slice.call(document.querySelectorAll("#jump a"));
+  jumpBtns.forEach(function (b) {
+    b.addEventListener("click", function (e) {
+      jumpBtns.forEach(function (x) { x.classList.remove("on"); });
+      b.classList.add("on");
+      var el = document.getElementById(b.getAttribute("data-target"));
+      if (el) {
+        e.preventDefault();
+        var offset = (tabsNav ? tabsNav.offsetHeight : 60) + (schedSticky ? schedSticky.offsetHeight : 128) + 10;
+        var top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+      }
+    });
+  });
+
+  /* ---------- D-day ---------- */
+  var ddayEl = document.getElementById("dday");
+  (function () {
+    var start = new Date(2027, 2, 20);
+    var end = new Date(2027, 2, 30);
+    var now = new Date();
+    var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    var day = 86400000;
+    var diff = Math.round((start - today) / day);
+    var text;
+    if (today > end) {
+      text = "여행 종료";
+    } else if (diff > 0) {
+      text = "D-" + diff;
+    } else if (today >= start && today <= end) {
+      text = "여행 중 · D+" + Math.round((today - start) / day + 1);
+    } else {
+      text = "출발일";
+    }
+    if (ddayEl) { ddayEl.textContent = text; }
+  })();
+
+  /* ---------- 환율 · 경비 ---------- */
+  var rateInput = document.getElementById("rate");
+  var rateInput2 = document.getElementById("rate2");
+  var rows = Array.prototype.slice.call(document.querySelectorAll("#cost-table tbody tr"));
+  var daySums = Array.prototype.slice.call(document.querySelectorAll(".day-sum[data-krw]"));
+  var RATE_KEY = "trip-dashboard-2027-rate-v1";
+  try {
+    var savedRate = window.localStorage.getItem(RATE_KEY);
+    if (savedRate && isFinite(parseFloat(savedRate)) && parseFloat(savedRate) > 0) {
+      if (rateInput) { rateInput.value = savedRate; }
+      if (rateInput2) { rateInput2.value = savedRate; }
+    }
+  } catch (e) {}
+  var KRW_FIXED = 1421976;   /* 1,066,376 + 355,600 */
+  var EUR_TOTAL = 423.5;     /* 11.5 + 268.0 + 144.0 */
+
+  function won(n) {
+    return "₩" + Math.round(n).toLocaleString("ko-KR");
+  }
+  function eur(n) {
+    var s = (Math.round(n * 10) / 10).toFixed(1);
+    return "€" + s;
+  }
+  function currentRate() {
+    var v = parseFloat(rateInput && rateInput.value ? rateInput.value : "1500");
+    if (!isFinite(v) || v <= 0) { v = 1500; }
+    return v;
+  }
+  function renderCost() {
+    var rate = currentRate();
+    var totalKrw = 0;
+    var totalEur = 0;
+    rows.forEach(function (tr) {
+      var krw = parseFloat(tr.getAttribute("data-krw")) || 0;
+      var e = parseFloat(tr.getAttribute("data-eur")) || 0;
+      totalKrw += krw;
+      totalEur += e;
+      var kc = tr.querySelector(".krw");
+      var ec = tr.querySelector(".eur");
+      var tc = tr.querySelector(".total");
+      if (kc) { kc.textContent = krw ? won(krw) : "—"; }
+      if (ec) { ec.textContent = e ? eur(e) : "—"; }
+      if (tc) { tc.textContent = (krw || e) ? won(krw + e * rate) : "—"; }
+    });
+    var grand = totalKrw + totalEur * rate;
+    var ft = document.getElementById("foot-total");
+    var fk = document.getElementById("foot-krw");
+    var fe = document.getElementById("foot-eur");
+    if (fk) { fk.textContent = won(totalKrw); }
+    if (fe) { fe.textContent = eur(totalEur); }
+    if (ft) { ft.textContent = won(grand); }
+    var kpiTotal = document.getElementById("kpi-total");
+    var kpiEur = document.getElementById("kpi-eur");
+    if (kpiTotal) { kpiTotal.textContent = won(grand); }
+    if (kpiEur) { kpiEur.textContent = eur(totalEur) + " × " + rate.toLocaleString("ko-KR") + "원 적용"; }
+    var ct = document.getElementById("cost-total");
+    if (ct) { ct.textContent = won(grand); }
+    var cb = document.getElementById("cost-breakdown");
+    if (cb) {
+      cb.textContent = "원화 고정 " + won(totalKrw) + " + 유로 " + eur(totalEur) +
+        " × " + rate.toLocaleString("ko-KR") + "원";
+    }
+    daySums.forEach(function (el) {
+      var krw = parseFloat(el.getAttribute("data-krw")) || 0;
+      var e = parseFloat(el.getAttribute("data-eur")) || 0;
+      var b = el.querySelector("b");
+      if (b) { b.textContent = won(krw + e * rate); }
+    });
+    var note27 = document.getElementById("note-27-cost");
+    if (note27) {
+      note27.textContent = "₩355,600 + €268.0 = " + won(355600 + 268 * rate) +
+        " (환율 " + rate.toLocaleString("ko-KR") + "원 기준)";
+    }
+  }
+  function syncRate(value) {
+    if (rateInput) { rateInput.value = value; }
+    if (rateInput2) { rateInput2.value = value; }
+    try { window.localStorage.setItem(RATE_KEY, value); } catch (e) {}
+    renderCost();
+  }
+  if (rateInput) {
+    rateInput.addEventListener("input", function () { syncRate(rateInput.value); });
+  }
+  if (rateInput2) {
+    rateInput2.addEventListener("input", function () { syncRate(rateInput2.value); });
+  }
+  renderCost();
+
+  /* ---------- 실시간 유로 환율 조회 ---------- */
+  (function () {
+    var txt1 = document.getElementById("live-rate-text");
+    var txt2 = document.getElementById("live-rate-text2");
+    var btn1 = document.getElementById("apply-live-rate");
+    var btn2 = document.getElementById("apply-live-rate2");
+    var fetchedRate = 1468;
+
+    function setLiveText(msg) {
+      if (txt1) { txt1.textContent = msg; }
+      if (txt2) { txt2.textContent = msg; }
+    }
+    function enableLive(rate, dateLabel) {
+      fetchedRate = Math.round(rate);
+      setLiveText("오늘 환율 €1 ≈ ₩" + fetchedRate.toLocaleString("ko-KR") + (dateLabel ? " (" + dateLabel + ")" : ""));
+      if (btn1) { btn1.disabled = false; }
+      if (btn2) { btn2.disabled = false; }
+    }
+    function applyLive() {
+      if (fetchedRate) { syncRate(String(fetchedRate)); }
+    }
+    if (btn1) { btn1.addEventListener("click", applyLive); }
+    if (btn2) { btn2.addEventListener("click", applyLive); }
+
+    if (typeof window.fetch !== "function") {
+      return;
+    }
+    window.fetch("https://api.frankfurter.app/latest?from=EUR&to=KRW")
+      .then(function (r) { if (!r.ok) { throw new Error("net"); } return r.json(); })
+      .then(function (d) {
+        if (d && d.rates && d.rates.KRW) {
+          enableLive(d.rates.KRW, d.date ? d.date.slice(5) + " ECB" : "ECB");
+        } else { throw new Error("data"); }
+      })
+      .catch(function () {
+        window.fetch("https://open.er-api.com/v6/latest/EUR")
+          .then(function (r) { if (!r.ok) { throw new Error("net2"); } return r.json(); })
+          .then(function (d) {
+            if (d && d.rates && d.rates.KRW) {
+              enableLive(d.rates.KRW, "실시간");
+            }
+          })
+          .catch(function () { /* 기본 1,468원 유지 */ });
+      });
+  })();
+
+  /* ---------- 체크리스트 ---------- */
+  var STORAGE_KEY = "trip-dashboard-2027-checklist-v1";
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('.group input[type="checkbox"][data-id]'));
+  var saved = {};
+  try {
+    saved = JSON.parse(window.localStorage.getItem(STORAGE_KEY) || "{}") || {};
+  } catch (e) {
+    saved = {};
+  }
+  boxes.forEach(function (box) {
+    var id = box.getAttribute("data-id");
+    if (saved && saved[id]) { box.checked = true; }
+    box.addEventListener("change", function () {
+      var state = {};
+      boxes.forEach(function (b) {
+        if (b.checked) { state[b.getAttribute("data-id")] = true; }
+      });
+      try {
+        window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      } catch (e) { /* 저장 불가 시 화면 상태만 유지 */ }
+      updateProgress();
+    });
+  });
+
+  function updateProgress() {
+    var done = boxes.filter(function (b) { return b.checked; }).length;
+    var total = boxes.length;
+    var pct = total ? Math.round((done / total) * 100) : 0;
+    boxes.forEach(function (b) {
+      var li = b.closest("li");
+      if (li) { li.classList.toggle("done", b.checked); }
+    });
+    var pt = document.getElementById("prog-text");
+    var ps = document.getElementById("prog-sub");
+    var pb = document.getElementById("prog-bar");
+    var kp = document.getElementById("kpi-progress");
+    var kps = document.getElementById("kpi-progress-sub");
+    var kb = document.getElementById("kpi-bar");
+    if (pt) { pt.textContent = done + " / " + total + " 완료"; }
+    if (ps) {
+      ps.textContent = done === total && total > 0
+        ? "모든 항목을 확인했습니다. 즐거운 여행 되세요."
+        : "남은 " + (total - done) + "개 항목이 있습니다.";
+    }
+    if (pb) { pb.style.width = pct + "%"; }
+    if (kp) { kp.textContent = done + " / " + total; }
+    if (kps) { kps.textContent = pct + "% 완료 · 체크 상태는 자동 저장"; }
+    if (kb) { kb.style.width = pct + "%"; }
+  }
+  updateProgress();
+
+  var resetBtn = document.getElementById("reset-check");
+  if (resetBtn) {
+    resetBtn.addEventListener("click", function () {
+      boxes.forEach(function (b) { b.checked = false; });
+      try { window.localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+      updateProgress();
+    });
+  }
+})();
+</script>
+</body>
+</html>
