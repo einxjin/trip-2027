@@ -94,6 +94,25 @@
     background:#F3EDE1;border:1px solid var(--line);border-radius:999px;
     padding:0 7px;line-height:1.7;letter-spacing:0;vertical-align:1px;margin-left:2px;
   }
+  .k-tag{
+    display:inline-block;font-size:10.5px;font-weight:700;color:var(--ink-soft);
+    background:#F3EDE1;border:1px solid var(--line);border-radius:999px;
+    padding:0 7px;line-height:1.7;letter-spacing:0;vertical-align:1px;margin-left:2px;
+  }
+  /* 참고용 사전 확정·예상 경비 띠 */
+  .ref-strip{
+    display:flex;align-items:center;gap:10px 14px;flex-wrap:wrap;justify-content:space-between;
+    margin-top:12px;padding:11px 16px;border:1px dashed #D9CDBA;border-radius:14px;
+    background:rgba(255,253,248,.66);
+  }
+  .ref-strip .ref-left{display:flex;flex-direction:column;gap:1px;min-width:0;flex:1 1 220px}
+  .ref-strip .ref-label{font-size:12.5px;font-weight:700;color:var(--ink-soft)}
+  .ref-strip .ref-sub{font-size:11.5px;color:var(--ink-soft)}
+  .ref-strip .ref-value{
+    font-family:var(--serif);font-size:18px;font-weight:600;color:var(--navy);
+    font-variant-numeric:tabular-nums;white-space:nowrap;
+  }
+  .ref-strip .ref-link{font-size:12px;color:var(--ink-soft);border-bottom:1px solid var(--line);white-space:nowrap}
   .kpi.grand{background:linear-gradient(160deg,#1B2A45,#26365A);border-color:#26365A}
   .kpi.grand .k-label{color:#C9D3E6}
   .kpi.grand .k-value{color:#FBF7F0}
@@ -135,6 +154,7 @@
   .field.s2{grid-column:span 2}
   .field.s4{grid-column:span 4}
   .field > label{font-size:12px;font-weight:700;letter-spacing:.03em;color:var(--ink-soft)}
+  .field > label .field-hint{font-weight:500;letter-spacing:0;color:#8A8578;margin-left:4px;font-size:11.5px}
   input[type="text"],input[type="number"],input[type="date"],select,textarea{
     width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;
     background:#FFFDFA;color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.4;
@@ -216,6 +236,25 @@
   .storage-note{font-size:12.5px;color:var(--ink-soft);margin:12px 0 0;padding-top:12px;border-top:1px dashed var(--line-soft)}
 
   /* ---------- LIST ---------- */
+  .filter-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;max-width:100%;min-width:0}
+  .fbtn{
+    appearance:none;display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line);
+    background:#FFFDFA;color:var(--ink-soft);font-family:var(--sans);font-size:12.5px;font-weight:600;
+    border-radius:999px;padding:5px 12px;cursor:pointer;line-height:1.5;max-width:100%;
+  }
+  .fbtn:hover{border-color:#CFC0A9;color:var(--ink)}
+  .fbtn b{
+    font-variant-numeric:tabular-nums;font-size:11px;font-weight:700;color:var(--terra);
+    background:var(--terra-soft);border-radius:999px;padding:0 6px;line-height:1.6;
+  }
+  .fbtn.on{background:var(--navy);border-color:var(--navy);color:#FBF7F0}
+  .fbtn.on b{background:rgba(231,199,154,.25);color:#F6DFC0}
+  .ph{
+    display:inline-block;font-size:10px;font-weight:700;border-radius:999px;padding:0 7px;
+    border:1px solid;line-height:1.7;white-space:nowrap;vertical-align:1px;
+  }
+  .ph.pre{color:#7A5407;background:#FAF1DC;border-color:#E5D2A4}
+  .ph.trip{color:#2F5D45;background:#EAF1EC;border-color:#BCD3C5}
   .two-col{display:grid;grid-template-columns:1.55fr 1fr;gap:18px;align-items:start;margin-top:18px}
   .two-col .card{margin-top:0}
   .toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:8px}
@@ -271,6 +310,9 @@
   .side-total .line b{font-family:var(--serif);font-weight:600;font-variant-numeric:tabular-nums}
   .side-total .line.big{font-size:14px;padding-top:9px;margin-top:6px;border-top:1px dashed var(--line-soft)}
   .side-total .line.big b{font-size:21px;color:var(--terra)}
+  .side-total .line.mute{font-size:12px;color:var(--ink-soft);margin-top:8px;padding-top:8px;border-top:1px dashed var(--line-soft)}
+  .side-total .line.mute em{font-style:normal;font-size:11px}
+  .side-total .line.mute b{font-size:13px;color:var(--ink-soft)}
 
   /* ---------- BASE TABLE ---------- */
   table.cost{width:100%;border-collapse:collapse;background:var(--ivory);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
@@ -353,19 +395,19 @@
   <!-- ================= SUMMARY ================= -->
   <section class="kpis" aria-label="경비 요약">
     <div class="kpi grand">
-      <span class="k-label">총 지출 (직접 입력 기준)</span>
+      <span class="k-label">총 지출 (사전 + 여행 중)</span>
       <span class="k-value" id="kpi-grand">₩0</span>
-      <span class="k-sub" id="kpi-grand-sub">사전 경비 제외 · 환율 <strong>1,500원</strong> 기준</span>
+      <span class="k-sub" id="kpi-grand-sub">환율 <strong>1,500원</strong> 기준</span>
     </div>
     <div class="kpi">
-      <span class="k-label">입력한 지출</span>
-      <span class="k-value" id="kpi-count">0건</span>
-      <span class="k-sub" id="kpi-count-sub">아직 입력한 지출이 없습니다</span>
+      <span class="k-label">사전 지출</span>
+      <span class="k-value" id="kpi-pre">₩0</span>
+      <span class="k-sub" id="kpi-pre-sub">출발 전 결제·예약</span>
     </div>
     <div class="kpi">
-      <span class="k-label">사전 확정·예상 경비 <span class="k-tag">참고용 · 합계 제외</span></span>
-      <span class="k-value" id="kpi-base">₩2,057,226</span>
-      <span class="k-sub" id="kpi-base-sub">원화 ₩1,421,976 + 유로 €423.5</span>
+      <span class="k-label">여행 중 지출</span>
+      <span class="k-value" id="kpi-trip">₩0</span>
+      <span class="k-sub" id="kpi-trip-sub">현지에서 쓴 돈</span>
     </div>
     <div class="kpi">
       <span class="k-label">적용 환율</span>
@@ -381,11 +423,20 @@
     </div>
   </section>
 
+  <div class="ref-strip" role="note" aria-label="참고용 사전 확정·예상 경비">
+    <div class="ref-left">
+      <span class="ref-label">사전 확정 · 예상 경비 <span class="k-tag">참고용 · 합계 제외</span></span>
+      <span class="ref-sub" id="kpi-base-sub">원화 ₩1,421,976 + 유로 €423.5 · 위 합계에 넣지 않습니다</span>
+    </div>
+    <span class="ref-value" id="kpi-base">₩2,057,226</span>
+    <a class="ref-link" href="#base">표 보기 ↓</a>
+  </div>
+
   <!-- ================= INPUT ================= -->
   <section class="card" id="add">
     <div class="section-head">
       <h2>지출 입력</h2>
-      <span class="hint">여행 중 쓴 돈을 그 자리에서 기록하세요</span>
+      <span class="hint">출발 전 결제는 ‘사전 지출’, 현지에서 쓴 돈은 ‘여행 중 지출’로 나눠 기록하세요</span>
     </div>
 
     <form id="exp-form" autocomplete="off" novalidate>
@@ -432,6 +483,13 @@
         </div>
       </div>
       <div class="field s2">
+        <label>구분 <span class="field-hint">출발 전 결제 / 여행 중 지출</span></label>
+        <div class="seg" role="radiogroup" aria-label="지출 구분">
+          <label><input type="radio" name="phase" value="trip" checked><span>여행 중 지출</span></label>
+          <label><input type="radio" name="phase" value="pre"><span>사전 지출</span></label>
+        </div>
+      </div>
+      <div class="field s4">
         <label for="f-memo">메모 (선택)</label>
         <input type="text" id="f-memo" name="memo" maxlength="80" placeholder="예: 4인 기준, 영수증 봉투에 보관">
       </div>
@@ -454,6 +512,12 @@
         <span class="hint">항목을 눌러 수정하거나 삭제할 수 있습니다</span>
       </div>
 
+      <div class="filter-row" id="phase-filter" role="group" aria-label="지출 구분 필터">
+        <button type="button" class="fbtn on" data-filter="all" aria-pressed="true">전체 <b id="fc-all">0</b></button>
+        <button type="button" class="fbtn" data-filter="pre" aria-pressed="false">사전 지출 <b id="fc-pre">0</b></button>
+        <button type="button" class="fbtn" data-filter="trip" aria-pressed="false">여행 중 지출 <b id="fc-trip">0</b></button>
+      </div>
+
       <div class="toolbar">
         <div class="left">
           <label for="sort">정렬</label>
@@ -473,7 +537,7 @@
       <div class="exp-list" id="exp-list"></div>
 
       <div class="sum-strip">
-        <span id="sum-strip-text">직접 입력 지출 0건 · 사전 경비는 합계에서 제외</span>
+        <span id="sum-strip-text">전체 0건 합계 · 사전 확정 경비 제외</span>
         <span class="v" id="sum-strip-total">₩0</span>
       </div>
     </section>
@@ -481,14 +545,15 @@
     <aside class="card" id="summary-card">
       <div class="section-head">
         <h2>카테고리별 지출</h2>
-        <span class="hint">실제 입력 기준</span>
+        <span class="hint">사전 + 여행 중 입력 기준</span>
       </div>
       <div class="cat-summary" id="cat-summary"></div>
 
       <div class="side-total">
-        <div class="line"><span>사전 확정·예상 경비 <em style="font-style:normal;font-size:11.5px;color:var(--ink-soft)">(참고용 · 합계 제외)</em></span><b id="side-base">₩2,057,226</b></div>
-        <div class="line"><span>직접 입력 지출</span><b id="side-actual">₩0</b></div>
+        <div class="line"><span>사전 지출</span><b id="side-pre">₩0</b></div>
+        <div class="line"><span>여행 중 지출</span><b id="side-trip">₩0</b></div>
         <div class="line big"><span>총 지출</span><b id="side-grand">₩0</b></div>
+        <div class="line mute"><span>사전 확정·예상 경비 <em>(참고용 · 합계 제외)</em></span><b id="side-base">₩2,057,226</b></div>
       </div>
     </aside>
   </div>
@@ -595,6 +660,8 @@
     "기타":       { bg: "#F1F2F4", fg: "#4B5563", br: "#D6D9DD" }
   };
   var DOW = ["일", "월", "화", "수", "목", "금", "토"];
+  var PHASE_LABEL = { pre: "사전 지출", trip: "여행 중 지출" };
+  var PHASE_BADGE = { pre: "사전", trip: "여행중" };
 
   var rateInput = document.getElementById("rate");
   var dateInput = document.getElementById("f-date");
@@ -615,6 +682,7 @@
 
   var editingId = null;
   var statusTimer = null;
+  var phaseTouched = false;   /* 유진 님이 구분을 직접 골랐는지 */
   var expenses = loadExpenses();
 
   /* ---------- 저장소 ---------- */
@@ -633,6 +701,10 @@
           date: e.date,
           title: e.title,
           category: CAT_LIST.indexOf(e.category) >= 0 ? e.category : "기타",
+          /* 기존 저장분에 구분이 없으면 날짜로 추정: 3/20 이전이면 사전 지출 */
+          phase: (e.phase === "pre" || e.phase === "trip")
+            ? e.phase
+            : ((typeof e.date === "string" && e.date < TRIP_START) ? "pre" : "trip"),
           currency: e.currency,
           amount: parseFloat(e.amount) || 0,
           method: e.method === "현금" ? "현금" : "카드",
@@ -747,9 +819,20 @@
   function totals() {
     var rate = currentRate();
     var actKrw = 0, actEur = 0, actKrwOnly = 0;
+    var preKrw = 0, preEur = 0, preKrwOnly = 0, preCount = 0;
+    var tripKrw = 0, tripEur = 0, tripKrwOnly = 0, tripCount = 0;
     expenses.forEach(function (e) {
-      if (e.currency === "EUR") { actEur += e.amount; actKrw += e.amount * rate; }
-      else { actKrwOnly += e.amount; actKrw += e.amount; }
+      var k = (e.currency === "EUR") ? e.amount * rate : e.amount;
+      if (e.currency === "EUR") { actEur += e.amount; }
+      else { actKrwOnly += e.amount; }
+      actKrw += k;
+      if (e.phase === "pre") {
+        preKrw += k; preCount++;
+        if (e.currency === "EUR") { preEur += e.amount; } else { preKrwOnly += e.amount; }
+      } else {
+        tripKrw += k; tripCount++;
+        if (e.currency === "EUR") { tripEur += e.amount; } else { tripKrwOnly += e.amount; }
+      }
     });
     var base = BASE_KRW + BASE_EUR * rate;
     return {
@@ -758,59 +841,68 @@
       actKrw: actKrw,
       actEur: actEur,
       actKrwOnly: actKrwOnly,
-      /* 총 지출은 유진 님이 직접 입력한 실제 지출만 합산한다. 사전 경비는 참고용. */
-      grand: actKrw,
+      preKrw: preKrw,
+      preEur: preEur,
+      preKrwOnly: preKrwOnly,
+      preCount: preCount,
+      tripKrw: tripKrw,
+      tripEur: tripEur,
+      tripKrwOnly: tripKrwOnly,
+      tripCount: tripCount,
+      /* 총 지출 = 사전 지출 + 여행 중 지출 (사전 확정·예상 경비는 참고용으로 제외) */
+      grand: preKrw + tripKrw,
       count: expenses.length
     };
+  }
+
+  function phaseSub(count, eurSum, krwOnly, emptyText) {
+    if (!count) { return emptyText; }
+    var parts = [count + "건"];
+    if (eurSum) { parts.push(eur(eurSum)); }
+    if (krwOnly) { parts.push(won(krwOnly)); }
+    return parts.join(" · ");
   }
 
   function renderSummary() {
     var t = totals();
 
-    /* 총 지출 — 직접 입력한 실제 지출만 */
+    /* 총 지출 — 사전 + 여행 중 */
     var kg = document.getElementById("kpi-grand");
     var kgs = document.getElementById("kpi-grand-sub");
     if (kg) { kg.textContent = won(t.grand); }
     if (kgs) {
-      kgs.innerHTML = "사전 경비 제외 · 환율 <strong>" + money(t.rate) + "원</strong> 기준";
+      kgs.innerHTML = "사전 " + t.preCount + "건 + 여행 중 " + t.tripCount + "건 · 환율 <strong>" + money(t.rate) + "원</strong>";
     }
 
-    /* 입력 건수 + 통화 구성 */
-    var kc = document.getElementById("kpi-count");
-    var kcs = document.getElementById("kpi-count-sub");
-    if (kc) { kc.textContent = t.count + "건"; }
-    if (kcs) {
-      if (!t.count) { kcs.textContent = "아직 입력한 지출이 없습니다"; }
-      else {
-        var parts = [];
-        if (t.actEur) { parts.push(eur(t.actEur)); }
-        if (t.actKrwOnly) { parts.push(won(t.actKrwOnly)); }
-        kcs.textContent = parts.length ? parts.join(" · ") : "금액 0원";
-      }
-    }
+    /* 사전 지출 */
+    var kpre = document.getElementById("kpi-pre");
+    var kpres = document.getElementById("kpi-pre-sub");
+    if (kpre) { kpre.textContent = won(t.preKrw); }
+    if (kpres) { kpres.textContent = phaseSub(t.preCount, t.preEur, t.preKrwOnly, "출발 전 결제·예약"); }
 
-    /* 사전 확정·예상 경비 — 참고용 */
+    /* 여행 중 지출 */
+    var ktrip = document.getElementById("kpi-trip");
+    var ktrips = document.getElementById("kpi-trip-sub");
+    if (ktrip) { ktrip.textContent = won(t.tripKrw); }
+    if (ktrips) { ktrips.textContent = phaseSub(t.tripCount, t.tripEur, t.tripKrwOnly, "현지에서 쓴 돈"); }
+
+    /* 사전 확정·예상 경비 — 참고용 (합계 제외) */
     var kp = document.getElementById("kpi-base");
     var kps = document.getElementById("kpi-base-sub");
     if (kp) { kp.textContent = won(t.base); }
-    if (kps) { kps.textContent = "원화 " + won(BASE_KRW) + " + 유로 " + eur(BASE_EUR); }
-
-    var sb = document.getElementById("side-base");
-    var sa = document.getElementById("side-actual");
-    var sg = document.getElementById("side-grand");
-    if (sb) { sb.textContent = won(t.base); }
-    if (sa) { sa.textContent = won(t.actKrw); }
-    if (sg) { sg.textContent = won(t.grand); }
-
-    var strip = document.getElementById("sum-strip-text");
-    var stripTotal = document.getElementById("sum-strip-total");
-    if (strip) {
-      strip.textContent = "직접 입력 지출 " + t.count + "건 · 사전 경비 " + won(t.base) + "는 합계에서 제외";
+    if (kps) {
+      kps.textContent = "원화 " + won(BASE_KRW) + " + 유로 " + eur(BASE_EUR) + " · 위 합계에 넣지 않습니다";
     }
-    if (stripTotal) { stripTotal.textContent = won(t.grand); }
 
-    var count = document.getElementById("exp-count");
-    if (count) { count.textContent = t.count + "건"; }
+    var setTxt = function (id, v) {
+      var el = document.getElementById(id);
+      if (el) { el.textContent = v; }
+    };
+    setTxt("side-pre", won(t.preKrw));
+    setTxt("side-trip", won(t.tripKrw));
+    setTxt("side-grand", won(t.grand));
+    setTxt("side-base", won(t.base));
+    setTxt("exp-count", t.count + "건");
   }
 
   /* ---------- 카테고리 요약 ---------- */
@@ -844,9 +936,16 @@
   }
 
   /* ---------- 목록 ---------- */
+  var phaseFilter = "all";
+
+  function visibleExpenses() {
+    if (phaseFilter === "all") { return expenses.slice(); }
+    return expenses.filter(function (e) { return e.phase === phaseFilter; });
+  }
+
   function sortedExpenses() {
     var mode = sortSel ? sortSel.value : "date-desc";
-    var arr = expenses.slice();
+    var arr = visibleExpenses();
     arr.sort(function (a, b) {
       if (mode === "date-asc") {
         return a.date.localeCompare(b.date) || a.created - b.created;
@@ -862,14 +961,55 @@
     return arr;
   }
 
+  function phaseBadge(p) {
+    var k = (p === "pre") ? "pre" : "trip";
+    return '<span class="ph ' + k + '">' + PHASE_BADGE[k] + '</span>';
+  }
+
+  function renderFilterCounts() {
+    var pre = 0;
+    expenses.forEach(function (e) { if (e.phase === "pre") { pre++; } });
+    var ids = { all: "fc-all", pre: "fc-pre", trip: "fc-trip" };
+    var vals = { all: expenses.length, pre: pre, trip: expenses.length - pre };
+    Object.keys(ids).forEach(function (k) {
+      var el = document.getElementById(ids[k]);
+      if (el) { el.textContent = vals[k]; }
+    });
+    var wrap = document.getElementById("phase-filter");
+    if (wrap) {
+      Array.prototype.slice.call(wrap.querySelectorAll("button[data-filter]")).forEach(function (b) {
+        var on = b.getAttribute("data-filter") === phaseFilter;
+        b.className = "fbtn" + (on ? " on" : "");
+        b.setAttribute("aria-pressed", on ? "true" : "false");
+      });
+    }
+  }
+
   function renderList() {
     if (!listEl) { return; }
-    if (!expenses.length) {
-      listEl.innerHTML = '<div class="empty">아직 입력한 지출이 없습니다.<br>위 입력란에서 첫 지출을 기록해 보세요.</div>';
+    renderFilterCounts();
+
+    var vis = sortedExpenses();
+    var sum = 0;
+    vis.forEach(function (e) { sum += krwOf(e); });
+
+    var strip = document.getElementById("sum-strip-text");
+    var stripTotal = document.getElementById("sum-strip-total");
+    if (strip) {
+      strip.textContent = (phaseFilter === "all" ? "전체" : PHASE_LABEL[phaseFilter]) +
+        " " + vis.length + "건 합계" +
+        (phaseFilter === "all" ? " · 사전 확정 경비 제외" : "");
+    }
+    if (stripTotal) { stripTotal.textContent = won(sum); }
+
+    if (!vis.length) {
+      listEl.innerHTML = '<div class="empty">' + (phaseFilter === "all"
+        ? '아직 입력한 지출이 없습니다.<br>위 입력란에서 첫 지출을 기록해 보세요.'
+        : PHASE_LABEL[phaseFilter] + '로 기록한 내역이 없습니다.') + '</div>';
       return;
     }
     var rate = currentRate();
-    listEl.innerHTML = sortedExpenses().map(function (e) {
+    listEl.innerHTML = vis.map(function (e) {
       var st = CAT_STYLE[e.category] || CAT_STYLE["기타"];
       var main = e.currency === "EUR" ? eur(e.amount) : won(e.amount);
       var conv = e.currency === "EUR"
@@ -880,7 +1020,7 @@
       return '<div class="exp-item' + (editingId === e.id ? " editing" : "") + '" data-id="' + esc(e.id) + '">' +
         '<div class="exp-date"><b>' + esc(mmdd(e.date)) + '</b><span>' + esc(dowOf(e.date)) + '요일</span></div>' +
         '<div class="exp-main">' +
-          '<div class="exp-title"><span class="cat" style="color:' + st.fg + ';background:' + st.bg + ';border-color:' + st.br + '">' + esc(e.category) + '</span>' + esc(e.title) + '</div>' +
+          '<div class="exp-title">' + phaseBadge(e.phase) + '<span class="cat" style="color:' + st.fg + ';background:' + st.bg + ';border-color:' + st.br + '">' + esc(e.category) + '</span>' + esc(e.title) + '</div>' +
           '<div class="exp-meta">' + metaBits.join(" · ") + '</div>' +
         '</div>' +
         '<div class="exp-amt"><b>' + main + '</b><span class="conv">' + conv + '</span>' +
@@ -917,6 +1057,27 @@
     }
   }
 
+  /* ---------- 구분(사전 / 여행 중) ---------- */
+  function phaseRadios() {
+    return form ? form.querySelectorAll('input[name="phase"]') : [];
+  }
+  function setPhase(v) {
+    var rs = phaseRadios();
+    for (var i = 0; i < rs.length; i++) { rs[i].checked = (rs[i].value === v); }
+  }
+  function currentPhase() {
+    var el = form ? form.querySelector('input[name="phase"]:checked') : null;
+    return (el && el.value === "pre") ? "pre" : "trip";
+  }
+  function phaseFromDate(dateStr) {
+    return (dateStr && dateStr < TRIP_START) ? "pre" : "trip";
+  }
+  function syncPhaseByDate() {
+    /* 수정 중이거나 유진 님이 직접 구분을 고른 뒤에는 건드리지 않는다 */
+    if (editingId || phaseTouched) { return; }
+    setPhase(phaseFromDate(dateInput ? dateInput.value : ""));
+  }
+
   /* ---------- 폼 ---------- */
   function defaultDate() {
     var now = new Date();
@@ -927,6 +1088,7 @@
 
   function resetForm(keepDate) {
     editingId = null;
+    phaseTouched = false;
     if (titleInput) { titleInput.value = ""; }
     if (amountInput) { amountInput.value = ""; }
     if (memoInput) { memoInput.value = ""; }
@@ -935,6 +1097,7 @@
     var card = form ? form.querySelector('input[name="method"][value="카드"]') : null;
     if (card) { card.checked = true; }
     if (!keepDate && dateInput && !dateInput.value) { dateInput.value = defaultDate(); }
+    setPhase(phaseFromDate(dateInput ? dateInput.value : TRIP_START));
     if (submitBtn) { submitBtn.textContent = "등록"; }
     if (cancelBtn) { cancelBtn.style.display = "none"; }
     updatePlaceholder();
@@ -951,6 +1114,7 @@
   if (dateInput) {
     dateInput.addEventListener("change", function () {
       if (!/^\d{4}-\d{2}-\d{2}$/.test(dateInput.value)) { return; }
+      syncPhaseByDate();
       renderQuickDates();
     });
   }
@@ -959,7 +1123,20 @@
       var btn = e.target.closest("button[data-date]");
       if (!btn) { return; }
       if (dateInput) { dateInput.value = btn.getAttribute("data-date"); }
+      syncPhaseByDate();
       renderQuickDates();
+    });
+  }
+  Array.prototype.slice.call(phaseRadios()).forEach(function (r) {
+    r.addEventListener("change", function () { phaseTouched = true; });
+  });
+  var phaseWrap = document.getElementById("phase-filter");
+  if (phaseWrap) {
+    phaseWrap.addEventListener("click", function (e) {
+      var btn = e.target.closest("button[data-filter]");
+      if (!btn) { return; }
+      phaseFilter = btn.getAttribute("data-filter");
+      renderList();
     });
   }
   if (curInput) {
@@ -998,6 +1175,7 @@
       var methodEl = form.querySelector('input[name="method"]:checked');
       var payload = {
         date: date,
+        phase: currentPhase(),
         title: title,
         category: catInput ? catInput.value : "기타",
         currency: curInput ? curInput.value : "EUR",
@@ -1011,6 +1189,7 @@
         expenses.forEach(function (x) { if (x.id === editingId) { target = x; } });
         if (target) {
           target.date = payload.date;
+          target.phase = payload.phase;
           target.title = payload.title;
           target.category = payload.category;
           target.currency = payload.currency;
@@ -1021,6 +1200,7 @@
         }
         var savedEdit = persist();
         editingId = null;
+        phaseTouched = false;
         if (titleInput) { titleInput.value = ""; }
         if (amountInput) { amountInput.value = ""; }
         if (memoInput) { memoInput.value = ""; }
@@ -1035,6 +1215,7 @@
       expenses.push({
         id: newId(),
         date: payload.date,
+        phase: payload.phase,
         title: payload.title,
         category: payload.category,
         currency: payload.currency,
@@ -1049,6 +1230,8 @@
       if (titleInput) { titleInput.value = ""; }
       if (amountInput) { amountInput.value = ""; }
       if (memoInput) { memoInput.value = ""; }
+      phaseTouched = false;
+      syncPhaseByDate();
       updatePreview();
       renderAll(true);
       status(saved
@@ -1072,6 +1255,7 @@
     if (!e) { return; }
     editingId = id;
     if (dateInput) { dateInput.value = e.date; }
+    setPhase(e.phase);   /* 수정 모드에서는 저장된 구분을 그대로 유지 */
     if (titleInput) { titleInput.value = e.title; }
     if (catInput) { catInput.value = e.category; }
     if (curInput) { curInput.value = e.currency; }
@@ -1107,7 +1291,7 @@
       var target = null;
       expenses.forEach(function (x) { if (x.id === id) { target = x; } });
       if (!target) { return; }
-      var label = mmdd(target.date) + " " + target.title + " " +
+      var label = mmdd(target.date) + " " + PHASE_LABEL[target.phase] + " · " + target.title + " " +
         (target.currency === "EUR" ? eur(target.amount) : won(target.amount));
       if (!window.confirm("이 지출을 삭제할까요?\n" + label)) { return; }
       expenses = expenses.filter(function (x) { return x.id !== id; });
@@ -1148,19 +1332,22 @@
       return a.date.localeCompare(b.date) || a.created - b.created;
     });
     var lines = [];
-    lines.push(["날짜", "요일", "항목", "카테고리", "통화", "금액", "결제수단", "메모", "원화환산", "적용환율(원/€)"].map(csvCell).join(","));
-    var sumKrw = 0;
+    lines.push(["날짜", "요일", "구분", "항목", "카테고리", "통화", "금액", "결제수단", "메모", "원화환산", "적용환율(원/€)"].map(csvCell).join(","));
+    var sumKrw = 0, sumPre = 0, sumTrip = 0;
     arr.forEach(function (e) {
       var k = krwOf(e);
       sumKrw += k;
+      if (e.phase === "pre") { sumPre += k; } else { sumTrip += k; }
       lines.push([
-        e.date, dowOf(e.date), e.title, e.category,
+        e.date, dowOf(e.date), PHASE_LABEL[e.phase], e.title, e.category,
         e.currency === "EUR" ? "EUR" : "KRW",
         e.amount, e.method, e.memo || "", Math.round(k), Math.round(rate)
       ].map(csvCell).join(","));
     });
     lines.push("");
-    lines.push(["합계 (직접 입력 지출 · 사전 경비 제외)", "", "", "", "", "", "", "", Math.round(sumKrw), Math.round(rate)].map(csvCell).join(","));
+    lines.push(["사전 지출 합계", "", "사전 지출", "", "", "", "", "", "", Math.round(sumPre), Math.round(rate)].map(csvCell).join(","));
+    lines.push(["여행 중 지출 합계", "", "여행 중 지출", "", "", "", "", "", "", Math.round(sumTrip), Math.round(rate)].map(csvCell).join(","));
+    lines.push(["총 지출 합계 (사전 + 여행 중 · 사전 확정 경비 제외)", "", "", "", "", "", "", "", "", Math.round(sumKrw), Math.round(rate)].map(csvCell).join(","));
     var csv = "\uFEFF" + lines.join("\r\n");
     var blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
     var now = new Date();
