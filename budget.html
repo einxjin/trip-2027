@@ -259,18 +259,22 @@
     box-sizing:border-box;
   }
   form#exp-form .seg input{width:1px;min-width:0;max-width:1px}
-  /* 날짜 칸은 iOS 내장 스타일을 끄고 폭을 180px로 고정한다(‘2027. 03. 20.’ 표기가 들어가는 크기).
+  /* 날짜 칸은 iOS 내장 스타일을 끄고 폭을 145px로 고정한다(통화 칸 정도의 아담한 크기).
+     부모 .field의 flex column 기본값 align-items:stretch 때문에
+     iOS Safari가 date 입력을 칸 전체로 늘리는 것을 align-self:flex-start 로 막는다.
      아래 폼 컨트롤 공통 width:100% 규칙보다 우선하도록 id로 한 단계 더 잠근다. */
   form#exp-form input#f-date,
   form#exp-form input[type="date"]{
     -webkit-appearance:none;
     appearance:none;
-    width:180px;
-    max-width:100%;
+    align-self:flex-start;
+    flex:0 0 auto;
+    width:145px;
+    max-width:145px;
     min-width:0;
     box-sizing:border-box;
     display:block;
-    padding:10px 10px;
+    padding:8px 10px;
     text-align:left;
   }
   form#exp-form input#f-date::-webkit-datetime-edit,
@@ -405,7 +409,8 @@
     .qd b{font-size:11px}
     .seg.payer span{font-size:13px;padding:8px 1px}
     .exp-item{grid-template-columns:52px 1fr auto;gap:8px;padding:11px 2px}
-    form#exp-form input[type="date"]{font-size:16px;padding-left:8px;padding-right:8px;width:180px;max-width:100%}
+    form#exp-form input#f-date,
+    form#exp-form input[type="date"]{font-size:16px;padding-left:8px;padding-right:8px;width:145px;max-width:145px;align-self:flex-start;flex:0 0 auto}
     .exp-title{font-size:14px}
     .exp-amt b{font-size:15px}
     .cat-row{grid-template-columns:68px 1fr auto}
