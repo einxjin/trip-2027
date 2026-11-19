@@ -105,6 +105,8 @@
   .kpi .k-value{font-family:var(--serif);font-size:clamp(20px,2.4vw,26px);color:var(--navy);line-height:1.2;font-weight:600}
   .kpi .k-sub{font-size:12.5px;color:var(--ink-soft)}
   .kpi .k-sub strong{color:var(--terra)}
+  .kpi-link{display:inline-block;margin-top:8px;font-size:12.5px;font-weight:600;color:var(--terra);border-bottom:1px solid rgba(184,96,63,.35);line-height:1.5}
+  .kpi-link:hover{border-bottom-color:var(--terra)}
   .rate-row{display:flex;align-items:center;gap:6px;margin-top:6px;flex-wrap:wrap}
   .rate-row label{font-size:12px;color:var(--ink-soft)}
   .rate-row input{
@@ -149,6 +151,10 @@
     background:var(--navy);border-color:var(--navy);color:#FBF7F0;
     box-shadow:0 6px 16px rgba(27,42,69,.22);
   }
+  .tab.go{
+    border-color:rgba(184,96,63,.45);color:var(--terra);background:rgba(184,96,63,.07);
+  }
+  .tab.go:hover{background:var(--terra);border-color:var(--terra);color:#FFFDF8}
   .panel{display:block;padding-top:12px;scroll-margin-top:calc(var(--tabs-h, 60px) + 12px)}
   .panel + .panel{margin-top:28px;padding-top:20px;border-top:1px solid var(--line)}
 
@@ -296,24 +302,6 @@
   .group li.done label{color:#8C949F;text-decoration:line-through;text-decoration-color:#C9BEAB}
   .group li.done label small{text-decoration:none;color:#A6ADB8}
 
-  /* ---------- COST ---------- */
-  .cost-head{
-    display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;
-    background:var(--ivory);border:1px solid var(--line);border-radius:var(--radius);
-    padding:16px 18px;box-shadow:var(--shadow);margin-bottom:14px;
-  }
-  .cost-head .big{font-family:var(--serif);font-size:26px;color:var(--navy);font-weight:600;line-height:1.2}
-  .cost-head .sub{font-size:12.5px;color:var(--ink-soft)}
-  table.cost{width:100%;border-collapse:collapse;background:var(--ivory);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
-  table.cost th, table.cost td{padding:11px 12px;text-align:left;font-size:14px;border-bottom:1px solid var(--line-soft);vertical-align:top}
-  table.cost thead th{background:#FBF7EF;font-size:12px;letter-spacing:.05em;color:var(--ink-soft);text-transform:uppercase}
-  table.cost td.num, table.cost th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
-  table.cost tbody tr:hover{background:#FDFAF4}
-  table.cost tr.zero td{color:#9AA3B2}
-  table.cost tfoot td{font-weight:700;background:#1B2A45;color:#FBF7F0;border-bottom:none}
-  table.cost tfoot td.num{font-family:var(--serif);font-size:15.5px}
-  .table-scroll{overflow-x:auto;border-radius:var(--radius)}
-
   /* ---------- NOTES ---------- */
   .notes{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
   .note-card{
@@ -355,7 +343,6 @@
     ul.timeline li{grid-template-columns:54px 18px 1fr}
     ul.timeline .c{font-size:14px}
     .kv{grid-template-columns:96px 1fr}
-    table.cost th, table.cost td{padding:9px 8px;font-size:13px}
     .tabs{padding:10px 0 8px;gap:5px}
     .tab{font-size:13px;padding:8px 12px}
     .to-top{right:14px;bottom:20%;width:42px;height:42px;font-size:17px}
@@ -413,7 +400,7 @@
         <span class="k-sub">2베드룸 숙소·다인승 택시 기준</span>
       </div>
       <div class="kpi">
-        <span class="k-label">총경비 (일자 합계 기준)</span>
+        <span class="k-label">총경비 (사전 확정·예상)</span>
         <span class="k-value" id="kpi-total">₩2,057,226</span>
         <span class="k-sub" id="kpi-eur">€423.5 · 환율 적용</span>
         <div class="rate-row">
@@ -425,6 +412,7 @@
           <span id="live-rate-text">최근 환율 €1 ≈ ₩1,468 (11-17 ECB)</span>
           <button type="button" class="btn-mini" id="apply-live-rate">적용</button>
         </div>
+        <a class="kpi-link" href="budget.html">비용 관리에서 지출 입력·수정 →</a>
       </div>
       <div class="kpi">
         <span class="k-label">예약·준비 진행률</span>
@@ -439,7 +427,7 @@
   <nav class="tabs" aria-label="대시보드 섹션 바로가기">
     <a class="tab on" id="tab-schedule" href="#panel-schedule" data-target="panel-schedule" aria-current="true">일정 타임라인</a>
     <a class="tab" id="tab-check" href="#panel-check" data-target="panel-check">예약·준비 체크리스트</a>
-    <a class="tab" id="tab-cost" href="#panel-cost" data-target="panel-cost">경비 요약</a>
+    <a class="tab go" href="budget.html">💰 비용 관리 ↗</a>
     <a class="tab" id="tab-notes" href="#panel-notes" data-target="panel-notes">현지 확인·주의사항</a>
   </nav>
 
@@ -755,94 +743,6 @@
     </div>
   </section>
 
-  <!-- ================= 3. COST ================= -->
-  <section class="panel" id="panel-cost" aria-labelledby="tab-cost">
-    <div class="section-head">
-      <h2>경비 요약</h2>
-      <span class="hint">표에 기재된 일자 합계 기준 · 유로 항목은 환율에 따라 자동 재계산</span>
-    </div>
-
-    <div class="cost-head">
-      <div>
-        <div class="sub">총경비</div>
-        <div class="big" id="cost-total">₩2,057,226</div>
-        <div class="sub" id="cost-breakdown">원화 고정 ₩1,421,976 + 유로 €423.5 × 1,500원</div>
-      </div>
-      <div>
-        <div class="sub" style="margin-bottom:5px">환율 (원 / €1)</div>
-        <div class="rate-row" style="margin:0">
-          <input id="rate2" type="number" inputmode="numeric" min="500" max="3000" step="10" value="1500" aria-label="경비 탭 환율">
-          <span class="unit">원</span>
-        </div>
-        <div class="live-rate">
-          <span id="live-rate-text2">최근 환율 €1 ≈ ₩1,468 (11-17 ECB)</span>
-          <button type="button" class="btn-mini" id="apply-live-rate2">적용</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="table-scroll">
-      <table class="cost" id="cost-table">
-        <caption class="sr-only" style="position:absolute;left:-9999px">일자별 경비 합계</caption>
-        <thead>
-          <tr>
-            <th scope="col">날짜</th>
-            <th scope="col">내용</th>
-            <th scope="col" class="num">원화(₩)</th>
-            <th scope="col" class="num">유로(€)</th>
-            <th scope="col" class="num">합계</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="zero" data-krw="0" data-eur="0">
-            <td>03.20–03.25</td>
-            <td>슈투트가르트 · 아로 (6일)</td>
-            <td class="num krw">—</td><td class="num eur">—</td><td class="num total">—</td>
-          </tr>
-          <tr data-krw="1066376" data-eur="11.5">
-            <td>03.26</td>
-            <td>숙소 Simaba Casanova ₩1,066,376 + T-Familiar €11.5</td>
-            <td class="num krw">₩1,066,376</td><td class="num eur">€11.5</td><td class="num total">₩1,083,626</td>
-          </tr>
-          <tr data-krw="355600" data-eur="268.0">
-            <td>03.27</td>
-            <td>가우디 투어·입장·현지 경비 (세부 내역은 표에 ₩355,600 + €268.0으로 기재)</td>
-            <td class="num krw">₩355,600</td><td class="num eur">€268.0</td><td class="num total">₩757,600</td>
-          </tr>
-          <tr data-krw="0" data-eur="144.0">
-            <td>03.28</td>
-            <td>산타 마리아 델 마르 €20 + 피카소 €60 + 대성당 €64</td>
-            <td class="num krw">—</td><td class="num eur">€144.0</td><td class="num total">₩216,000</td>
-          </tr>
-          <tr class="zero" data-krw="0" data-eur="0">
-            <td>03.29–03.30</td>
-            <td>귀국일</td>
-            <td class="num krw">—</td><td class="num eur">—</td><td class="num total">—</td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colspan="2">합계</td>
-            <td class="num" id="foot-krw">₩1,421,976</td>
-            <td class="num" id="foot-eur">€423.5</td>
-            <td class="num" id="foot-total">₩2,057,226</td>
-          </tr>
-        </tfoot>
-      </table>
-    </div>
-
-    <div class="note-card" style="margin-top:16px">
-      <h3>표기 금액과 실제 요금이 다른 곳 <span class="tag new">확인 결과</span></h3>
-      <p><strong>3/28 입장료</strong>는 표에 €144로 잡혀 있는데, 공식 요금으로 다시 계산하면 산타 마리아 델 마르 €8×4 = €32, 피카소 온라인 €12×4 = €48, 대성당 €16×4 = €64 로 <span class="hl">합계 €144</span>가 되어 결과적으로 표와 같습니다.</p>
-      <ul>
-        <li>산타 마리아 델 마르: 표 €20(4인) → 실제 €8/인 = €32, 단 <strong>무료 시간대(일요일 13:00 이전·18:00 이후)</strong>에 들어가면 €0</li>
-        <li>피카소: 표 €60(4인 = €15/인) → 온라인 €12(상설) / €14(상설+특별), 현장 €13 / €15</li>
-        <li>바르셀로나 대성당: €16/인 = <strong>4인 €64</strong> — 표와 일치</li>
-      </ul>
-      <p class="src">항공·숙소·렌터카·기차 등 아직 결제 전인 항목은 표에 금액이 없어 합계에 포함되지 않았습니다.</p>
-    </div>
-  </section>
-
   <!-- ================= 4. NOTES ================= -->
   <section class="panel" id="panel-notes" aria-labelledby="tab-notes">
     <div class="section-head">
@@ -1015,7 +915,7 @@
   syncStickyOffset();
 
   /* ---------- 섹션 탭: 한 페이지 연속 스크롤 + 스크롤 스파이 ---------- */
-  var sectionIds = ["panel-schedule", "panel-check", "panel-cost", "panel-notes"];
+  var sectionIds = ["panel-schedule", "panel-check", "panel-notes"];
   var tabEls = Array.prototype.slice.call(document.querySelectorAll(".tab"));
   var tabByTarget = {};
   tabEls.forEach(function (t) { tabByTarget[t.getAttribute("data-target")] = t; });
@@ -1280,15 +1180,12 @@
 
   /* ---------- 환율 · 경비 ---------- */
   var rateInput = document.getElementById("rate");
-  var rateInput2 = document.getElementById("rate2");
-  var rows = Array.prototype.slice.call(document.querySelectorAll("#cost-table tbody tr"));
   var daySums = Array.prototype.slice.call(document.querySelectorAll(".day-sum[data-krw]"));
   var RATE_KEY = "trip-dashboard-2027-rate-v1";
   try {
     var savedRate = window.localStorage.getItem(RATE_KEY);
     if (savedRate && isFinite(parseFloat(savedRate)) && parseFloat(savedRate) > 0) {
       if (rateInput) { rateInput.value = savedRate; }
-      if (rateInput2) { rateInput2.value = savedRate; }
     }
   } catch (e) {}
   var KRW_FIXED = 1421976;   /* 1,066,376 + 355,600 */
@@ -1308,38 +1205,13 @@
   }
   function renderCost() {
     var rate = currentRate();
-    var totalKrw = 0;
-    var totalEur = 0;
-    rows.forEach(function (tr) {
-      var krw = parseFloat(tr.getAttribute("data-krw")) || 0;
-      var e = parseFloat(tr.getAttribute("data-eur")) || 0;
-      totalKrw += krw;
-      totalEur += e;
-      var kc = tr.querySelector(".krw");
-      var ec = tr.querySelector(".eur");
-      var tc = tr.querySelector(".total");
-      if (kc) { kc.textContent = krw ? won(krw) : "—"; }
-      if (ec) { ec.textContent = e ? eur(e) : "—"; }
-      if (tc) { tc.textContent = (krw || e) ? won(krw + e * rate) : "—"; }
-    });
+    var totalKrw = KRW_FIXED;
+    var totalEur = EUR_TOTAL;
     var grand = totalKrw + totalEur * rate;
-    var ft = document.getElementById("foot-total");
-    var fk = document.getElementById("foot-krw");
-    var fe = document.getElementById("foot-eur");
-    if (fk) { fk.textContent = won(totalKrw); }
-    if (fe) { fe.textContent = eur(totalEur); }
-    if (ft) { ft.textContent = won(grand); }
     var kpiTotal = document.getElementById("kpi-total");
     var kpiEur = document.getElementById("kpi-eur");
     if (kpiTotal) { kpiTotal.textContent = won(grand); }
     if (kpiEur) { kpiEur.textContent = eur(totalEur) + " × " + rate.toLocaleString("ko-KR") + "원 적용"; }
-    var ct = document.getElementById("cost-total");
-    if (ct) { ct.textContent = won(grand); }
-    var cb = document.getElementById("cost-breakdown");
-    if (cb) {
-      cb.textContent = "원화 고정 " + won(totalKrw) + " + 유로 " + eur(totalEur) +
-        " × " + rate.toLocaleString("ko-KR") + "원";
-    }
     daySums.forEach(function (el) {
       var krw = parseFloat(el.getAttribute("data-krw")) || 0;
       var e = parseFloat(el.getAttribute("data-eur")) || 0;
@@ -1354,41 +1226,32 @@
   }
   function syncRate(value) {
     if (rateInput) { rateInput.value = value; }
-    if (rateInput2) { rateInput2.value = value; }
     try { window.localStorage.setItem(RATE_KEY, value); } catch (e) {}
     renderCost();
   }
   if (rateInput) {
     rateInput.addEventListener("input", function () { syncRate(rateInput.value); });
   }
-  if (rateInput2) {
-    rateInput2.addEventListener("input", function () { syncRate(rateInput2.value); });
-  }
   renderCost();
 
   /* ---------- 실시간 유로 환율 조회 ---------- */
   (function () {
     var txt1 = document.getElementById("live-rate-text");
-    var txt2 = document.getElementById("live-rate-text2");
     var btn1 = document.getElementById("apply-live-rate");
-    var btn2 = document.getElementById("apply-live-rate2");
     var fetchedRate = 1468;
 
     function setLiveText(msg) {
       if (txt1) { txt1.textContent = msg; }
-      if (txt2) { txt2.textContent = msg; }
     }
     function enableLive(rate, dateLabel) {
       fetchedRate = Math.round(rate);
       setLiveText("오늘 환율 €1 ≈ ₩" + fetchedRate.toLocaleString("ko-KR") + (dateLabel ? " (" + dateLabel + ")" : ""));
       if (btn1) { btn1.disabled = false; }
-      if (btn2) { btn2.disabled = false; }
     }
     function applyLive() {
       if (fetchedRate) { syncRate(String(fetchedRate)); }
     }
     if (btn1) { btn1.addEventListener("click", applyLive); }
-    if (btn2) { btn2.addEventListener("click", applyLive); }
 
     if (typeof window.fetch !== "function") {
       return;
