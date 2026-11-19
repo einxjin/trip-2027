@@ -11,21 +11,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#F5F6F7;
+    --bg:#F6F6F0;
     --card:#FFFFFF;
-    --ink:#24302F;
-    --ink-soft:#5C6668;
-    --mint:#2F5E5B;
-    --mint-2:#3B6E6A;
-    --mint-soft:#E9F1EF;
+    --ink:#2B2E28;
+    --ink-soft:#5E6258;
+    --olive:#4A5838;
+    --olive-2:#5B6B45;
+    --olive-soft:#EEF1E8;
     --rose:#B5656A;
     --rose-2:#C4777B;
     --rose-deep:#A2545C;
     --rose-soft:#F9ECEC;
-    --line:#E2E6E6;
-    --line-soft:#EDF0F0;
+    --line:#E2E3D8;
+    --line-soft:#F0F1EA;
     --accent:#C4777B;
-    --shadow:0 1px 2px rgba(47,94,91,.04), 0 8px 24px rgba(47,94,91,.06);
+    --shadow:0 1px 2px rgba(74,88,56,.04), 0 8px 24px rgba(74,88,56,.06);
     --radius:16px;
     --sans:"Noto Sans KR", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Segoe UI", Roboto, sans-serif;
     --serif:"Noto Sans KR", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Segoe UI", Roboto, sans-serif;
@@ -37,8 +37,8 @@
     font-family:var(--sans);
     color:var(--ink);
     background:
-      radial-gradient(1200px 600px at 15% -10%, #EAF1F0 0%, rgba(234,241,240,0) 60%),
-      radial-gradient(900px 500px at 95% 0%, #EDF0F0 0%, rgba(237,240,240,0) 55%),
+      radial-gradient(1200px 600px at 15% -10%, #F1F2E6 0%, rgba(241,242,230,0) 60%),
+      radial-gradient(900px 500px at 95% 0%, #F0F1EA 0%, rgba(240,241,234,0) 55%),
       var(--bg);
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
@@ -52,11 +52,11 @@
   .hero{
     position:relative;
     overflow:hidden;
-    background:linear-gradient(150deg,var(--mint) 0%, var(--mint-2) 62%, #4A7B76 100%);
+    background:linear-gradient(150deg,var(--olive) 0%, var(--olive-2) 62%, #6C7C55 100%);
     color:#FFFFFF;
     border-radius:22px;
     padding:30px 30px 26px;
-    box-shadow:0 18px 45px rgba(47,94,91,.20);
+    box-shadow:0 18px 45px rgba(74,88,56,.20);
   }
   .hero::after{
     content:"";
@@ -66,13 +66,15 @@
   }
   .hero-top{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin-bottom:14px}
   .eyebrow{
-    font-size:12px;letter-spacing:.18em;text-transform:uppercase;
-    color:#F0C9CC;font-weight:600;
+    font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+    color:#F7D8DA;font-weight:700;line-height:1.5;
+    background:rgba(240,201,204,.16);border:1px solid rgba(240,201,204,.42);
+    border-radius:999px;padding:4px 12px;
   }
   .dday{
     display:inline-flex;align-items:center;gap:8px;
     background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);
-    border-radius:999px;padding:4px 12px;font-size:12.5px;color:#E7F1EF;letter-spacing:.04em;
+    border-radius:999px;padding:4px 12px;font-size:12.5px;color:#E8EBDC;letter-spacing:.04em;
   }
   .hero h1{
     font-family:var(--serif);
@@ -82,16 +84,16 @@
     margin:0 0 10px;
     letter-spacing:-.01em;
   }
-  .hero p.lead{margin:0;color:#DCE7E5;font-size:15.5px;max-width:60ch}
+  .hero p.lead{margin:0;color:#E3E6D6;font-size:15.5px;max-width:60ch}
   .hero-route{
     display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:18px;
-    font-size:13.5px;color:#E3EDEB;
+    font-size:13.5px;color:#E4E8D8;
   }
   .hero-route .chip{
     background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.20);
     border-radius:999px;padding:5px 12px;
   }
-  .hero-route .arrow{color:#A2C4C0}
+  .hero-route .arrow{color:#B3BC9C}
 
   /* ---------- KPI ---------- */
   .kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:20px}
@@ -104,11 +106,11 @@
     display:flex;flex-direction:column;gap:4px;
   }
   .kpi .k-label{font-size:12px;letter-spacing:.06em;color:var(--ink-soft);font-weight:600}
-  .kpi .k-value{font-family:var(--serif);font-size:clamp(20px,2.4vw,26px);color:var(--mint);line-height:1.2;font-weight:600}
+  .kpi .k-value{font-family:var(--serif);font-size:clamp(20px,2.4vw,26px);color:var(--olive);line-height:1.2;font-weight:600}
   .kpi .k-sub{font-size:12.5px;color:var(--ink-soft)}
   .kpi .k-sub strong{color:var(--rose-deep)}
   .bar{height:8px;border-radius:99px;background:var(--line-soft);overflow:hidden;margin-top:10px}
-  .bar > span{display:block;height:100%;width:0%;border-radius:99px;background:linear-gradient(90deg,var(--mint),var(--rose-2));transition:width .35s ease}
+  .bar > span{display:block;height:100%;width:0%;border-radius:99px;background:linear-gradient(90deg,var(--olive),var(--rose-2));transition:width .35s ease}
 
   /* ---------- TABS ---------- */
   .tabs{
@@ -125,15 +127,15 @@
     padding:9px 15px;border-radius:999px;cursor:pointer;transition:all .18s ease;
     text-decoration:none;border-bottom:1px solid var(--line);line-height:1.4;
   }
-  .tab:hover{border-color:#C4D5D2;color:var(--ink)}
+  .tab:hover{border-color:#C3CBB1;color:var(--ink)}
   .tab.on,
   .tab[aria-current="true"],
   .tab[aria-selected="true"]{
-    background:var(--mint);border-color:var(--mint);color:#FFFFFF;
-    box-shadow:0 6px 16px rgba(47,94,91,.22);
+    background:var(--olive);border-color:var(--olive);color:#FFFFFF;
+    box-shadow:0 6px 16px rgba(74,88,56,.22);
   }
   .tab.go{
-    border-color:rgba(181,101,106,.45);color:var(--rose-deep);background:rgba(181,101,106,.07);
+    border-color:var(--rose);color:var(--rose-deep);background:var(--rose-soft);
   }
   .tab.go:hover{background:var(--rose-deep);border-color:var(--rose-deep);color:#FFFFFF}
   .panel{display:block;padding-top:12px;scroll-margin-top:calc(var(--tabs-h, 60px) + 12px)}
@@ -155,7 +157,14 @@
 
   /* ---------- SECTION HEAD ---------- */
   .section-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex-wrap:wrap;margin:6px 0 14px}
-  .section-head h2{font-family:var(--serif);font-size:22px;margin:0;color:var(--mint);font-weight:600}
+  .section-head h2{
+    font-family:var(--serif);font-size:22px;margin:0;color:var(--olive);font-weight:600;
+    display:flex;align-items:center;gap:10px;
+  }
+  .section-head h2::before{
+    content:"";flex:0 0 auto;width:3px;height:18px;border-radius:2px;
+    background:linear-gradient(180deg,var(--rose-2),var(--rose-deep));
+  }
   .section-head .hint{font-size:13px;color:var(--ink-soft)}
 
   /* ---------- DATE JUMP & STICKY HEADER ---------- */
@@ -177,9 +186,9 @@
     display:flex;flex-direction:column;align-items:center;gap:1px;min-width:62px;line-height:1.25;
     text-decoration:none;
   }
-  .jump a b{font-size:14px;color:var(--mint)}
+  .jump a b{font-size:14px;color:var(--olive)}
   .jump a span{font-size:11px;color:var(--ink-soft)}
-  .jump a:hover{border-color:#C4D5D2}
+  .jump a:hover{border-color:#C3CBB1}
   .jump a.on{background:#F9ECEC;border-color:var(--rose);}
   .jump a.on b{color:var(--rose-deep)}
 
@@ -189,17 +198,15 @@
     background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
     box-shadow:var(--shadow);overflow:hidden;scroll-margin-top:calc(var(--tabs-h, 60px) + var(--sched-h, 128px) + 10px);
   }
-  .day.nohi{border-left:4px solid var(--mint-2)}
-  .day.holi{border-left:4px solid var(--rose)}
   .day-head{
     display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:center;
     padding:15px 18px;border-bottom:1px solid var(--line-soft);
-    background:linear-gradient(180deg,#FFFFFF,#F6FAF9);
+    background:linear-gradient(180deg,#FFFFFF,#F7F8F0);
   }
   .day-date{display:flex;flex-direction:column;line-height:1.15}
-  .day-date .dow{font-size:11.5px;letter-spacing:.12em;color:var(--rose-deep);font-weight:700}
-  .day-date .num{font-family:var(--serif);font-size:23px;color:var(--mint);font-weight:600}
-  .day-title h3{margin:0;font-size:17px;color:var(--mint);font-weight:700;letter-spacing:-.01em}
+  .day-date .dow{font-size:11.5px;letter-spacing:.12em;color:var(--olive-2);font-weight:700}
+  .day-date .num{font-family:var(--serif);font-size:23px;color:var(--rose-deep);font-weight:600}
+  .day-title h3{margin:0;font-size:17px;color:var(--olive);font-weight:700;letter-spacing:-.01em}
   .day-title p{margin:2px 0 0;font-size:13px;color:var(--ink-soft)}
 
   ul.timeline{list-style:none;margin:0;padding:14px 18px 16px;display:flex;flex-direction:column;gap:2px}
@@ -207,16 +214,28 @@
     display:grid;grid-template-columns:70px 22px 1fr;gap:6px;align-items:start;
     padding:6px 0;position:relative;
   }
-  ul.timeline li + li{border-top:1px dashed #E7EEEC}
+  ul.timeline li + li{border-top:none}
+  ul.timeline li + li::after{
+    content:"";position:absolute;top:0;left:104px;right:0;height:0;
+    border-top:1px dashed #E6E8DA;
+  }
+  /* 타임라인 세로 레일 — 도트를 잇는 인디언핑크 실선 */
+  ul.timeline li::before{
+    content:"";position:absolute;top:0;bottom:-2px;left:85px;width:1px;
+    background:linear-gradient(180deg,rgba(181,101,106,.24),rgba(181,101,106,.13));
+  }
+  ul.timeline li:first-child::before{top:17px}
+  ul.timeline li:last-child::before{bottom:auto;height:17px}
   ul.timeline .t{
-    font-variant-numeric:tabular-nums;font-size:13px;font-weight:700;color:var(--mint);
+    font-variant-numeric:tabular-nums;font-size:13px;font-weight:700;color:var(--olive);
     padding-top:1px;letter-spacing:.01em;line-height:1.3;
   }
   ul.timeline .dot{
+    position:relative;z-index:1;
     width:9px;height:9px;border-radius:50%;background:var(--rose);
-    margin:8px 0 0 5px;box-shadow:0 0 0 3px rgba(181,101,106,.12);
+    margin:8px 0 0 5px;box-shadow:0 0 0 3px rgba(181,101,106,.14);
   }
-  ul.timeline li.plain .dot{background:#CDD6D5;box-shadow:0 0 0 3px rgba(205,214,213,.16)}
+  ul.timeline li.plain .dot{background:#C6CAB9;box-shadow:0 0 0 3px rgba(198,202,185,.16)}
   ul.timeline .c{font-size:14.5px}
   ul.timeline .c p{margin:0}
   ul.timeline .c p + p{margin-top:3px;font-size:13px;color:var(--ink-soft)}
@@ -226,13 +245,13 @@
     border-radius:999px;padding:2px 9px;white-space:nowrap;
     border:1px solid #A99BD3;color:#584B8F;background:#F2EFF9;
   }
-  .badge.ok{border-color:#A8B3B1;color:#4C5A58;background:#F0F3F3}
+  .badge.ok{border-color:#A8B3B1;color:#4C5A58;background:#F1F1E9}
   .badge.star{border-color:#D3AE6B;color:#7C5A1A;background:#FBF4E3}
   .badge.warn{border-color:#D99194;color:#A33A3F;background:#FBEDEE}
   .badge.info{border-color:#8BA7D6;color:#33538F;background:#EDF2FA}
   .day-note{
     margin:0;padding:11px 18px 14px;font-size:13px;color:var(--ink-soft);
-    background:#F5F9F8;border-top:1px solid var(--line-soft);
+    background:#FAF3F2;border-top:1px solid rgba(181,101,106,.18);
   }
   .day-note strong{color:var(--rose-deep)}
 
@@ -243,30 +262,34 @@
     padding:18px;box-shadow:var(--shadow);
   }
   .progress-card .row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-  .progress-card b{font-family:var(--serif);font-size:19px;color:var(--mint)}
+  .progress-card b{font-family:var(--serif);font-size:19px;color:var(--olive)}
   .progress-card .small{font-size:12.5px;color:var(--ink-soft)}
   .btn{
     appearance:none;font-family:var(--sans);font-size:12.5px;font-weight:600;cursor:pointer;
     border:1px solid var(--line);background:#FFFFFF;color:var(--ink-soft);
     border-radius:999px;padding:6px 12px;
   }
-  .btn:hover{border-color:#C4D5D2;color:var(--ink)}
+  .btn:hover{border-color:#C3CBB1;color:var(--ink)}
   .group{
     background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
     box-shadow:var(--shadow);overflow:hidden;
   }
   .group h3{
-    margin:0;padding:13px 18px;font-size:14px;letter-spacing:.04em;color:var(--mint);
-    border-bottom:1px solid var(--line-soft);background:#F5F9F8;
+    margin:0;padding:13px 18px;font-size:14px;letter-spacing:.04em;color:var(--olive);
+    border-bottom:1px solid var(--line-soft);background:#F6F7EE;
+    display:flex;align-items:center;gap:8px;
+  }
+  .group h3::before{
+    content:"";flex:0 0 auto;width:6px;height:6px;border-radius:50%;background:var(--rose);
   }
   .group ul{list-style:none;margin:0;padding:6px 10px 10px}
   .group li{display:flex;gap:10px;align-items:flex-start;padding:9px 8px;border-radius:10px}
-  .group li:hover{background:#F6FAF9}
+  .group li:hover{background:#F7F8F0}
   .group input[type="checkbox"]{
     appearance:none;flex:0 0 auto;width:19px;height:19px;margin:3px 0 0;
-    border:1.5px solid #CDD6D5;border-radius:6px;background:#FFFFFF;cursor:pointer;position:relative;
+    border:1.5px solid #C6CAB9;border-radius:6px;background:#FFFFFF;cursor:pointer;position:relative;
   }
-  .group input[type="checkbox"]:checked{background:var(--mint-2);border-color:var(--mint-2)}
+  .group input[type="checkbox"]:checked{background:var(--olive-2);border-color:var(--olive-2)}
   .group input[type="checkbox"]:checked::after{
     content:"";position:absolute;left:5.5px;top:2px;width:5px;height:10px;
     border:solid #FFFFFF;border-width:0 2px 2px 0;transform:rotate(45deg);
@@ -274,8 +297,8 @@
   .group input[type="checkbox"]:focus-visible{outline:2px solid rgba(181,101,106,.45);outline-offset:2px}
   .group label{font-size:14.5px;cursor:pointer}
   .group label small{display:block;font-size:12.5px;color:var(--ink-soft);margin-top:1px}
-  .group li.done label{color:#8B9896;text-decoration:line-through;text-decoration-color:#CDD6D5}
-  .group li.done label small{text-decoration:none;color:#8E9C9A}
+  .group li.done label{color:#8C9080;text-decoration:line-through;text-decoration-color:#C6CAB9}
+  .group li.done label small{text-decoration:none;color:#8C9080}
 
   /* ---------- NOTES ---------- */
   .notes{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
@@ -283,8 +306,8 @@
     background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
     padding:18px 18px 16px;box-shadow:var(--shadow);
   }
-  .note-card h3{margin:0 0 4px;font-size:16.5px;color:var(--mint);font-weight:700;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
-  .note-card .tag{font-size:11px;font-weight:700;color:var(--mint-2);border:1px solid rgba(59,110,106,.4);border-radius:999px;padding:1px 8px;background:rgba(59,110,106,.08)}
+  .note-card h3{margin:0 0 4px;font-size:16.5px;color:var(--olive);font-weight:700;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+  .note-card .tag{font-size:11px;font-weight:700;color:var(--olive-2);border:1px solid rgba(91,107,69,.4);border-radius:999px;padding:1px 8px;background:rgba(91,107,69,.08)}
   .note-card .tag.new{color:var(--rose-deep);border-color:rgba(181,101,106,.4);background:rgba(181,101,106,.07)}
   .note-card p{margin:8px 0 0;font-size:14px}
   .note-card ul{margin:8px 0 0;padding-left:18px;font-size:14px}
@@ -314,6 +337,8 @@
     .day-head{grid-template-columns:74px 1fr;row-gap:8px;padding:13px 14px}
     ul.timeline{padding:12px 14px 14px}
     ul.timeline li{grid-template-columns:54px 18px 1fr}
+    ul.timeline li::before{left:69px}
+    ul.timeline li + li::after{left:84px}
     ul.timeline .c{font-size:14px}
     .kv{grid-template-columns:96px 1fr}
     .tabs{padding:10px 0 8px;gap:5px}
@@ -323,10 +348,10 @@
   .to-top{
     position:fixed;right:20px;bottom:20%;z-index:30;
     width:46px;height:46px;border-radius:50%;
-    background:var(--mint);color:#FFFFFF;border:1px solid rgba(255,255,255,.18);
+    background:var(--olive);color:#FFFFFF;border:1px solid rgba(255,255,255,.18);
     display:flex;align-items:center;justify-content:center;
     font-size:19px;font-weight:700;line-height:1;text-decoration:none;
-    box-shadow:0 8px 22px rgba(47,94,91,.26);
+    box-shadow:0 8px 22px rgba(74,88,56,.26);
     transition:transform .16s ease, background .16s ease;
   }
   .to-top:hover{background:var(--rose);border-color:var(--rose);transform:translateY(-2px)}
@@ -381,7 +406,7 @@
     <a class="tab on" id="tab-schedule" href="#panel-schedule" data-target="panel-schedule" aria-current="true">일정 타임라인</a>
     <a class="tab" id="tab-check" href="#panel-check" data-target="panel-check">예약·준비 체크리스트</a>
     <a class="tab" id="tab-notes" href="#panel-notes" data-target="panel-notes">현지 확인·주의사항</a>
-    <a class="tab go" href="budget.html?v=palette1">💰 비용 관리 ↗</a>
+    <a class="tab go" href="budget.html?v=palette2">💰 비용 관리 ↗</a>
   </nav>
 
   <main>
@@ -568,7 +593,7 @@
       </article>
 
       <!-- 03.28 -->
-      <article class="day holi" id="day-28">
+      <article class="day" id="day-28">
         <div class="day-head">
           <div class="day-date"><span class="dow">SUN</span><span class="num">03.28</span></div>
           <div class="day-title">
@@ -591,7 +616,7 @@
       </article>
 
       <!-- 03.29-30 -->
-      <article class="day holi" id="day-29">
+      <article class="day" id="day-29">
         <div class="day-head">
           <div class="day-date"><span class="dow">MON–TUE</span><span class="num">03.29</span></div>
           <div class="day-title">
