@@ -20,6 +20,7 @@
     --mint-soft:#E9F1EF;
     --rose:#B5656A;
     --rose-2:#C4777B;
+    --rose-deep:#A2545C;
     --rose-soft:#F9ECEC;
     --line:#E2E6E6;
     --line-soft:#EDF0F0;
@@ -44,8 +45,8 @@
     font-size:16px;
   }
   .page{max-width:1140px;margin:0 auto;padding:28px 20px 64px}
-  a{color:var(--rose);text-decoration:none;border-bottom:1px solid rgba(181,101,106,.35)}
-  a:hover{border-bottom-color:var(--rose)}
+  a{color:var(--rose-deep);text-decoration:none;border-bottom:1px solid rgba(162,84,92,.35)}
+  a:hover{border-bottom-color:var(--rose-deep)}
 
   /* ---------- HERO ---------- */
   .hero{
@@ -105,7 +106,7 @@
   .kpi .k-label{font-size:12px;letter-spacing:.06em;color:var(--ink-soft);font-weight:600}
   .kpi .k-value{font-family:var(--serif);font-size:clamp(20px,2.4vw,26px);color:var(--mint);line-height:1.2;font-weight:600}
   .kpi .k-sub{font-size:12.5px;color:var(--ink-soft)}
-  .kpi .k-sub strong{color:var(--rose)}
+  .kpi .k-sub strong{color:var(--rose-deep)}
   .bar{height:8px;border-radius:99px;background:var(--line-soft);overflow:hidden;margin-top:10px}
   .bar > span{display:block;height:100%;width:0%;border-radius:99px;background:linear-gradient(90deg,var(--mint),var(--rose-2));transition:width .35s ease}
 
@@ -132,9 +133,9 @@
     box-shadow:0 6px 16px rgba(47,94,91,.22);
   }
   .tab.go{
-    border-color:rgba(181,101,106,.45);color:var(--rose);background:rgba(181,101,106,.07);
+    border-color:rgba(181,101,106,.45);color:var(--rose-deep);background:rgba(181,101,106,.07);
   }
-  .tab.go:hover{background:var(--rose);border-color:var(--rose);color:#FFFFFF}
+  .tab.go:hover{background:var(--rose-deep);border-color:var(--rose-deep);color:#FFFFFF}
   .panel{display:block;padding-top:12px;scroll-margin-top:calc(var(--tabs-h, 60px) + 12px)}
   .panel + .panel{margin-top:28px;padding-top:20px;border-top:1px solid var(--line)}
 
@@ -149,7 +150,7 @@
     transition:color .15s ease,border-color .15s ease,background .15s ease;
   }
   .ext-link:hover,.ext-link:focus-visible{
-    color:var(--rose);border-color:rgba(181,101,106,.55);background:rgba(181,101,106,.07);
+    color:var(--rose-deep);border-color:rgba(181,101,106,.55);background:rgba(181,101,106,.07);
   }
 
   /* ---------- SECTION HEAD ---------- */
@@ -180,7 +181,7 @@
   .jump a span{font-size:11px;color:var(--ink-soft)}
   .jump a:hover{border-color:#C4D5D2}
   .jump a.on{background:#F9ECEC;border-color:var(--rose);}
-  .jump a.on b{color:var(--rose)}
+  .jump a.on b{color:var(--rose-deep)}
 
   /* ---------- DAY CARDS ---------- */
   .days{display:flex;flex-direction:column;gap:16px}
@@ -196,7 +197,7 @@
     background:linear-gradient(180deg,#FFFFFF,#F6FAF9);
   }
   .day-date{display:flex;flex-direction:column;line-height:1.15}
-  .day-date .dow{font-size:11.5px;letter-spacing:.12em;color:var(--rose);font-weight:700}
+  .day-date .dow{font-size:11.5px;letter-spacing:.12em;color:var(--rose-deep);font-weight:700}
   .day-date .num{font-family:var(--serif);font-size:23px;color:var(--mint);font-weight:600}
   .day-title h3{margin:0;font-size:17px;color:var(--mint);font-weight:700;letter-spacing:-.01em}
   .day-title p{margin:2px 0 0;font-size:13px;color:var(--ink-soft)}
@@ -233,7 +234,7 @@
     margin:0;padding:11px 18px 14px;font-size:13px;color:var(--ink-soft);
     background:#F5F9F8;border-top:1px solid var(--line-soft);
   }
-  .day-note strong{color:var(--rose)}
+  .day-note strong{color:var(--rose-deep)}
 
   /* ---------- CHECKLIST ---------- */
   .check-wrap{display:grid;grid-template-columns:1fr;gap:16px}
@@ -284,7 +285,7 @@
   }
   .note-card h3{margin:0 0 4px;font-size:16.5px;color:var(--mint);font-weight:700;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
   .note-card .tag{font-size:11px;font-weight:700;color:var(--mint-2);border:1px solid rgba(59,110,106,.4);border-radius:999px;padding:1px 8px;background:rgba(59,110,106,.08)}
-  .note-card .tag.new{color:var(--rose);border-color:rgba(181,101,106,.4);background:rgba(181,101,106,.07)}
+  .note-card .tag.new{color:var(--rose-deep);border-color:rgba(181,101,106,.4);background:rgba(181,101,106,.07)}
   .note-card p{margin:8px 0 0;font-size:14px}
   .note-card ul{margin:8px 0 0;padding-left:18px;font-size:14px}
   .note-card li{margin:3px 0}

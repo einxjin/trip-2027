@@ -20,6 +20,7 @@
     --mint-soft:#E9F1EF;
     --rose:#B5656A;
     --rose-2:#C4777B;
+    --rose-deep:#A2545C;
     --rose-soft:#F9ECEC;
     --line:#E2E6E6;
     --line-soft:#EDF0F0;
@@ -44,8 +45,8 @@
     font-size:16px;
   }
   .page{max-width:1140px;margin:0 auto;padding:24px 20px 64px}
-  a{color:var(--rose);text-decoration:none;border-bottom:1px solid rgba(181,101,106,.35)}
-  a:hover{border-bottom-color:var(--rose)}
+  a{color:var(--rose-deep);text-decoration:none;border-bottom:1px solid rgba(162,84,92,.35)}
+  a:hover{border-bottom-color:var(--rose-deep)}
 
   /* ---------- HERO ---------- */
   .bhero{
@@ -78,7 +79,7 @@
     background:rgba(240,201,204,.16);border:1px solid rgba(240,201,204,.55);border-radius:999px;
     padding:3px 12px;color:#F4D6D8;font-weight:700;text-decoration:none;line-height:1.5;
   }
-  .bhero .meta a.jump-add:hover{background:var(--rose);border-color:var(--rose);color:#FFFFFF}
+  .bhero .meta a.jump-add:hover{background:var(--rose-deep);border-color:var(--rose-deep);color:#FFFFFF}
 
   /* ---------- KPI ---------- */
   .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:16px}
@@ -130,10 +131,10 @@
   .live-rate{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:6px;font-size:11.5px;color:var(--ink-soft)}
   .btn-mini{
     appearance:none;border:1px solid rgba(181,101,106,.45);background:rgba(181,101,106,.08);
-    color:var(--rose);font-family:var(--sans);font-size:11px;font-weight:700;
+    color:var(--rose-deep);font-family:var(--sans);font-size:11px;font-weight:700;
     border-radius:999px;padding:2px 9px;cursor:pointer;line-height:1.5;
   }
-  .btn-mini:hover:not(:disabled){background:var(--rose);color:#fff}
+  .btn-mini:hover:not(:disabled){background:var(--rose-deep);color:#fff}
   .btn-mini:disabled{opacity:.45;cursor:default}
 
   /* ---------- CARDS / SECTION ---------- */
@@ -145,7 +146,7 @@
   .section-head h2{font-family:var(--serif);font-size:21px;margin:0;color:var(--mint);font-weight:600}
   .section-head .hint{font-size:12.5px;color:var(--ink-soft)}
   .count-badge{
-    display:inline-block;font-size:11.5px;font-weight:700;color:var(--rose);
+    display:inline-block;font-size:11.5px;font-weight:700;color:var(--rose-deep);
     background:var(--rose-soft);border-radius:999px;padding:1px 9px;margin-left:8px;vertical-align:2px;
   }
 
@@ -189,7 +190,7 @@
   .seg.payer span{font-size:13.5px;padding:8px 2px}
   input#f-amount{font-variant-numeric:tabular-nums;letter-spacing:.01em}
   .amt-preview{
-    font-size:12.5px;color:var(--rose);min-height:19px;line-height:1.45;
+    font-size:12.5px;color:var(--rose-deep);min-height:19px;line-height:1.45;
     font-variant-numeric:tabular-nums;word-break:keep-all;
   }
   /* 결제자 배지 */
@@ -225,15 +226,15 @@
     border:1px solid var(--mint);background:var(--mint);color:#FFFFFF;
     border-radius:12px;padding:12px 26px;box-shadow:0 6px 16px rgba(47,94,91,.18);
   }
-  .btn-primary:hover{background:var(--rose);border-color:var(--rose)}
+  .btn-primary:hover{background:var(--rose-deep);border-color:var(--rose-deep)}
   .btn-ghost{
     appearance:none;font-family:var(--sans);font-size:13.5px;font-weight:600;cursor:pointer;
     border:1px solid var(--line);background:transparent;color:var(--ink-soft);
     border-radius:12px;padding:11px 16px;
   }
   .btn-ghost:hover{border-color:#C4D5D2;color:var(--ink)}
-  .btn-danger{color:var(--rose);border-color:rgba(181,101,106,.4)}
-  .btn-danger:hover{background:rgba(181,101,106,.08);border-color:var(--rose);color:var(--rose)}
+  .btn-danger{color:var(--rose-deep);border-color:rgba(181,101,106,.4)}
+  .btn-danger:hover{background:rgba(181,101,106,.08);border-color:var(--rose-deep);color:var(--rose-deep)}
   .form-status{font-size:13px;color:var(--mint-2);font-weight:600;min-height:20px;margin-left:2px}
   .form-status.err{color:#A33A3F}
 
@@ -292,7 +293,7 @@
   }
   .fbtn:hover{border-color:#C4D5D2;color:var(--ink)}
   .fbtn b{
-    font-variant-numeric:tabular-nums;font-size:11px;font-weight:700;color:var(--rose);
+    font-variant-numeric:tabular-nums;font-size:11px;font-weight:700;color:var(--rose-deep);
     background:var(--rose-soft);border-radius:999px;padding:0 6px;line-height:1.6;
   }
   .fbtn.on{background:var(--mint);border-color:var(--mint);color:#FFFFFF}
@@ -333,7 +334,7 @@
     padding:2px 9px;cursor:pointer;line-height:1.5;
   }
   .row-actions button:hover{border-color:#C4D5D2;color:var(--ink)}
-  .row-actions button.del:hover{border-color:rgba(181,101,106,.5);color:var(--rose);background:rgba(181,101,106,.06)}
+  .row-actions button.del:hover{border-color:rgba(181,101,106,.5);color:var(--rose-deep);background:rgba(181,101,106,.06)}
   .empty{
     text-align:center;color:var(--ink-soft);font-size:13.5px;padding:28px 16px;
     border:1px dashed var(--line);border-radius:12px;background:#F6FAF9;margin:6px 0;
@@ -357,7 +358,7 @@
   .side-total .line{display:flex;justify-content:space-between;gap:10px;font-size:13px;padding:3px 0}
   .side-total .line b{font-family:var(--serif);font-weight:600;font-variant-numeric:tabular-nums}
   .side-total .line.big{font-size:14px;padding-top:9px;margin-top:6px;border-top:1px dashed var(--line-soft)}
-  .side-total .line.big b{font-size:21px;color:var(--rose)}
+  .side-total .line.big b{font-size:21px;color:var(--rose-deep)}
   .side-total .line.mute{font-size:12px;color:var(--ink-soft);margin-top:8px;padding-top:8px;border-top:1px dashed var(--line-soft)}
   .side-total .line.mute em{font-style:normal;font-size:11px}
   .side-total .line.mute b{font-size:13px;color:var(--ink-soft)}
