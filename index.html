@@ -8,7 +8,7 @@
 <meta name="description" content="2027년 3월 20일~30일 독일 슈투트가르트 결혼식과 스페인 리오하·바르셀로나 4인 가족 여행 일정·예약·경비 대시보드">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#F6F6F0;
@@ -78,11 +78,17 @@
   }
   .hero h1{
     font-family:var(--serif);
-    font-weight:600;
+    font-weight:700;
     font-size:clamp(26px,4vw,40px);
-    line-height:1.25;
+    line-height:1.2;
     margin:0 0 10px;
     letter-spacing:-.01em;
+  }
+  .hero h1 .h1-lead{font-weight:800;letter-spacing:-.015em}
+  .hero h1 .h1-sub{
+    display:block;margin-top:3px;
+    font-weight:300;font-size:.72em;line-height:1.25;
+    letter-spacing:.06em;text-transform:uppercase;color:#E9ECDE;
   }
   .hero p.lead{margin:0;color:#E3E6D6;font-size:15.5px;max-width:60ch}
   .hero-route{
@@ -373,7 +379,7 @@
       <span class="eyebrow">2027 Spring · Germany &amp; Spain</span>
       <span class="dday" id="dday">D-122</span>
     </div>
-    <h1>Family Europe Trip: Wedding, Wine &amp; Gaudí</h1>
+    <h1><span class="h1-lead">Family Europe Trip:</span> <span class="h1-sub">Wedding, Wine &amp; Gaudí</span></h1>
     <div class="hero-route">
       <span class="chip">03.20 인천 출발</span>
       <span class="arrow">→</span>
