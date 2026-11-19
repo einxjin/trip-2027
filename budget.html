@@ -163,13 +163,13 @@
   input:focus,select:focus,textarea:focus{outline:2px solid rgba(184,96,63,.35);outline-offset:1px;border-color:var(--terra)}
   input::placeholder{color:#A6ADB8}
   select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,#8A8578 50%),linear-gradient(135deg,#8A8578 50%,transparent 50%);background-position:calc(100% - 17px) 19px,calc(100% - 12px) 19px;background-size:5px 5px,5px 5px;background-repeat:no-repeat;padding-right:32px}
-  .quick-dates{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:2px;max-width:100%;min-width:0}
+  .quick-dates{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:2px;max-width:100%;min-width:0}
   .qd{
     appearance:none;border:1px solid var(--line);background:#FFFDFA;color:var(--ink-soft);
-    font-family:var(--sans);font-size:12.5px;font-weight:600;border-radius:999px;
-    padding:5px 10px;cursor:pointer;line-height:1.4;position:relative;
+    font-family:var(--sans);font-size:11.5px;font-weight:600;border-radius:999px;
+    padding:4px 8px;cursor:pointer;line-height:1.3;position:relative;
   }
-  .qd b{font-size:13px;color:var(--navy);margin-right:2px}
+  .qd b{font-size:11.5px;color:var(--navy);margin-right:1px}
   .qd:hover{border-color:#CFC0A9}
   .qd.on{background:var(--navy);border-color:var(--navy);color:#FBF7F0}
   .qd.on b{color:#FBF7F0}
@@ -185,7 +185,33 @@
   }
   .seg input:checked + span{background:var(--navy);border-color:var(--navy);color:#FBF7F0}
   .seg input:focus-visible + span{outline:2px solid rgba(184,96,63,.45);outline-offset:2px}
-  .amt-preview{font-size:12.5px;color:var(--terra);min-height:19px}
+  .seg.payer span{font-size:13.5px;padding:8px 2px}
+  input#f-amount{font-variant-numeric:tabular-nums;letter-spacing:.01em}
+  .amt-preview{
+    font-size:12.5px;color:var(--terra);min-height:19px;line-height:1.45;
+    font-variant-numeric:tabular-nums;word-break:keep-all;
+  }
+  /* 결제자 배지 */
+  .pay{
+    display:inline-block;font-size:10.5px;font-weight:700;border-radius:999px;padding:0 7px;
+    border:1px solid;line-height:1.7;white-space:nowrap;vertical-align:1px;
+  }
+  /* 결제자별 합계 */
+  .payer-summary{margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+  .payer-summary .p-head{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:4px}
+  .payer-summary .p-head strong{font-size:13px;color:var(--ink)}
+  .payer-summary .p-head span{font-size:11px;color:var(--ink-soft)}
+  .payer-row{
+    display:grid;grid-template-columns:auto 1fr;gap:1px 8px;align-items:baseline;
+    padding:5px 0;border-bottom:1px dashed var(--line-soft);
+  }
+  .payer-row:last-child{border-bottom:none}
+  .payer-row .p-krw{
+    text-align:right;font-family:var(--serif);font-size:14px;font-weight:600;
+    color:var(--navy);font-variant-numeric:tabular-nums;white-space:nowrap;
+  }
+  .payer-row .p-sub{grid-column:2;text-align:right;font-size:11.5px;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+  .payer-row.zero{opacity:.5}
   .form-actions{grid-column:span 4;display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:2px}
   .btn{
     appearance:none;font-family:var(--sans);font-size:13px;font-weight:600;cursor:pointer;
@@ -273,7 +299,7 @@
   .exp-date b{font-family:var(--serif);font-size:15px;color:var(--navy);font-weight:600;font-variant-numeric:tabular-nums}
   .exp-date span{font-size:11px;color:var(--ink-soft)}
   .exp-title{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;font-size:14.5px;font-weight:600;line-height:1.45;word-break:break-word}
-  .exp-meta{font-size:12px;color:var(--ink-soft);margin-top:2px;word-break:break-word}
+  .exp-meta{display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px;font-size:12px;color:var(--ink-soft);margin-top:3px;word-break:break-word}
   .cat{display:inline-block;font-size:10.5px;font-weight:700;border-radius:999px;padding:0 7px;border:1px solid;line-height:1.7;white-space:nowrap;vertical-align:1px}
   .exp-amt{text-align:right;white-space:nowrap}
   .exp-amt b{display:block;font-family:var(--serif);font-size:16px;color:var(--navy);font-weight:600;font-variant-numeric:tabular-nums}
@@ -357,8 +383,10 @@
     .kpi .k-value{font-size:19px}
     form#exp-form{grid-template-columns:repeat(2,1fr);gap:12px}
     .field.s2,.field.s4,.form-actions{grid-column:span 2}
-    .quick-dates{gap:5px;max-width:100%}
-    .qd{padding:4px 8px;font-size:12px;flex:0 0 auto}
+    .quick-dates{gap:4px;max-width:100%}
+    .qd{padding:4px 7px;font-size:11px;flex:0 0 auto}
+    .qd b{font-size:11px}
+    .seg.payer span{font-size:13px;padding:8px 1px}
     .exp-item{grid-template-columns:52px 1fr auto;gap:8px;padding:11px 2px}
     form#exp-form input[type="date"]{font-size:15px;padding-left:8px;padding-right:8px}
     .exp-title{font-size:14px}
@@ -400,16 +428,6 @@
       <span class="k-sub" id="kpi-grand-sub">환율 <strong>1,500원</strong> 기준</span>
     </div>
     <div class="kpi">
-      <span class="k-label">사전 지출</span>
-      <span class="k-value" id="kpi-pre">₩0</span>
-      <span class="k-sub" id="kpi-pre-sub">출발 전 결제·예약</span>
-    </div>
-    <div class="kpi">
-      <span class="k-label">여행 중 지출</span>
-      <span class="k-value" id="kpi-trip">₩0</span>
-      <span class="k-sub" id="kpi-trip-sub">현지에서 쓴 돈</span>
-    </div>
-    <div class="kpi">
       <span class="k-label">적용 환율</span>
       <div class="rate-row">
         <label for="rate">€1 =</label>
@@ -420,6 +438,16 @@
         <span id="live-rate-text">최근 환율 €1 ≈ ₩1,468 (ECB)</span>
         <button type="button" class="btn-mini" id="apply-live-rate" disabled>적용</button>
       </div>
+    </div>
+    <div class="kpi">
+      <span class="k-label">사전 지출</span>
+      <span class="k-value" id="kpi-pre">₩0</span>
+      <span class="k-sub" id="kpi-pre-sub">출발 전 결제·예약</span>
+    </div>
+    <div class="kpi">
+      <span class="k-label">여행 중 지출</span>
+      <span class="k-value" id="kpi-trip">₩0</span>
+      <span class="k-sub" id="kpi-trip-sub">현지에서 쓴 돈</span>
     </div>
   </section>
 
@@ -472,7 +500,7 @@
 
       <div class="field">
         <label for="f-amount">금액</label>
-        <input type="number" id="f-amount" name="amount" inputmode="decimal" step="0.01" min="0" placeholder="예: 12.50" required>
+        <input type="text" id="f-amount" name="amount" inputmode="decimal" autocomplete="off" placeholder="예: 12.50" required>
         <span class="amt-preview" id="amt-preview" aria-live="polite"></span>
       </div>
       <div class="field">
@@ -489,7 +517,16 @@
           <label><input type="radio" name="phase" value="pre"><span>사전 지출</span></label>
         </div>
       </div>
-      <div class="field s4">
+      <div class="field s2">
+        <label>결제자 <span class="field-hint">여행 후 정산용</span></label>
+        <div class="seg payer" role="radiogroup" aria-label="결제자">
+          <label><input type="radio" name="payer" value="유진" checked><span>유진</span></label>
+          <label><input type="radio" name="payer" value="유선"><span>유선</span></label>
+          <label><input type="radio" name="payer" value="우성"><span>우성</span></label>
+          <label><input type="radio" name="payer" value="기타"><span>기타</span></label>
+        </div>
+      </div>
+      <div class="field s2">
         <label for="f-memo">메모 (선택)</label>
         <input type="text" id="f-memo" name="memo" maxlength="80" placeholder="예: 4인 기준, 영수증 봉투에 보관">
       </div>
@@ -554,6 +591,11 @@
         <div class="line"><span>여행 중 지출</span><b id="side-trip">₩0</b></div>
         <div class="line big"><span>총 지출</span><b id="side-grand">₩0</b></div>
         <div class="line mute"><span>사전 확정·예상 경비 <em>(참고용 · 합계 제외)</em></span><b id="side-base">₩2,057,226</b></div>
+      </div>
+
+      <div class="payer-summary">
+        <div class="p-head"><strong>결제자별 합계</strong><span>원화 환산 기준 · 옆줄은 유로/직접 원화</span></div>
+        <div id="payer-rows"></div>
       </div>
     </aside>
   </div>
@@ -662,6 +704,13 @@
   var DOW = ["일", "월", "화", "수", "목", "금", "토"];
   var PHASE_LABEL = { pre: "사전 지출", trip: "여행 중 지출" };
   var PHASE_BADGE = { pre: "사전", trip: "여행중" };
+  var PAYERS = ["유진", "유선", "우성", "기타"];
+  var PAY_STYLE = {
+    "유진": { bg: "#EDF0F6", fg: "#1B2A45", br: "#C9D2E3" },
+    "유선": { bg: "#FBEDE6", fg: "#93401F", br: "#E8C4B3" },
+    "우성": { bg: "#EAF1EC", fg: "#2F5D45", br: "#BCD3C5" },
+    "기타": { bg: "#F1F2F4", fg: "#4B5563", br: "#D6D9DD" }
+  };
 
   var rateInput = document.getElementById("rate");
   var dateInput = document.getElementById("f-date");
@@ -708,6 +757,8 @@
           currency: e.currency,
           amount: parseFloat(e.amount) || 0,
           method: e.method === "현금" ? "현금" : "카드",
+          /* 기존 저장분에 결제자가 없으면 기본값 유진 */
+          payer: PAYERS.indexOf(e.payer) >= 0 ? e.payer : "유진",
           memo: typeof e.memo === "string" ? e.memo : "",
           created: parseFloat(e.created) || Date.now(),
           updated: parseFloat(e.updated) || 0
@@ -761,6 +812,86 @@
   }
   function krwOf(e) {
     return e.currency === "EUR" ? e.amount * currentRate() : e.amount;
+  }
+  function payerOf(e) {
+    return (e && PAYERS.indexOf(e.payer) >= 0) ? e.payer : "유진";
+  }
+  function payerBadge(p) {
+    var st = PAY_STYLE[p] || PAY_STYLE["기타"];
+    return '<span class="pay" style="color:' + st.fg + ';background:' + st.bg + ';border-color:' + st.br + '">' + esc(p) + '</span>';
+  }
+
+  /* ---------- 금액 표기 도우미 (만원 단위) ---------- */
+  function koreanWon(n) {
+    n = Math.round(n || 0);
+    if (n >= 100000000) {
+      var eok = Math.floor(n / 100000000);
+      var rest = n % 100000000;
+      var manE = Math.floor(rest / 10000);
+      var wonE = rest % 10000;
+      var s = eok + "억";
+      if (manE) { s += " " + manE.toLocaleString("ko-KR") + "만"; }
+      if (wonE) { s += " " + wonE.toLocaleString("ko-KR") + "원"; }
+      return s;
+    }
+    if (n >= 10000) {
+      var man = Math.floor(n / 10000);
+      var wonPart = n % 10000;
+      return man.toLocaleString("ko-KR") + "만" + (wonPart ? " " + wonPart.toLocaleString("ko-KR") + "원" : "원");
+    }
+    return n.toLocaleString("ko-KR") + "원";
+  }
+  /* 1,500,000 → "150만원" / 35,500 → "3.55만원 (3만 5,500원)" */
+  function manwonLabel(n) {
+    n = Math.round(n || 0);
+    if (n < 10000) { return koreanWon(n); }
+    var man = Math.round((n / 10000) * 100) / 100;
+    var txt = man.toLocaleString("ko-KR", { maximumFractionDigits: 2 }) + "만원";
+    if (man === Math.floor(man)) { return txt; }
+    return txt + " (" + koreanWon(n) + ")";
+  }
+  function eurShort(n) {
+    var v = Math.round((n || 0) * 10) / 10;
+    return "€" + v.toLocaleString("ko-KR", { maximumFractionDigits: 1 });
+  }
+
+  /* ---------- 금액 입력: 천단위 쉼표 자동 삽입 ---------- */
+  function cleanAmountString(s) {
+    var cleaned = String(s == null ? "" : s).replace(/[^\d.]/g, "");
+    var dot = cleaned.indexOf(".");
+    if (dot >= 0) {
+      cleaned = cleaned.slice(0, dot + 1) + cleaned.slice(dot + 1).replace(/\./g, "");
+      cleaned = cleaned.slice(0, dot + 3);   /* 소수 둘째 자리까지 */
+    }
+    var parts = cleaned.split(".");
+    var intPart = parts[0].replace(/^0+(?=\d)/, "");
+    var out = intPart.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    if (parts.length > 1) { out += "." + parts[1]; }
+    return out;
+  }
+  function formatAmountInput() {
+    if (!amountInput) { return; }
+    var el = amountInput;
+    var raw = el.value;
+    var caret = (typeof el.selectionStart === "number") ? el.selectionStart : raw.length;
+    var sigBefore = raw.slice(0, caret).replace(/[^\d.]/g, "").length;
+    var formatted = cleanAmountString(raw);
+    if (formatted === raw) { return; }
+    el.value = formatted;
+    var pos = formatted.length;
+    var count = 0;
+    for (var i = 0; i < formatted.length; i++) {
+      if (/[\d.]/.test(formatted.charAt(i))) {
+        count++;
+        if (count === sigBefore) { pos = i + 1; break; }
+      }
+    }
+    if (sigBefore === 0) { pos = 0; }
+    try { el.setSelectionRange(pos, pos); } catch (err) {}
+  }
+  function amountValue() {
+    var v = parseFloat(String(amountInput ? amountInput.value : "").replace(/,/g, ""));
+    return isFinite(v) ? v : NaN;
   }
   function status(msg, isErr) {
     if (!statusEl) { return; }
@@ -935,6 +1066,35 @@
     }).join("");
   }
 
+  /* ---------- 결제자별 합계 ---------- */
+  function renderPayerSummary() {
+    var wrap = document.getElementById("payer-rows");
+    if (!wrap) { return; }
+    var acc = {};
+    PAYERS.forEach(function (p) { acc[p] = { krw: 0, eur: 0, krwOnly: 0, count: 0 }; });
+    expenses.forEach(function (e) {
+      var a = acc[payerOf(e)];
+      a.krw += krwOf(e);
+      a.count++;
+      if (e.currency === "EUR") { a.eur += e.amount; } else { a.krwOnly += e.amount; }
+    });
+    wrap.innerHTML = PAYERS.map(function (p) {
+      var a = acc[p];
+      var sub = "내역 없음";
+      if (a.count) {
+        var bits = [a.count + "건"];
+        if (a.eur) { bits.push(eur(a.eur)); }
+        if (a.krwOnly) { bits.push(won(a.krwOnly) + " 직접"); }
+        sub = bits.join(" · ");
+      }
+      return '<div class="payer-row' + (a.count ? "" : " zero") + '">' +
+        payerBadge(p) +
+        '<span class="p-krw">' + won(a.krw) + '</span>' +
+        '<span class="p-sub">' + sub + '</span>' +
+      '</div>';
+    }).join("");
+  }
+
   /* ---------- 목록 ---------- */
   var phaseFilter = "all";
 
@@ -1015,13 +1175,14 @@
       var conv = e.currency === "EUR"
         ? "≈ " + won(e.amount * rate)
         : "≈ " + eur(e.amount / rate);
-      var metaBits = [e.method];
+      var metaBits = [];
+      metaBits.push(esc(e.method));
       if (e.memo) { metaBits.push(esc(e.memo)); }
       return '<div class="exp-item' + (editingId === e.id ? " editing" : "") + '" data-id="' + esc(e.id) + '">' +
         '<div class="exp-date"><b>' + esc(mmdd(e.date)) + '</b><span>' + esc(dowOf(e.date)) + '요일</span></div>' +
         '<div class="exp-main">' +
           '<div class="exp-title">' + phaseBadge(e.phase) + '<span class="cat" style="color:' + st.fg + ';background:' + st.bg + ';border-color:' + st.br + '">' + esc(e.category) + '</span>' + esc(e.title) + '</div>' +
-          '<div class="exp-meta">' + metaBits.join(" · ") + '</div>' +
+          '<div class="exp-meta">' + payerBadge(payerOf(e)) + '<span>' + metaBits.join(" · ") + '</span></div>' +
         '</div>' +
         '<div class="exp-amt"><b>' + main + '</b><span class="conv">' + conv + '</span>' +
           '<div class="row-actions"><button type="button" data-act="edit">수정</button><button type="button" class="del" data-act="del">삭제</button></div>' +
@@ -1043,18 +1204,30 @@
     }).join("");
   }
 
-  /* ---------- 금액 미리보기 ---------- */
+  /* ---------- 금액 미리보기 (만원 단위 · 원화/유로 환산) ---------- */
   function updatePreview() {
     if (!previewEl) { return; }
-    var raw = amountInput ? amountInput.value : "";
-    var v = parseFloat(String(raw).replace(/,/g, ""));
+    var v = amountValue();
     if (!isFinite(v) || v <= 0) { previewEl.textContent = ""; return; }
     var rate = currentRate();
     if (curInput && curInput.value === "EUR") {
-      previewEl.textContent = "≈ " + won(v * rate) + " (환율 " + money(rate) + "원)";
+      /* 120 → ₩180,000 (18만원) */
+      previewEl.textContent = won(v * rate) + " (" + koreanWon(v * rate) + ")";
     } else {
-      previewEl.textContent = "≈ " + eur(v / rate) + " (환율 " + money(rate) + "원)";
+      /* 1,500,000 → 150만원 · 약 €1,000 / 35,500 → 3.55만원 (3만 5,500원) · 약 €23.7 */
+      previewEl.textContent = manwonLabel(v) + " · 약 " + eurShort(v / rate);
     }
+  }
+
+  /* ---------- 결제자 ---------- */
+  function currentPayer() {
+    var el = form ? form.querySelector('input[name="payer"]:checked') : null;
+    return (el && PAYERS.indexOf(el.value) >= 0) ? el.value : "유진";
+  }
+  function setPayer(v) {
+    var val = PAYERS.indexOf(v) >= 0 ? v : "유진";
+    var rs = form ? form.querySelectorAll('input[name="payer"]') : [];
+    for (var i = 0; i < rs.length; i++) { rs[i].checked = (rs[i].value === val); }
   }
 
   /* ---------- 구분(사전 / 여행 중) ---------- */
@@ -1094,6 +1267,7 @@
     if (memoInput) { memoInput.value = ""; }
     if (catInput) { catInput.value = "숙소"; }
     if (curInput) { curInput.value = "EUR"; }
+    setPayer("유진");
     var card = form ? form.querySelector('input[name="method"][value="카드"]') : null;
     if (card) { card.checked = true; }
     if (!keepDate && dateInput && !dateInput.value) { dateInput.value = defaultDate(); }
@@ -1108,7 +1282,7 @@
 
   function updatePlaceholder() {
     if (!amountInput) { return; }
-    amountInput.placeholder = (curInput && curInput.value === "KRW") ? "예: 15000" : "예: 12.50";
+    amountInput.placeholder = (curInput && curInput.value === "KRW") ? "예: 15,000" : "예: 12.50";
   }
 
   if (dateInput) {
@@ -1143,7 +1317,21 @@
     curInput.addEventListener("change", function () { updatePlaceholder(); updatePreview(); });
   }
   if (amountInput) {
-    amountInput.addEventListener("input", updatePreview);
+    amountInput.addEventListener("input", function () {
+      formatAmountInput();
+      updatePreview();
+    });
+    amountInput.addEventListener("blur", function () {
+      var v = amountValue();
+      if (isFinite(v) && v > 0) {
+        amountInput.value = (curInput && curInput.value === "KRW")
+          ? cleanAmountString(String(Math.round(v)))
+          : cleanAmountString(String(v));
+      } else if (amountInput.value) {
+        amountInput.value = "";
+      }
+      updatePreview();
+    });
   }
   [dateInput, titleInput, catInput, curInput, amountInput, memoInput].forEach(function (el) {
     if (el) {
@@ -1155,7 +1343,7 @@
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var title = (titleInput ? titleInput.value : "").trim();
-      var amount = parseFloat(String(amountInput ? amountInput.value : "").replace(/,/g, ""));
+      var amount = amountValue();
       var date = dateInput ? dateInput.value : "";
       if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
         status("날짜를 선택해 주세요.", true);
@@ -1181,6 +1369,7 @@
         currency: curInput ? curInput.value : "EUR",
         amount: amount,
         method: methodEl ? methodEl.value : "카드",
+        payer: currentPayer(),
         memo: (memoInput ? memoInput.value : "").trim()
       };
 
@@ -1195,6 +1384,7 @@
           target.currency = payload.currency;
           target.amount = payload.amount;
           target.method = payload.method;
+          target.payer = payload.payer;
           target.memo = payload.memo;
           target.updated = Date.now();
         }
@@ -1221,6 +1411,7 @@
         currency: payload.currency,
         amount: payload.amount,
         method: payload.method,
+        payer: payload.payer,
         memo: payload.memo,
         created: Date.now(),
         updated: 0
@@ -1259,7 +1450,8 @@
     if (titleInput) { titleInput.value = e.title; }
     if (catInput) { catInput.value = e.category; }
     if (curInput) { curInput.value = e.currency; }
-    if (amountInput) { amountInput.value = String(e.amount); }
+    setPayer(payerOf(e));
+    if (amountInput) { amountInput.value = cleanAmountString(String(e.amount)); }
     if (memoInput) { memoInput.value = e.memo || ""; }
     var m = form ? form.querySelector('input[name="method"][value="' + e.method + '"]') : null;
     if (m) { m.checked = true; }
@@ -1312,6 +1504,7 @@
     renderSummary();
     renderList();
     renderCats();
+    renderPayerSummary();
     updatePreview();
     if (rebuildQuick !== false) { renderQuickDates(); }
   }
@@ -1332,22 +1525,33 @@
       return a.date.localeCompare(b.date) || a.created - b.created;
     });
     var lines = [];
-    lines.push(["날짜", "요일", "구분", "항목", "카테고리", "통화", "금액", "결제수단", "메모", "원화환산", "적용환율(원/€)"].map(csvCell).join(","));
+    lines.push(["날짜", "요일", "구분", "결제자", "항목", "카테고리", "통화", "금액", "결제수단", "메모", "원화환산", "적용환율(원/€)"].map(csvCell).join(","));
     var sumKrw = 0, sumPre = 0, sumTrip = 0;
+    var paySum = {};
+    PAYERS.forEach(function (p) { paySum[p] = { krw: 0, count: 0 }; });
     arr.forEach(function (e) {
       var k = krwOf(e);
       sumKrw += k;
       if (e.phase === "pre") { sumPre += k; } else { sumTrip += k; }
+      var p = payerOf(e);
+      paySum[p].krw += k;
+      paySum[p].count++;
       lines.push([
-        e.date, dowOf(e.date), PHASE_LABEL[e.phase], e.title, e.category,
+        e.date, dowOf(e.date), PHASE_LABEL[e.phase], p, e.title, e.category,
         e.currency === "EUR" ? "EUR" : "KRW",
         e.amount, e.method, e.memo || "", Math.round(k), Math.round(rate)
       ].map(csvCell).join(","));
     });
     lines.push("");
-    lines.push(["사전 지출 합계", "", "사전 지출", "", "", "", "", "", "", Math.round(sumPre), Math.round(rate)].map(csvCell).join(","));
-    lines.push(["여행 중 지출 합계", "", "여행 중 지출", "", "", "", "", "", "", Math.round(sumTrip), Math.round(rate)].map(csvCell).join(","));
-    lines.push(["총 지출 합계 (사전 + 여행 중 · 사전 확정 경비 제외)", "", "", "", "", "", "", "", "", Math.round(sumKrw), Math.round(rate)].map(csvCell).join(","));
+    lines.push(["사전 지출 합계", "", "사전 지출", "", "", "", "", "", "", "", Math.round(sumPre), Math.round(rate)].map(csvCell).join(","));
+    lines.push(["여행 중 지출 합계", "", "여행 중 지출", "", "", "", "", "", "", "", Math.round(sumTrip), Math.round(rate)].map(csvCell).join(","));
+    lines.push(["총 지출 합계 (사전 + 여행 중 · 사전 확정 경비 제외)", "", "", "", "", "", "", "", "", "", Math.round(sumKrw), Math.round(rate)].map(csvCell).join(","));
+    lines.push("");
+    PAYERS.forEach(function (p) {
+      var a = paySum[p];
+      if (!a.count) { return; }
+      lines.push([p + " 결제 합계 (" + a.count + "건)", "", "", p, "", "", "", "", "", "", Math.round(a.krw), Math.round(rate)].map(csvCell).join(","));
+    });
     var csv = "\uFEFF" + lines.join("\r\n");
     var blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
     var now = new Date();
