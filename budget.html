@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Family Europe Trip: Wedding, Wine &amp; Gaudí · 비용 관리 (2027.03.20–03.30)</title>
-<meta name="description" content="2027년 3월 독일·스페인 4인 가족 여행 경비 관리 — 사전 확정·예상 경비와 여행 중 실제 지출을 한 곳에서 기록하고 합산">
+<meta name="description" content="2027년 3월 독일·스페인 4인 가족 여행 경비 관리 — 여행 중 직접 입력한 실제 지출을 합산하고, 사전 확정·예상 경비는 참고용으로 함께 봅니다">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -89,6 +89,11 @@
   .kpi .k-label{font-size:12px;letter-spacing:.05em;color:var(--ink-soft);font-weight:600}
   .kpi .k-value{font-family:var(--serif);font-size:clamp(20px,2.3vw,25px);color:var(--navy);line-height:1.22;font-weight:600;font-variant-numeric:tabular-nums}
   .kpi .k-sub{font-size:12.5px;color:var(--ink-soft)}
+  .kpi .k-label .k-tag{
+    display:inline-block;font-size:10.5px;font-weight:700;color:var(--ink-soft);
+    background:#F3EDE1;border:1px solid var(--line);border-radius:999px;
+    padding:0 7px;line-height:1.7;letter-spacing:0;vertical-align:1px;margin-left:2px;
+  }
   .kpi.grand{background:linear-gradient(160deg,#1B2A45,#26365A);border-color:#26365A}
   .kpi.grand .k-label{color:#C9D3E6}
   .kpi.grand .k-value{color:#FBF7F0}
@@ -310,7 +315,7 @@
   <header class="bhero">
     <a class="back" href="index.html">← 일정 대시보드</a>
     <h1>Family Europe Trip: Wedding, Wine &amp; Gaudí · 비용 관리</h1>
-    <p class="sub">사전에 잡아 둔 경비와 여행 중 실제로 쓴 돈을 한 곳에 모읍니다. 지출은 그 자리에서 바로 입력하고, 합계는 환율에 맞춰 자동으로 다시 계산됩니다.</p>
+    <p class="sub">여행 중 직접 입력한 실제 지출을 한 곳에 모읍니다. 합계에는 실제 지출만 더하고, 사전 확정·예상 경비는 참고용으로 따로 보여 드립니다.</p>
     <div class="meta">
       <span>2027.03.20(토) – 03.30(화)</span>
       <span>4인 가족</span>
@@ -322,20 +327,20 @@
 
   <!-- ================= SUMMARY ================= -->
   <section class="kpis" aria-label="경비 요약">
+    <div class="kpi grand">
+      <span class="k-label">총 지출 (직접 입력 기준)</span>
+      <span class="k-value" id="kpi-grand">₩0</span>
+      <span class="k-sub" id="kpi-grand-sub">사전 경비 제외 · 환율 <strong>1,500원</strong> 기준</span>
+    </div>
     <div class="kpi">
-      <span class="k-label">사전 확정·예상 경비</span>
+      <span class="k-label">입력한 지출</span>
+      <span class="k-value" id="kpi-count">0건</span>
+      <span class="k-sub" id="kpi-count-sub">아직 입력한 지출이 없습니다</span>
+    </div>
+    <div class="kpi">
+      <span class="k-label">사전 확정·예상 경비 <span class="k-tag">참고용 · 합계 제외</span></span>
       <span class="k-value" id="kpi-base">₩2,057,226</span>
       <span class="k-sub" id="kpi-base-sub">원화 ₩1,421,976 + 유로 €423.5</span>
-    </div>
-    <div class="kpi">
-      <span class="k-label">실제 입력 지출</span>
-      <span class="k-value" id="kpi-actual">₩0</span>
-      <span class="k-sub" id="kpi-actual-sub">아직 입력한 지출이 없습니다</span>
-    </div>
-    <div class="kpi grand">
-      <span class="k-label">전체 합계 (사전 + 실제)</span>
-      <span class="k-value" id="kpi-grand">₩2,057,226</span>
-      <span class="k-sub" id="kpi-grand-sub">환율 <strong>1,500원</strong> 기준</span>
     </div>
     <div class="kpi">
       <span class="k-label">적용 환율</span>
@@ -443,8 +448,8 @@
       <div class="exp-list" id="exp-list"></div>
 
       <div class="sum-strip">
-        <span id="sum-strip-text">사전 ₩2,057,226 + 실제 ₩0</span>
-        <span class="v" id="sum-strip-total">₩2,057,226</span>
+        <span id="sum-strip-text">직접 입력 지출 0건 · 사전 경비는 합계에서 제외</span>
+        <span class="v" id="sum-strip-total">₩0</span>
       </div>
     </section>
 
@@ -456,9 +461,9 @@
       <div class="cat-summary" id="cat-summary"></div>
 
       <div class="side-total">
-        <div class="line"><span>사전 확정·예상 경비</span><b id="side-base">₩2,057,226</b></div>
-        <div class="line"><span>실제 입력 지출</span><b id="side-actual">₩0</b></div>
-        <div class="line big"><span>전체 합계</span><b id="side-grand">₩2,057,226</b></div>
+        <div class="line"><span>사전 확정·예상 경비 <em style="font-style:normal;font-size:11.5px;color:var(--ink-soft)">(참고용 · 합계 제외)</em></span><b id="side-base">₩2,057,226</b></div>
+        <div class="line"><span>직접 입력 지출</span><b id="side-actual">₩0</b></div>
+        <div class="line big"><span>총 지출</span><b id="side-grand">₩0</b></div>
       </div>
     </aside>
   </div>
@@ -466,7 +471,7 @@
   <!-- ================= BASE COSTS ================= -->
   <section class="card" id="base">
     <div class="section-head">
-      <h2>사전 확정 · 예상 경비</h2>
+      <h2>사전 확정 · 예상 경비<span class="count-badge">참고용 · 합계 제외</span></h2>
       <span class="hint">표에 기재된 일자 합계 기준 · 유로 항목은 환율에 따라 자동 재계산</span>
     </div>
 
@@ -511,7 +516,7 @@
         </tbody>
         <tfoot>
           <tr>
-            <td colspan="2">합계</td>
+            <td colspan="2">사전 경비 합계 (참고용)</td>
             <td class="num" id="foot-krw">₩1,421,976</td>
             <td class="num" id="foot-eur">€423.5</td>
             <td class="num" id="foot-total">₩2,057,226</td>
@@ -728,35 +733,42 @@
       actKrw: actKrw,
       actEur: actEur,
       actKrwOnly: actKrwOnly,
-      grand: base + actKrw,
+      /* 총 지출은 유진 님이 직접 입력한 실제 지출만 합산한다. 사전 경비는 참고용. */
+      grand: actKrw,
       count: expenses.length
     };
   }
 
   function renderSummary() {
     var t = totals();
+
+    /* 총 지출 — 직접 입력한 실제 지출만 */
+    var kg = document.getElementById("kpi-grand");
+    var kgs = document.getElementById("kpi-grand-sub");
+    if (kg) { kg.textContent = won(t.grand); }
+    if (kgs) {
+      kgs.innerHTML = "사전 경비 제외 · 환율 <strong>" + money(t.rate) + "원</strong> 기준";
+    }
+
+    /* 입력 건수 + 통화 구성 */
+    var kc = document.getElementById("kpi-count");
+    var kcs = document.getElementById("kpi-count-sub");
+    if (kc) { kc.textContent = t.count + "건"; }
+    if (kcs) {
+      if (!t.count) { kcs.textContent = "아직 입력한 지출이 없습니다"; }
+      else {
+        var parts = [];
+        if (t.actEur) { parts.push(eur(t.actEur)); }
+        if (t.actKrwOnly) { parts.push(won(t.actKrwOnly)); }
+        kcs.textContent = parts.length ? parts.join(" · ") : "금액 0원";
+      }
+    }
+
+    /* 사전 확정·예상 경비 — 참고용 */
     var kp = document.getElementById("kpi-base");
     var kps = document.getElementById("kpi-base-sub");
     if (kp) { kp.textContent = won(t.base); }
     if (kps) { kps.textContent = "원화 " + won(BASE_KRW) + " + 유로 " + eur(BASE_EUR); }
-
-    var ka = document.getElementById("kpi-actual");
-    var kas = document.getElementById("kpi-actual-sub");
-    if (ka) { ka.textContent = won(t.actKrw); }
-    if (kas) {
-      if (!t.count) { kas.textContent = "아직 입력한 지출이 없습니다"; }
-      else {
-        var parts = [t.count + "건"];
-        if (t.actEur) { parts.push(eur(t.actEur)); }
-        if (t.actKrwOnly) { parts.push(won(t.actKrwOnly)); }
-        kas.textContent = parts.join(" · ");
-      }
-    }
-
-    var kg = document.getElementById("kpi-grand");
-    var kgs = document.getElementById("kpi-grand-sub");
-    if (kg) { kg.textContent = won(t.grand); }
-    if (kgs) { kgs.innerHTML = "환율 <strong>" + money(t.rate) + "원</strong> 기준"; }
 
     var sb = document.getElementById("side-base");
     var sa = document.getElementById("side-actual");
@@ -768,8 +780,7 @@
     var strip = document.getElementById("sum-strip-text");
     var stripTotal = document.getElementById("sum-strip-total");
     if (strip) {
-      strip.textContent = "사전 " + won(t.base) + " + 실제 " + won(t.actKrw) +
-        (t.count ? " (" + t.count + "건)" : "");
+      strip.textContent = "직접 입력 지출 " + t.count + "건 · 사전 경비 " + won(t.base) + "는 합계에서 제외";
     }
     if (stripTotal) { stripTotal.textContent = won(t.grand); }
 
@@ -1016,7 +1027,7 @@
       updatePreview();
       renderAll(true);
       status(saved
-        ? "저장했습니다 · 전체 " + won(t.grand)
+        ? "저장했습니다 · 총 지출 " + won(t.grand)
         : "저장 공간을 쓸 수 없어 이번 화면에만 반영됩니다.", !saved);
       if (titleInput) { titleInput.focus(); }
     });
@@ -1124,7 +1135,7 @@
       ].map(csvCell).join(","));
     });
     lines.push("");
-    lines.push(["합계", "", "", "", "", "", "", "", Math.round(sumKrw), Math.round(rate)].map(csvCell).join(","));
+    lines.push(["합계 (직접 입력 지출 · 사전 경비 제외)", "", "", "", "", "", "", "", Math.round(sumKrw), Math.round(rate)].map(csvCell).join(","));
     var csv = "\uFEFF" + lines.join("\r\n");
     var blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
     var now = new Date();
