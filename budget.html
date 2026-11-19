@@ -143,7 +143,7 @@
   input:focus,select:focus,textarea:focus{outline:2px solid rgba(184,96,63,.35);outline-offset:1px;border-color:var(--terra)}
   input::placeholder{color:#A6ADB8}
   select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,#8A8578 50%),linear-gradient(135deg,#8A8578 50%,transparent 50%);background-position:calc(100% - 17px) 19px,calc(100% - 12px) 19px;background-size:5px 5px,5px 5px;background-repeat:no-repeat;padding-right:32px}
-  .quick-dates{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:2px}
+  .quick-dates{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:2px;max-width:100%;min-width:0}
   .qd{
     appearance:none;border:1px solid var(--line);background:#FFFDFA;color:var(--ink-soft);
     font-family:var(--sans);font-size:12.5px;font-weight:600;border-radius:999px;
@@ -189,6 +189,30 @@
   .btn-danger:hover{background:rgba(184,96,63,.08);border-color:var(--terra);color:var(--terra)}
   .form-status{font-size:13px;color:var(--green);font-weight:600;min-height:20px;margin-left:2px}
   .form-status.err{color:#B4232C}
+
+  /* ---------- 모바일 폭 넘침 방지 ---------- */
+  /* iOS Safari는 <input type="date">에 자체 최소 너비가 있어 카드 밖으로 튀어나올 수 있다.
+     폼 컨트롤과 부모 칸 모두 min-width:0 / width:100% / border-box 로 잠근다. */
+  form#exp-form,
+  form#exp-form .field,
+  .quick-dates,
+  .seg,
+  .seg label,
+  .rate-row{
+    min-width:0;
+    max-width:100%;
+    box-sizing:border-box;
+  }
+  form#exp-form input,
+  form#exp-form select,
+  form#exp-form textarea,
+  input[type="date"]{
+    min-width:0;
+    width:100%;
+    max-width:100%;
+    box-sizing:border-box;
+  }
+  form#exp-form .seg input{width:1px;min-width:0;max-width:1px}
   .storage-note{font-size:12.5px;color:var(--ink-soft);margin:12px 0 0;padding-top:12px;border-top:1px dashed var(--line-soft)}
 
   /* ---------- LIST ---------- */
@@ -291,9 +315,10 @@
     .kpi .k-value{font-size:19px}
     form#exp-form{grid-template-columns:repeat(2,1fr);gap:12px}
     .field.s2,.field.s4,.form-actions{grid-column:span 2}
-    .quick-dates{gap:5px}
-    .qd{padding:4px 8px;font-size:12px}
+    .quick-dates{gap:5px;max-width:100%}
+    .qd{padding:4px 8px;font-size:12px;flex:0 0 auto}
     .exp-item{grid-template-columns:52px 1fr auto;gap:8px;padding:11px 2px}
+    form#exp-form input[type="date"]{font-size:15px;padding-left:8px;padding-right:8px}
     .exp-title{font-size:14px}
     .exp-amt b{font-size:15px}
     .cat-row{grid-template-columns:68px 1fr auto}
