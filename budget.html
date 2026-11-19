@@ -871,7 +871,7 @@
     var kgs = document.getElementById("kpi-grand-sub");
     if (kg) { kg.textContent = won(t.grand); }
     if (kgs) {
-      kgs.innerHTML = "사전 " + t.preCount + "건 + 여행 중 " + t.tripCount + "건 · 환율 <strong>" + money(t.rate) + "원</strong>";
+      kgs.innerHTML = "사전 " + t.preCount + "건 + 여행 중 " + t.tripCount + "건 · 환율 <strong>" + money(t.rate) + "원</strong> · ≈ " + eur(t.grand / (t.rate || 1));
     }
 
     /* 사전 지출 */
